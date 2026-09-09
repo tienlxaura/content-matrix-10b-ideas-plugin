@@ -1,0 +1,3488 @@
+{
+  "saas-ai-01": {
+    "score": 35.78,
+    "rubric": {
+      "brief_fit": 5.84,
+      "goal_fit": 1.05,
+      "coherence": 8.0,
+      "insight_value": 10.49,
+      "novelty": 3.57,
+      "channel_type_fit": 7.6,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "saas-ai-02": {
+    "score": 38.89,
+    "rubric": {
+      "brief_fit": 6.62,
+      "goal_fit": 2.13,
+      "coherence": 10.09,
+      "insight_value": 10.72,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "saas-ai-03": {
+    "score": 48.64,
+    "rubric": {
+      "brief_fit": 8.07,
+      "goal_fit": 4.92,
+      "coherence": 10.18,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "saas-ai-04": {
+    "score": 33.42,
+    "rubric": {
+      "brief_fit": 6.56,
+      "goal_fit": 1.05,
+      "coherence": 7.27,
+      "insight_value": 10.51,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "saas-ai-05": {
+    "score": 42.46,
+    "rubric": {
+      "brief_fit": 8.45,
+      "goal_fit": 5.78,
+      "coherence": 5.76,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "saas-ai-06": {
+    "score": 43.69,
+    "rubric": {
+      "brief_fit": 6.56,
+      "goal_fit": 1.05,
+      "coherence": 10.73,
+      "insight_value": 10.34,
+      "novelty": 4.68,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "saas-ai-07": {
+    "score": 37.82,
+    "rubric": {
+      "brief_fit": 6.5,
+      "goal_fit": 1.05,
+      "coherence": 8.2,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "saas-ai-08": {
+    "score": 41.4,
+    "rubric": {
+      "brief_fit": 2.68,
+      "goal_fit": 3.45,
+      "coherence": 10.3,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "saas-ai-09": {
+    "score": 46.47,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 5.37,
+      "coherence": 8.38,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "saas-ai-10": {
+    "score": 46.88,
+    "rubric": {
+      "brief_fit": 10.92,
+      "goal_fit": 2.82,
+      "coherence": 9.68,
+      "insight_value": 13.43,
+      "novelty": 5.5,
+      "channel_type_fit": 5.9,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "giao-duc-01": {
+    "score": 38.51,
+    "rubric": {
+      "brief_fit": 1.95,
+      "goal_fit": 6.87,
+      "coherence": 6.15,
+      "insight_value": 10.34,
+      "novelty": 3.57,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "giao-duc-02": {
+    "score": 51.43,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 6.66,
+      "coherence": 8.15,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "giao-duc-03": {
+    "score": 57.92,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 8.32,
+      "coherence": 13.62,
+      "insight_value": 9.5,
+      "novelty": 8.2,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "giao-duc-04": {
+    "score": 40.38,
+    "rubric": {
+      "brief_fit": 10.25,
+      "goal_fit": 3.12,
+      "coherence": 5.86,
+      "insight_value": 13.22,
+      "novelty": 4.4,
+      "channel_type_fit": 9.4,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "giao-duc-05": {
+    "score": 47.91,
+    "rubric": {
+      "brief_fit": 2.09,
+      "goal_fit": 5.95,
+      "coherence": 11.29,
+      "insight_value": 10.45,
+      "novelty": 5.5,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "giao-duc-06": {
+    "score": 48.02,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 10.51,
+      "coherence": 6.21,
+      "insight_value": 10.34,
+      "novelty": 5.38,
+      "channel_type_fit": 9.4,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "giao-duc-07": {
+    "score": 44.68,
+    "rubric": {
+      "brief_fit": 1.95,
+      "goal_fit": 6.29,
+      "coherence": 9.65,
+      "insight_value": 10.56,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "giao-duc-08": {
+    "score": 56.34,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 6.43,
+      "coherence": 10.11,
+      "insight_value": 10.34,
+      "novelty": 6.48,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "giao-duc-09": {
+    "score": 50.13,
+    "rubric": {
+      "brief_fit": 5.97,
+      "goal_fit": 8.34,
+      "coherence": 8.85,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "giao-duc-10": {
+    "score": 47.11,
+    "rubric": {
+      "brief_fit": 5.82,
+      "goal_fit": 4.16,
+      "coherence": 7.55,
+      "insight_value": 13.27,
+      "novelty": 7.38,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fintech-01": {
+    "score": 47.57,
+    "rubric": {
+      "brief_fit": 6.07,
+      "goal_fit": 3.27,
+      "coherence": 9.8,
+      "insight_value": 11.22,
+      "novelty": 4.68,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-02": {
+    "score": 52.66,
+    "rubric": {
+      "brief_fit": 6.01,
+      "goal_fit": 7.14,
+      "coherence": 9.62,
+      "insight_value": 13.36,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-03": {
+    "score": 37.14,
+    "rubric": {
+      "brief_fit": 5.72,
+      "goal_fit": 2.02,
+      "coherence": 5.23,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fintech-04": {
+    "score": 51.22,
+    "rubric": {
+      "brief_fit": 1.95,
+      "goal_fit": 4.92,
+      "coherence": 11.06,
+      "insight_value": 12.96,
+      "novelty": 8.9,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-05": {
+    "score": 56.19,
+    "rubric": {
+      "brief_fit": 10.25,
+      "goal_fit": 6.18,
+      "coherence": 10.59,
+      "insight_value": 10.34,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-06": {
+    "score": 44.45,
+    "rubric": {
+      "brief_fit": 6.01,
+      "goal_fit": 4.2,
+      "coherence": 11.48,
+      "insight_value": 13.43,
+      "novelty": 6.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "avoid_soft",
+        "points": 8
+      },
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-07": {
+    "score": 51.63,
+    "rubric": {
+      "brief_fit": 6.01,
+      "goal_fit": 3.75,
+      "coherence": 11.2,
+      "insight_value": 10.34,
+      "novelty": 8.9,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-08": {
+    "score": 45.03,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.67,
+      "coherence": 12.14,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-09": {
+    "score": 50.4,
+    "rubric": {
+      "brief_fit": 6.01,
+      "goal_fit": 7.17,
+      "coherence": 10.62,
+      "insight_value": 9.07,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fintech-10": {
+    "score": 49.51,
+    "rubric": {
+      "brief_fit": 7.87,
+      "goal_fit": 2.35,
+      "coherence": 10.74,
+      "insight_value": 10.34,
+      "novelty": 4.68,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "bat-dong-san-01": {
+    "score": 39.33,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 3.69,
+      "coherence": 4.97,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "bat-dong-san-02": {
+    "score": 47.76,
+    "rubric": {
+      "brief_fit": 17.72,
+      "goal_fit": 6.23,
+      "coherence": 6.23,
+      "insight_value": 8.45,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "bat-dong-san-03": {
+    "score": 49.34,
+    "rubric": {
+      "brief_fit": 9.4,
+      "goal_fit": 7.65,
+      "coherence": 7.65,
+      "insight_value": 12.81,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "bat-dong-san-04": {
+    "score": 38.88,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 3.4,
+      "coherence": 7.14,
+      "insight_value": 10.34,
+      "novelty": 3.57,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "bat-dong-san-05": {
+    "score": 43.27,
+    "rubric": {
+      "brief_fit": 10.77,
+      "goal_fit": 2.25,
+      "coherence": 8.56,
+      "insight_value": 10.66,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "bat-dong-san-06": {
+    "score": 43.78,
+    "rubric": {
+      "brief_fit": 12.22,
+      "goal_fit": 2.25,
+      "coherence": 6.06,
+      "insight_value": 10.34,
+      "novelty": 7.38,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "bat-dong-san-07": {
+    "score": 56.17,
+    "rubric": {
+      "brief_fit": 11.06,
+      "goal_fit": 6.35,
+      "coherence": 9.3,
+      "insight_value": 13.63,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "bat-dong-san-08": {
+    "score": 36.62,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.79,
+      "coherence": 7.91,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "bat-dong-san-09": {
+    "score": 54.88,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 3.4,
+      "coherence": 10.11,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "bat-dong-san-10": {
+    "score": 42.78,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 2.25,
+      "coherence": 7.23,
+      "insight_value": 11.07,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-01": {
+    "score": 46.86,
+    "rubric": {
+      "brief_fit": 6.46,
+      "goal_fit": 1.2,
+      "coherence": 8.74,
+      "insight_value": 13.43,
+      "novelty": 7.3,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-02": {
+    "score": 54.99,
+    "rubric": {
+      "brief_fit": 5.88,
+      "goal_fit": 5.76,
+      "coherence": 13.62,
+      "insight_value": 9.5,
+      "novelty": 8.2,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-03": {
+    "score": 45.32,
+    "rubric": {
+      "brief_fit": 11.99,
+      "goal_fit": 2.28,
+      "coherence": 8.59,
+      "insight_value": 13.63,
+      "novelty": 5.5,
+      "channel_type_fit": 9.0,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "beauty-04": {
+    "score": 49.93,
+    "rubric": {
+      "brief_fit": 6.06,
+      "goal_fit": 2.21,
+      "coherence": 10.79,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-05": {
+    "score": 33.31,
+    "rubric": {
+      "brief_fit": 5.96,
+      "goal_fit": 2.35,
+      "coherence": 6.23,
+      "insight_value": 9.84,
+      "novelty": 4.4,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "beauty-06": {
+    "score": 44.49,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 5.05,
+      "coherence": 7.32,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.0,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "beauty-07": {
+    "score": 37.02,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 1.2,
+      "coherence": 7.2,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.0,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-08": {
+    "score": 43.11,
+    "rubric": {
+      "brief_fit": 8.45,
+      "goal_fit": 2.7,
+      "coherence": 10.21,
+      "insight_value": 9.92,
+      "novelty": 5.5,
+      "channel_type_fit": 4.7,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-09": {
+    "score": 31.21,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.28,
+      "coherence": 8.02,
+      "insight_value": 10.48,
+      "novelty": 2.75,
+      "channel_type_fit": 9.0,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "beauty-10": {
+    "score": 31.19,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.28,
+      "coherence": 8.0,
+      "insight_value": 10.48,
+      "novelty": 2.75,
+      "channel_type_fit": 9.0,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-01": {
+    "score": 36.15,
+    "rubric": {
+      "brief_fit": 5.89,
+      "goal_fit": 2.21,
+      "coherence": 10.05,
+      "insight_value": 8.87,
+      "novelty": 7.3,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 10.0
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-02": {
+    "score": 29.0,
+    "rubric": {
+      "brief_fit": 2.18,
+      "goal_fit": 1.05,
+      "coherence": 8.0,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "healthcare-03": {
+    "score": 42.0,
+    "rubric": {
+      "brief_fit": 5.89,
+      "goal_fit": 3.45,
+      "coherence": 10.89,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 10.0
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-04": {
+    "score": 39.28,
+    "rubric": {
+      "brief_fit": 9.8,
+      "goal_fit": 1.05,
+      "coherence": 8.24,
+      "insight_value": 12.66,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "healthcare-05": {
+    "score": 47.3,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 5.8,
+      "coherence": 13.62,
+      "insight_value": 9.5,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 10.0
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-06": {
+    "score": 36.56,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 5.37,
+      "coherence": 7.17,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "healthcare-07": {
+    "score": 27.13,
+    "rubric": {
+      "brief_fit": 6.06,
+      "goal_fit": 1.05,
+      "coherence": 6.23,
+      "insight_value": 10.06,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "healthcare-08": {
+    "score": 36.76,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 4.18,
+      "coherence": 6.86,
+      "insight_value": 9.34,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-09": {
+    "score": 48.34,
+    "rubric": {
+      "brief_fit": 6.58,
+      "goal_fit": 5.37,
+      "coherence": 12.62,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "healthcare-10": {
+    "score": 69.08,
+    "rubric": {
+      "brief_fit": 17.38,
+      "goal_fit": 13.09,
+      "coherence": 11.55,
+      "insight_value": 13.43,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-01": {
+    "score": 48.66,
+    "rubric": {
+      "brief_fit": 8.49,
+      "goal_fit": 3.93,
+      "coherence": 9.91,
+      "insight_value": 11.3,
+      "novelty": 5.5,
+      "channel_type_fit": 9.4,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-02": {
+    "score": 30.67,
+    "rubric": {
+      "brief_fit": 8.41,
+      "goal_fit": 3.07,
+      "coherence": 5.02,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fitness-03": {
+    "score": 49.73,
+    "rubric": {
+      "brief_fit": 6.64,
+      "goal_fit": 2.94,
+      "coherence": 9.58,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 9.4,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fitness-04": {
+    "score": 45.05,
+    "rubric": {
+      "brief_fit": 2.87,
+      "goal_fit": 3.15,
+      "coherence": 11.68,
+      "insight_value": 11.02,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-05": {
+    "score": 59.01,
+    "rubric": {
+      "brief_fit": 7.91,
+      "goal_fit": 10.81,
+      "coherence": 11.12,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 9.4,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-06": {
+    "score": 39.61,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.49,
+      "coherence": 8.02,
+      "insight_value": 9.92,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-07": {
+    "score": 53.79,
+    "rubric": {
+      "brief_fit": 12.85,
+      "goal_fit": 2.65,
+      "coherence": 8.33,
+      "insight_value": 13.63,
+      "novelty": 6.2,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fitness-08": {
+    "score": 44.13,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 5.35,
+      "coherence": 7.26,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 9.4,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fitness-09": {
+    "score": 42.68,
+    "rubric": {
+      "brief_fit": 1.95,
+      "goal_fit": 3.21,
+      "coherence": 12.05,
+      "insight_value": 10.44,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fitness-10": {
+    "score": 52.19,
+    "rubric": {
+      "brief_fit": 6.85,
+      "goal_fit": 5.67,
+      "coherence": 11.5,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-01": {
+    "score": 56.63,
+    "rubric": {
+      "brief_fit": 16.67,
+      "goal_fit": 5.76,
+      "coherence": 8.73,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-02": {
+    "score": 71.02,
+    "rubric": {
+      "brief_fit": 19.14,
+      "goal_fit": 5.76,
+      "coherence": 11.06,
+      "insight_value": 13.63,
+      "novelty": 10.0,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-03": {
+    "score": 50.52,
+    "rubric": {
+      "brief_fit": 10.81,
+      "goal_fit": 6.51,
+      "coherence": 9.35,
+      "insight_value": 12.32,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-04": {
+    "score": 44.47,
+    "rubric": {
+      "brief_fit": 10.42,
+      "goal_fit": 2.25,
+      "coherence": 8.76,
+      "insight_value": 10.51,
+      "novelty": 6.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-05": {
+    "score": 46.13,
+    "rubric": {
+      "brief_fit": 10.42,
+      "goal_fit": 4.05,
+      "coherence": 6.41,
+      "insight_value": 10.34,
+      "novelty": 6.48,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fnb-06": {
+    "score": 48.55,
+    "rubric": {
+      "brief_fit": 6.15,
+      "goal_fit": 6.38,
+      "coherence": 8.45,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-07": {
+    "score": 51.66,
+    "rubric": {
+      "brief_fit": 13.07,
+      "goal_fit": 6.03,
+      "coherence": 7.21,
+      "insight_value": 10.34,
+      "novelty": 6.48,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fnb-08": {
+    "score": 44.32,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.61,
+      "coherence": 11.39,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fnb-09": {
+    "score": 41.7,
+    "rubric": {
+      "brief_fit": 7.59,
+      "goal_fit": 1.35,
+      "coherence": 9.38,
+      "insight_value": 11.75,
+      "novelty": 8.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fnb-10": {
+    "score": 39.91,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 4.94,
+      "coherence": 8.52,
+      "insight_value": 10.12,
+      "novelty": 5.5,
+      "channel_type_fit": 9.0,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "travel-01": {
+    "score": 60.99,
+    "rubric": {
+      "brief_fit": 17.49,
+      "goal_fit": 5.37,
+      "coherence": 8.67,
+      "insight_value": 13.63,
+      "novelty": 7.3,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "travel-02": {
+    "score": 46.91,
+    "rubric": {
+      "brief_fit": 13.0,
+      "goal_fit": 7.83,
+      "coherence": 7.14,
+      "insight_value": 9.71,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "travel-03": {
+    "score": 47.5,
+    "rubric": {
+      "brief_fit": 8.45,
+      "goal_fit": 4.59,
+      "coherence": 8.79,
+      "insight_value": 10.34,
+      "novelty": 8.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "travel-04": {
+    "score": 45.43,
+    "rubric": {
+      "brief_fit": 10.93,
+      "goal_fit": 3.01,
+      "coherence": 7.24,
+      "insight_value": 10.34,
+      "novelty": 5.38,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "travel-05": {
+    "score": 59.41,
+    "rubric": {
+      "brief_fit": 13.0,
+      "goal_fit": 9.37,
+      "coherence": 10.47,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "travel-06": {
+    "score": 53.52,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 4.12,
+      "coherence": 9.85,
+      "insight_value": 12.22,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "travel-07": {
+    "score": 47.14,
+    "rubric": {
+      "brief_fit": 10.62,
+      "goal_fit": 5.85,
+      "coherence": 6.26,
+      "insight_value": 10.9,
+      "novelty": 6.48,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "travel-08": {
+    "score": 29.84,
+    "rubric": {
+      "brief_fit": 5.94,
+      "goal_fit": 1.35,
+      "coherence": 8.58,
+      "insight_value": 10.34,
+      "novelty": 8.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "avoid_soft",
+        "points": 8
+      },
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "travel-09": {
+    "score": 45.09,
+    "rubric": {
+      "brief_fit": 5.94,
+      "goal_fit": 2.21,
+      "coherence": 9.88,
+      "insight_value": 11.53,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "travel-10": {
+    "score": 48.33,
+    "rubric": {
+      "brief_fit": 7.51,
+      "goal_fit": 7.65,
+      "coherence": 8.8,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "retail-01": {
+    "score": 46.39,
+    "rubric": {
+      "brief_fit": 5.9,
+      "goal_fit": 4.92,
+      "coherence": 11.5,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 7.4,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-02": {
+    "score": 59.94,
+    "rubric": {
+      "brief_fit": 10.23,
+      "goal_fit": 4.53,
+      "coherence": 11.2,
+      "insight_value": 13.15,
+      "novelty": 10.0,
+      "channel_type_fit": 8.6,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-03": {
+    "score": 43.63,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.81,
+      "coherence": 10.5,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 7.4,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-04": {
+    "score": 50.17,
+    "rubric": {
+      "brief_fit": 17.4,
+      "goal_fit": 4.54,
+      "coherence": 5.97,
+      "insight_value": 13.63,
+      "novelty": 4.4,
+      "channel_type_fit": 8.6,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "retail-05": {
+    "score": 43.8,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.7,
+      "coherence": 10.38,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 8.6,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-06": {
+    "score": 37.21,
+    "rubric": {
+      "brief_fit": 6.61,
+      "goal_fit": 1.98,
+      "coherence": 9.05,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 8.6,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-07": {
+    "score": 40.55,
+    "rubric": {
+      "brief_fit": 5.9,
+      "goal_fit": 1.76,
+      "coherence": 11.32,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 7.4,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-08": {
+    "score": 38.13,
+    "rubric": {
+      "brief_fit": 17.33,
+      "goal_fit": 3.67,
+      "coherence": 5.77,
+      "insight_value": 9.23,
+      "novelty": 4.4,
+      "channel_type_fit": 8.6,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "retail-09": {
+    "score": 38.81,
+    "rubric": {
+      "brief_fit": 6.56,
+      "goal_fit": 0.9,
+      "coherence": 10.45,
+      "insight_value": 10.77,
+      "novelty": 4.4,
+      "channel_type_fit": 8.6,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "retail-10": {
+    "score": 52.68,
+    "rubric": {
+      "brief_fit": 11.59,
+      "goal_fit": 3.6,
+      "coherence": 10.02,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 7.4,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-01": {
+    "score": 55.5,
+    "rubric": {
+      "brief_fit": 15.6,
+      "goal_fit": 10.37,
+      "coherence": 5.97,
+      "insight_value": 11.83,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fashion-02": {
+    "score": 56.9,
+    "rubric": {
+      "brief_fit": 15.6,
+      "goal_fit": 5.37,
+      "coherence": 9.38,
+      "insight_value": 9.92,
+      "novelty": 8.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-03": {
+    "score": 40.0,
+    "rubric": {
+      "brief_fit": 6.99,
+      "goal_fit": 1.35,
+      "coherence": 7.79,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-04": {
+    "score": 52.11,
+    "rubric": {
+      "brief_fit": 6.47,
+      "goal_fit": 1.35,
+      "coherence": 10.03,
+      "insight_value": 13.63,
+      "novelty": 8.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-05": {
+    "score": 59.57,
+    "rubric": {
+      "brief_fit": 20.0,
+      "goal_fit": 5.37,
+      "coherence": 8.73,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-06": {
+    "score": 46.65,
+    "rubric": {
+      "brief_fit": 6.21,
+      "goal_fit": 2.21,
+      "coherence": 11.64,
+      "insight_value": 11.76,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fashion-07": {
+    "score": 46.56,
+    "rubric": {
+      "brief_fit": 10.41,
+      "goal_fit": 3.4,
+      "coherence": 8.48,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.2,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-08": {
+    "score": 47.68,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 3.11,
+      "coherence": 7.3,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "fashion-09": {
+    "score": 58.82,
+    "rubric": {
+      "brief_fit": 15.6,
+      "goal_fit": 5.07,
+      "coherence": 9.7,
+      "insight_value": 13.32,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "fashion-10": {
+    "score": 36.45,
+    "rubric": {
+      "brief_fit": 5.86,
+      "goal_fit": 1.05,
+      "coherence": 8.17,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-01": {
+    "score": 38.49,
+    "rubric": {
+      "brief_fit": 8.53,
+      "goal_fit": 3.07,
+      "coherence": 4.97,
+      "insight_value": 12.04,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.58
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-02": {
+    "score": 42.32,
+    "rubric": {
+      "brief_fit": 7.84,
+      "goal_fit": 6.12,
+      "coherence": 9.14,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.28
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "hr-03": {
+    "score": 48.75,
+    "rubric": {
+      "brief_fit": 3.71,
+      "goal_fit": 4.07,
+      "coherence": 13.85,
+      "insight_value": 10.34,
+      "novelty": 7.1,
+      "channel_type_fit": 8.8,
+      "feasibility": 4.88
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-04": {
+    "score": 37.93,
+    "rubric": {
+      "brief_fit": 6.0,
+      "goal_fit": 2.2,
+      "coherence": 9.29,
+      "insight_value": 10.06,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.28
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-05": {
+    "score": 36.3,
+    "rubric": {
+      "brief_fit": 7.85,
+      "goal_fit": 1.35,
+      "coherence": 10.05,
+      "insight_value": 8.87,
+      "novelty": 7.3,
+      "channel_type_fit": 6.5,
+      "feasibility": 4.88
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "hr-06": {
+    "score": 39.57,
+    "rubric": {
+      "brief_fit": 3.12,
+      "goal_fit": 4.53,
+      "coherence": 8.62,
+      "insight_value": 9.92,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 4.88
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "hr-07": {
+    "score": 61.49,
+    "rubric": {
+      "brief_fit": 13.0,
+      "goal_fit": 8.48,
+      "coherence": 13.02,
+      "insight_value": 10.34,
+      "novelty": 6.27,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.58
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-08": {
+    "score": 42.24,
+    "rubric": {
+      "brief_fit": 5.89,
+      "goal_fit": 5.07,
+      "coherence": 8.47,
+      "insight_value": 10.23,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.58
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-09": {
+    "score": 38.68,
+    "rubric": {
+      "brief_fit": 6.74,
+      "goal_fit": 3.68,
+      "coherence": 9.68,
+      "insight_value": 10.12,
+      "novelty": 4.68,
+      "channel_type_fit": 5.9,
+      "feasibility": 4.88
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "hr-10": {
+    "score": 46.0,
+    "rubric": {
+      "brief_fit": 6.35,
+      "goal_fit": 2.2,
+      "coherence": 10.24,
+      "insight_value": 13.63,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.28
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "manufacturing-01": {
+    "score": 50.52,
+    "rubric": {
+      "brief_fit": 9.81,
+      "goal_fit": 5.93,
+      "coherence": 9.65,
+      "insight_value": 13.1,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-02": {
+    "score": 39.65,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 4.92,
+      "coherence": 6.41,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-03": {
+    "score": 35.7,
+    "rubric": {
+      "brief_fit": 6.67,
+      "goal_fit": 2.02,
+      "coherence": 4.94,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "manufacturing-04": {
+    "score": 42.31,
+    "rubric": {
+      "brief_fit": 11.07,
+      "goal_fit": 4.41,
+      "coherence": 7.17,
+      "insight_value": 13.63,
+      "novelty": 8.2,
+      "channel_type_fit": 6.5,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-05": {
+    "score": 50.81,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 4.47,
+      "coherence": 10.32,
+      "insight_value": 10.34,
+      "novelty": 10.0,
+      "channel_type_fit": 7.6,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "manufacturing-06": {
+    "score": 32.1,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.89,
+      "coherence": 6.32,
+      "insight_value": 9.71,
+      "novelty": 4.4,
+      "channel_type_fit": 8.8,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "manufacturing-07": {
+    "score": 40.81,
+    "rubric": {
+      "brief_fit": 7.24,
+      "goal_fit": 4.2,
+      "coherence": 13.0,
+      "insight_value": 12.44,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "avoid_soft",
+        "points": 8
+      },
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-08": {
+    "score": 49.18,
+    "rubric": {
+      "brief_fit": 7.8,
+      "goal_fit": 4.92,
+      "coherence": 9.61,
+      "insight_value": 12.52,
+      "novelty": 5.5,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-09": {
+    "score": 40.47,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 3.35,
+      "coherence": 8.02,
+      "insight_value": 9.92,
+      "novelty": 8.2,
+      "channel_type_fit": 8.8,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "manufacturing-10": {
+    "score": 53.07,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 6.13,
+      "coherence": 10.12,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 8.8,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "creator-01": {
+    "score": 50.39,
+    "rubric": {
+      "brief_fit": 6.91,
+      "goal_fit": 6.0,
+      "coherence": 12.02,
+      "insight_value": 13.63,
+      "novelty": 5.5,
+      "channel_type_fit": 6.3,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "creator-02": {
+    "score": 46.31,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 9.48,
+      "coherence": 9.88,
+      "insight_value": 11.87,
+      "novelty": 4.4,
+      "channel_type_fit": 6.3,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "creator-03": {
+    "score": 50.7,
+    "rubric": {
+      "brief_fit": 20.0,
+      "goal_fit": 6.27,
+      "coherence": 6.36,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 9.2,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "creator-04": {
+    "score": 44.46,
+    "rubric": {
+      "brief_fit": 8.45,
+      "goal_fit": 2.79,
+      "coherence": 8.92,
+      "insight_value": 9.29,
+      "novelty": 6.48,
+      "channel_type_fit": 9.2,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "creator-05": {
+    "score": 43.35,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 2.64,
+      "coherence": 10.91,
+      "insight_value": 10.34,
+      "novelty": 6.48,
+      "channel_type_fit": 6.3,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "creator-06": {
+    "score": 57.87,
+    "rubric": {
+      "brief_fit": 15.69,
+      "goal_fit": 7.77,
+      "coherence": 10.24,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.0,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "creator-07": {
+    "score": 41.88,
+    "rubric": {
+      "brief_fit": 8.33,
+      "goal_fit": 5.34,
+      "coherence": 8.77,
+      "insight_value": 13.11,
+      "novelty": 4.4,
+      "channel_type_fit": 6.3,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "creator-08": {
+    "score": 33.73,
+    "rubric": {
+      "brief_fit": 6.03,
+      "goal_fit": 4.08,
+      "coherence": 5.55,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 6.3,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "creator-09": {
+    "score": 49.62,
+    "rubric": {
+      "brief_fit": 15.6,
+      "goal_fit": 4.44,
+      "coherence": 9.3,
+      "insight_value": 10.65,
+      "novelty": 5.5,
+      "channel_type_fit": 9.0,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 7.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 3.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "creator-10": {
+    "score": 38.45,
+    "rubric": {
+      "brief_fit": 5.85,
+      "goal_fit": 4.08,
+      "coherence": 7.85,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 6.3,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "ev-01": {
+    "score": 57.15,
+    "rubric": {
+      "brief_fit": 15.22,
+      "goal_fit": 6.78,
+      "coherence": 8.09,
+      "insight_value": 13.63,
+      "novelty": 4.4,
+      "channel_type_fit": 9.4,
+      "feasibility": 5.63
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 6.0
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "ev-02": {
+    "score": 64.54,
+    "rubric": {
+      "brief_fit": 16.09,
+      "goal_fit": 11.7,
+      "coherence": 8.02,
+      "insight_value": 12.3,
+      "novelty": 8.2,
+      "channel_type_fit": 9.4,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "ev-03": {
+    "score": 55.45,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 2.4,
+      "coherence": 13.62,
+      "insight_value": 9.5,
+      "novelty": 7.1,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "ev-04": {
+    "score": 39.34,
+    "rubric": {
+      "brief_fit": 10.4,
+      "goal_fit": 2.4,
+      "coherence": 4.97,
+      "insight_value": 10.34,
+      "novelty": 5.5,
+      "channel_type_fit": 9.4,
+      "feasibility": 6.33
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "ev-05": {
+    "score": 54.67,
+    "rubric": {
+      "brief_fit": 10.82,
+      "goal_fit": 2.4,
+      "coherence": 14.52,
+      "insight_value": 9.5,
+      "novelty": 7.1,
+      "channel_type_fit": 9.4,
+      "feasibility": 4.93
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 1.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "ev-06": {
+    "score": 53.41,
+    "rubric": {
+      "brief_fit": 13.46,
+      "goal_fit": 8.84,
+      "coherence": 7.09,
+      "insight_value": 10.69,
+      "novelty": 4.4,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.03
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "ev-07": {
+    "score": 64.16,
+    "rubric": {
+      "brief_fit": 13.0,
+      "goal_fit": 7.38,
+      "coherence": 10.11,
+      "insight_value": 10.34,
+      "novelty": 6.2,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "ev-08": {
+    "score": 49.73,
+    "rubric": {
+      "brief_fit": 10.82,
+      "goal_fit": 2.4,
+      "coherence": 8.74,
+      "insight_value": 10.34,
+      "novelty": 7.3,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "register_mismatch",
+        "points": 2.5
+      },
+      {
+        "kind": "missing_edge_penalty",
+        "points": 4.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  },
+  "ev-09": {
+    "score": 40.71,
+    "rubric": {
+      "brief_fit": 7.18,
+      "goal_fit": 3.39,
+      "coherence": 5.27,
+      "insight_value": 11.24,
+      "novelty": 5.5,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 9
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": true
+  },
+  "ev-10": {
+    "score": 43.2,
+    "rubric": {
+      "brief_fit": 7.01,
+      "goal_fit": 6.0,
+      "coherence": 5.82,
+      "insight_value": 10.34,
+      "novelty": 4.4,
+      "channel_type_fit": 9.4,
+      "feasibility": 7.73
+    },
+    "penalties": [
+      {
+        "kind": "missing_edge_penalty",
+        "points": 7.5
+      }
+    ],
+    "blocked": false,
+    "needs_evidence": false
+  }
+}

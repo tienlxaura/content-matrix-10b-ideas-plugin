@@ -1,0 +1,13 @@
+{
+  "name": "content-matrix-10b-ideas",
+  "version": "1.0.0",
+  "description": "Universal Content Engine delivering 10B+ high-converting ideas by connecting 5 strategic points.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Content Matrix 10B Ideas",
+    "shortDescription": "Elite Creative Director & Master Copywriter connecting 5 strategic points into publish-ready copy.",
+    "category": "Marketing",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

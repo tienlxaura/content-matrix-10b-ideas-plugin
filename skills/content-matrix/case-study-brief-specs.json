@@ -1,0 +1,1620 @@
+{
+  "industries": {
+    "saas-ai": {
+      "brief": {
+        "topic": "Phần mềm/agent AI cho doanh nghiệp đưa pilot vào vận hành có kiểm soát",
+        "industry": "SaaS AI doanh nghiệp phần mềm agent tự động hóa quy trình",
+        "product": "nền tảng AI agent quản trị quyền duyệt và audit log cho doanh nghiệp",
+        "audience": "IT leader, operations leader và quản lý cấp trung đang đánh giá AI agent",
+        "insight": "Doanh nghiệp đã thử nhiều AI nhưng công việc vẫn dừng ở bước duyệt và kiểm soát, không phải vì model yếu",
+        "marketing_goal": "tạo nhận biết vấn đề governance trước khi bán giải pháp",
+        "tone": "điềm tĩnh chuyên nghiệp B2B",
+        "channels": [
+          "linkedin",
+          "blog",
+          "email"
+        ],
+        "assets": [
+          "quy trình phê duyệt nội bộ",
+          "audit log demo"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "saas-ai-01",
+          "angle": "MM01-A10",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT090",
+          "type": "CT01"
+        },
+        {
+          "id": "saas-ai-02",
+          "angle": "JT05-A05",
+          "formula": "CF26",
+          "pattern": "MH15",
+          "headline": "HT075",
+          "type": "CT07"
+        },
+        {
+          "id": "saas-ai-03",
+          "angle": "CJ07-A04",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT029",
+          "type": "CT06"
+        },
+        {
+          "id": "saas-ai-04",
+          "angle": "JT11-A02",
+          "formula": "CF29",
+          "pattern": "MH18",
+          "headline": "HT006",
+          "type": "CT12"
+        },
+        {
+          "id": "saas-ai-05",
+          "angle": "CJ06-A03",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT030",
+          "type": "CT13"
+        },
+        {
+          "id": "saas-ai-06",
+          "angle": "MM06-A05",
+          "formula": "CF17",
+          "pattern": "MH06",
+          "headline": "HT090",
+          "type": "CT02"
+        },
+        {
+          "id": "saas-ai-07",
+          "angle": "JT05-A01",
+          "formula": "CF28",
+          "pattern": "MH19",
+          "headline": "HT082",
+          "type": "CT02"
+        },
+        {
+          "id": "saas-ai-08",
+          "angle": "MM01-A04",
+          "formula": "CF22",
+          "pattern": "MH11",
+          "headline": "HT095",
+          "type": "CT12"
+        },
+        {
+          "id": "saas-ai-09",
+          "angle": "CJ08-A02",
+          "formula": "CF27",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT02"
+        },
+        {
+          "id": "saas-ai-10",
+          "angle": "JT06-A02",
+          "formula": "CF41",
+          "pattern": "MH31",
+          "headline": "HT044",
+          "type": "CT52"
+        }
+      ]
+    },
+    "giao-duc": {
+      "brief": {
+        "topic": "Dạy trẻ dùng AI để học có trách nhiệm, giữ quyền chủ động tư duy",
+        "industry": "giáo dục EdTech trung tâm học tập cho trẻ em",
+        "product": "chương trình học có AI literacy cho học sinh, phụ huynh đồng hành",
+        "audience": "phụ huynh có con trong độ tuổi đi học, quan tâm AI trong giáo dục",
+        "insight": "phụ huynh muốn con biết dùng AI để học nhưng sợ con phụ thuộc và mất khả năng tự suy nghĩ",
+        "marketing_goal": "xây tin trước khi mời đăng ký học thử",
+        "tone": "ấm áp, tôn trọng, không hù dọa phụ huynh hay trẻ",
+        "channels": [
+          "facebook",
+          "blog",
+          "email"
+        ],
+        "constraints": [
+          "không hù dọa trẻ em",
+          "không so sánh trẻ",
+          "không cam kết kết quả học tập"
+        ],
+        "assets": [
+          "quy trình thiết kế bài học",
+          "nguyên tắc lớp học"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "giao-duc-01",
+          "angle": "MM01-A12",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT009",
+          "type": "CT01"
+        },
+        {
+          "id": "giao-duc-02",
+          "angle": "CJ05-A04",
+          "formula": "CF19",
+          "pattern": "MH44",
+          "headline": "HT061",
+          "type": "CT02"
+        },
+        {
+          "id": "giao-duc-03",
+          "angle": "CJ05-A02",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "giao-duc-04",
+          "angle": "JT06-A03",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT080",
+          "type": "CT09"
+        },
+        {
+          "id": "giao-duc-05",
+          "angle": "MM07-A01",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT030",
+          "type": "CT01"
+        },
+        {
+          "id": "giao-duc-06",
+          "angle": "CJ05-A01",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT033",
+          "type": "CT12"
+        },
+        {
+          "id": "giao-duc-07",
+          "angle": "MM01-A09",
+          "formula": "CF09",
+          "pattern": "MH60",
+          "headline": "HT029",
+          "type": "CT28"
+        },
+        {
+          "id": "giao-duc-08",
+          "angle": "CJ08-A02",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT01"
+        },
+        {
+          "id": "giao-duc-09",
+          "angle": "CJ05-A07",
+          "formula": "CF06",
+          "pattern": "MH29",
+          "headline": "HT007",
+          "type": "CT41"
+        },
+        {
+          "id": "giao-duc-10",
+          "angle": "MM05-A01",
+          "formula": "CF16",
+          "pattern": "MH05",
+          "headline": "HT009",
+          "type": "CT02"
+        }
+      ]
+    },
+    "fintech": {
+      "brief": {
+        "topic": "Nhận diện lừa đảo và tin nhắn giả mạo tinh vi bằng AI trong ngân hàng số",
+        "industry": "ngân hàng số fintech bảo mật giao dịch",
+        "product": "ứng dụng ngân hàng số có cảnh báo giao dịch bất thường",
+        "audience": "người dùng ứng dụng ngân hàng số, lo ngại lừa đảo tinh vi",
+        "insight": "người dùng ngày càng khó nhận ra giao dịch và tin nhắn giả mạo được tạo tinh vi bằng AI",
+        "marketing_goal": "trao quyền tự kiểm tra và xây tin bằng minh bạch giới hạn hệ thống",
+        "tone": "trấn an nhưng không giấu rủi ro, không gây hoảng loạn",
+        "channels": [
+          "app push",
+          "facebook",
+          "blog"
+        ],
+        "constraints": [
+          "không công khai chi tiết giúp lách kiểm soát",
+          "không cam kết an toàn tuyệt đối"
+        ],
+        "assets": [
+          "tính năng cảnh báo giao dịch",
+          "quy trình xác minh"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "fintech-01",
+          "angle": "CO11-A01",
+          "formula": "CF19",
+          "pattern": "MH41",
+          "headline": "HT090",
+          "type": "CT33"
+        },
+        {
+          "id": "fintech-02",
+          "angle": "CJ14-A02",
+          "formula": "CF44",
+          "pattern": "MH32",
+          "headline": "HT029",
+          "type": "CT31"
+        },
+        {
+          "id": "fintech-03",
+          "angle": "MM02-A10",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT002",
+          "type": "CT07"
+        },
+        {
+          "id": "fintech-04",
+          "angle": "MM01-A04",
+          "formula": "CF24",
+          "pattern": "MH11",
+          "headline": "HT095",
+          "type": "CT41"
+        },
+        {
+          "id": "fintech-05",
+          "angle": "CO02-A02",
+          "formula": "CF20",
+          "pattern": "MH43",
+          "headline": "HT014",
+          "type": "CT06"
+        },
+        {
+          "id": "fintech-06",
+          "angle": "JT13-A06",
+          "formula": "CF30",
+          "pattern": "MH50",
+          "headline": "HT037",
+          "type": "CT12"
+        },
+        {
+          "id": "fintech-07",
+          "angle": "JT10-A04",
+          "formula": "CF24",
+          "pattern": "MH11",
+          "headline": "HT092",
+          "type": "CT41"
+        },
+        {
+          "id": "fintech-08",
+          "angle": "CJ16-A05",
+          "formula": "CF30",
+          "pattern": "MH50",
+          "headline": "HT070",
+          "type": "CT12"
+        },
+        {
+          "id": "fintech-09",
+          "angle": "JT13-A03",
+          "formula": "CF10",
+          "pattern": "MH35",
+          "headline": "HT019",
+          "type": "CT01"
+        },
+        {
+          "id": "fintech-10",
+          "angle": "MM06-A05",
+          "formula": "CF17",
+          "pattern": "MH06",
+          "headline": "HT090",
+          "type": "CT01"
+        }
+      ]
+    },
+    "bat-dong-san": {
+      "brief": {
+        "topic": "Hiểu chi phí sở hữu thật của một căn nhà thay vì chỉ nghe vị trí và tiện ích",
+        "industry": "bất động sản môi giới dự án căn hộ nhà ở",
+        "product": "dự án căn hộ và dịch vụ tư vấn mua nhà",
+        "audience": "người mua nhà lần đầu hoặc nâng cấp chỗ ở, quan tâm tổng chi phí thật",
+        "insight": "người mua nhà muốn hiểu chi phí sở hữu thật thay vì chỉ nghe vị trí đẹp và tiện ích",
+        "marketing_goal": "tạo cuộc hẹn tư vấn/xem nhà dựa trên minh bạch thông tin",
+        "tone": "thẳng thắn, thực tế, không dùng mỹ từ đẳng cấp",
+        "channels": [
+          "facebook",
+          "blog",
+          "email"
+        ],
+        "constraints": [
+          "không công bố số liệu chưa xác minh",
+          "không dùng testimonial"
+        ],
+        "assets": [
+          "bảng phí vận hành mẫu",
+          "video đường đi thực tế"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "solution"
+      },
+      "ideas": [
+        {
+          "id": "bat-dong-san-01",
+          "angle": "CJ07-A07",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT045",
+          "type": "CT13"
+        },
+        {
+          "id": "bat-dong-san-02",
+          "angle": "MM01-A14",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT082",
+          "type": "CT07"
+        },
+        {
+          "id": "bat-dong-san-03",
+          "angle": "MM07-A02",
+          "formula": "CF33",
+          "pattern": "MH22",
+          "headline": "HT009",
+          "type": "CT14"
+        },
+        {
+          "id": "bat-dong-san-04",
+          "angle": "BR07-A01",
+          "formula": "CF29",
+          "pattern": "MH18",
+          "headline": "HT081",
+          "type": "CT12"
+        },
+        {
+          "id": "bat-dong-san-05",
+          "angle": "JT11-A06",
+          "formula": "CF25",
+          "pattern": "MH14",
+          "headline": "HT090",
+          "type": "CT12"
+        },
+        {
+          "id": "bat-dong-san-06",
+          "angle": "JT11-A08",
+          "formula": "CF23",
+          "pattern": "MH12",
+          "headline": "HT081",
+          "type": "CT06"
+        },
+        {
+          "id": "bat-dong-san-07",
+          "angle": "MM02-A14",
+          "formula": "CF28",
+          "pattern": "MH19",
+          "headline": "HT008",
+          "type": "CT01"
+        },
+        {
+          "id": "bat-dong-san-08",
+          "angle": "BR15-A05",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT096",
+          "type": "CT13"
+        },
+        {
+          "id": "bat-dong-san-09",
+          "angle": "CJ08-A02",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT01"
+        },
+        {
+          "id": "bat-dong-san-10",
+          "angle": "CJ08-A06",
+          "formula": "CF27",
+          "pattern": "MH17",
+          "headline": "HT026",
+          "type": "CT09"
+        }
+      ]
+    },
+    "beauty": {
+      "brief": {
+        "topic": "Chọn skincare routine đúng thành phần cho tình trạng da thật, không chạy theo routine dài",
+        "industry": "beauty skincare mỹ phẩm chăm sóc da",
+        "product": "dòng skincare minh bạch thành phần và bộ dùng thử theo nhu cầu",
+        "audience": "người mua skincare mệt với routine dài, muốn hiểu thành phần thật sự hợp da mình",
+        "insight": "người mua skincare mệt vì routine dài và muốn hiểu thành phần nào thực sự hợp với tình trạng da của mình",
+        "marketing_goal": "xây tin bằng minh bạch trước khi mời dùng thử",
+        "tone": "gần gũi, trung thực, không thổi phồng công dụng",
+        "channels": [
+          "instagram",
+          "tiktok",
+          "blog"
+        ],
+        "constraints": [
+          "không chẩn đoán da",
+          "không hứa điều trị",
+          "khuyến khích patch test và chuyên môn"
+        ],
+        "assets": [
+          "bảng thành phần đã xác minh",
+          "video cận cảnh texture"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "beauty-01",
+          "angle": "MM01-A16",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT094",
+          "type": "CT01"
+        },
+        {
+          "id": "beauty-02",
+          "angle": "CJ05-A02",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "beauty-03",
+          "angle": "JT01-A04",
+          "formula": "CF36",
+          "pattern": "MH25",
+          "headline": "HT053",
+          "type": "CT13"
+        },
+        {
+          "id": "beauty-04",
+          "angle": "CJ07-A08",
+          "formula": "CF24",
+          "pattern": "MH13",
+          "headline": "HT092",
+          "type": "CT02"
+        },
+        {
+          "id": "beauty-05",
+          "angle": "CJ07-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT017",
+          "type": "CT07"
+        },
+        {
+          "id": "beauty-06",
+          "angle": "CJ08-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT033",
+          "type": "CT01"
+        },
+        {
+          "id": "beauty-07",
+          "angle": "JT08-A03",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT002",
+          "type": "CT10"
+        },
+        {
+          "id": "beauty-08",
+          "angle": "JT05-A02",
+          "formula": "CF09",
+          "pattern": "MH63",
+          "headline": "HT022",
+          "type": "CT52"
+        },
+        {
+          "id": "beauty-09",
+          "angle": "CJ11-A02",
+          "formula": "CF01",
+          "pattern": "MH27",
+          "headline": "HT084",
+          "type": "CT13"
+        },
+        {
+          "id": "beauty-10",
+          "angle": "CJ11-A02",
+          "formula": "CF01",
+          "pattern": "MH27",
+          "headline": "HT084",
+          "type": "CT12"
+        }
+      ]
+    },
+    "healthcare": {
+      "brief": {
+        "topic": "Giảm bối rối khi chọn gói khám dự phòng, bắt đầu bằng cuộc hẹn để hỏi",
+        "industry": "phòng khám chăm sóc sức khỏe khám dự phòng",
+        "product": "dịch vụ khám sức khỏe dự phòng và tư vấn ban đầu",
+        "audience": "người bận rộn muốn khám dự phòng nhưng trì hoãn vì không biết bắt đầu từ gói nào",
+        "insight": "người bận rộn muốn khám dự phòng nhưng trì hoãn vì không biết bắt đầu từ gói nào và sợ bị bán thêm",
+        "marketing_goal": "mời một buổi tư vấn ngắn, chưa ép mua gói",
+        "tone": "trấn an, không gây sợ bệnh, chuyên môn kiểm duyệt",
+        "channels": [
+          "facebook",
+          "blog",
+          "email"
+        ],
+        "constraints": [
+          "không chẩn đoán",
+          "không hứa chữa khỏi",
+          "cần bác sĩ duyệt nội dung chuyên môn"
+        ],
+        "assets": [
+          "quy trình tiếp nhận",
+          "danh mục gói khám"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "healthcare-01",
+          "angle": "CJ07-A01",
+          "formula": "CF09",
+          "pattern": "MH65",
+          "headline": "HT095",
+          "type": "CT24"
+        },
+        {
+          "id": "healthcare-02",
+          "angle": "MM01-A10",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT090",
+          "type": "CT01"
+        },
+        {
+          "id": "healthcare-03",
+          "angle": "CJ07-A08",
+          "formula": "CF24",
+          "pattern": "MH13",
+          "headline": "HT092",
+          "type": "CT09"
+        },
+        {
+          "id": "healthcare-04",
+          "angle": "CJ05-A03",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT014",
+          "type": "CT13"
+        },
+        {
+          "id": "healthcare-05",
+          "angle": "CJ05-A02",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "healthcare-06",
+          "angle": "CJ05-A01",
+          "formula": "CF08",
+          "pattern": "MH29",
+          "headline": "HT033",
+          "type": "CT12"
+        },
+        {
+          "id": "healthcare-07",
+          "angle": "CJ07-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT017",
+          "type": "CT07"
+        },
+        {
+          "id": "healthcare-08",
+          "angle": "CJ06-A08",
+          "formula": "CF19",
+          "pattern": "MH45",
+          "headline": "HT082",
+          "type": "CT07"
+        },
+        {
+          "id": "healthcare-09",
+          "angle": "MM06-A08",
+          "formula": "CF30",
+          "pattern": "MH50",
+          "headline": "HT034",
+          "type": "CT12"
+        },
+        {
+          "id": "healthcare-10",
+          "angle": "JT03-A05",
+          "formula": "CF19",
+          "pattern": "MH42",
+          "headline": "HT023",
+          "type": "CT04"
+        }
+      ]
+    },
+    "fitness": {
+      "brief": {
+        "topic": "Sống khỏe bền vững ngoài 35 tuổi, không cần thử thách cực đoan",
+        "industry": "fitness wellness phòng tập huấn luyện cá nhân",
+        "product": "chương trình tập luyện cá nhân hóa theo khả năng vận động thật",
+        "audience": "người ngoài 35 tuổi muốn khỏe lâu dài, mệt với thử thách cực đoan",
+        "insight": "người ngoài 35 tuổi muốn khỏe lâu dài nhưng mệt với thử thách cực đoan và lời hứa thay đổi trong vài tuần",
+        "marketing_goal": "mời đánh giá vận động ban đầu, không ép cam kết dài hạn ngay",
+        "tone": "chân thực, không phán xét ngoại hình, tôn trọng giới hạn cơ thể",
+        "channels": [
+          "instagram",
+          "facebook",
+          "blog"
+        ],
+        "constraints": [
+          "không chẩn đoán y tế",
+          "ưu tiên an toàn"
+        ],
+        "assets": [
+          "quy trình đánh giá vận động",
+          "hướng dẫn động tác đã duyệt"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "fitness-01",
+          "angle": "CJ07-A04",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT029",
+          "type": "CT37"
+        },
+        {
+          "id": "fitness-02",
+          "angle": "CJ07-A07",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT045",
+          "type": "CT14"
+        },
+        {
+          "id": "fitness-03",
+          "angle": "CJ05-A04",
+          "formula": "CF17",
+          "pattern": "MH44",
+          "headline": "HT061",
+          "type": "CT31"
+        },
+        {
+          "id": "fitness-04",
+          "angle": "MM01-A15",
+          "formula": "CF09",
+          "pattern": "MH63",
+          "headline": "HT002",
+          "type": "CT24"
+        },
+        {
+          "id": "fitness-05",
+          "angle": "JT04-A03",
+          "formula": "CF23",
+          "pattern": "MH12",
+          "headline": "HT041",
+          "type": "CT39"
+        },
+        {
+          "id": "fitness-06",
+          "angle": "JT11-A04",
+          "formula": "CF27",
+          "pattern": "MH16",
+          "headline": "HT018",
+          "type": "CT12"
+        },
+        {
+          "id": "fitness-07",
+          "angle": "BR15-A05",
+          "formula": "CF06",
+          "pattern": "MH29",
+          "headline": "HT096",
+          "type": "CT41"
+        },
+        {
+          "id": "fitness-08",
+          "angle": "CJ08-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT033",
+          "type": "CT34"
+        },
+        {
+          "id": "fitness-09",
+          "angle": "MM05-A13",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT090",
+          "type": "CT01"
+        },
+        {
+          "id": "fitness-10",
+          "angle": "CJ11-A05",
+          "formula": "CF19",
+          "pattern": "MH09",
+          "headline": "HT019",
+          "type": "CT30"
+        }
+      ]
+    },
+    "fnb": {
+      "brief": {
+        "topic": "Đồ uống tiện lợi có protein hoặc lợi ích đường ruột, minh bạch nhãn dinh dưỡng",
+        "industry": "F&B thực phẩm chức năng đồ uống hằng ngày",
+        "product": "đồ uống đóng chai có protein/lợi khuẩn, nhãn minh bạch",
+        "audience": "người tiêu dùng tìm đồ uống tiện lợi có lợi ích chức năng nhưng nghi ngờ quảng cáo sức khỏe",
+        "insight": "người tiêu dùng tìm đồ uống tiện lợi có protein hoặc lợi ích đường ruột nhưng nghi ngờ nhãn dinh dưỡng và quảng cáo sức khỏe",
+        "marketing_goal": "xây tin bằng minh bạch thành phần trước khi thúc đẩy dùng thử",
+        "tone": "thật, đời thường, không đạo đức hóa lựa chọn ăn uống",
+        "channels": [
+          "tiktok",
+          "instagram",
+          "livestream"
+        ],
+        "constraints": [
+          "không diễn giải thành tác dụng điều trị",
+          "không dựng review giả"
+        ],
+        "assets": [
+          "bảng thành phần đã xác minh",
+          "video cận cảnh sản phẩm"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "solution"
+      },
+      "ideas": [
+        {
+          "id": "fnb-01",
+          "angle": "MM01-A16",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT094",
+          "type": "CT37"
+        },
+        {
+          "id": "fnb-02",
+          "angle": "MM01-A04",
+          "formula": "CF24",
+          "pattern": "MH11",
+          "headline": "HT095",
+          "type": "CT41"
+        },
+        {
+          "id": "fnb-03",
+          "angle": "JT09-A07",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT023",
+          "type": "CT36"
+        },
+        {
+          "id": "fnb-04",
+          "angle": "CJ05-A08",
+          "formula": "CF19",
+          "pattern": "MH40",
+          "headline": "HT042",
+          "type": "CT34"
+        },
+        {
+          "id": "fnb-05",
+          "angle": "CJ05-A01",
+          "formula": "CF06",
+          "pattern": "MH29",
+          "headline": "HT033",
+          "type": "CT41"
+        },
+        {
+          "id": "fnb-06",
+          "angle": "CJ12-A06",
+          "formula": "CF33",
+          "pattern": "MH28",
+          "headline": "HT062",
+          "type": "CT41"
+        },
+        {
+          "id": "fnb-07",
+          "angle": "CJ08-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT033",
+          "type": "CT31"
+        },
+        {
+          "id": "fnb-08",
+          "angle": "MM07-A01",
+          "formula": "CF20",
+          "pattern": "MH41",
+          "headline": "HT030",
+          "type": "CT36"
+        },
+        {
+          "id": "fnb-09",
+          "angle": "MM07-A11",
+          "formula": "CF24",
+          "pattern": "MH13",
+          "headline": "HT054",
+          "type": "CT41"
+        },
+        {
+          "id": "fnb-10",
+          "angle": "JT06-A02",
+          "formula": "CF41",
+          "pattern": "MH31",
+          "headline": "HT044",
+          "type": "CT28"
+        }
+      ]
+    },
+    "travel": {
+      "brief": {
+        "topic": "Chuyến đi cá nhân hóa theo sở thích riêng, không theo lịch trình check-in mẫu",
+        "industry": "du lịch khách sạn lữ hành nghỉ dưỡng",
+        "product": "dịch vụ thiết kế lịch trình du lịch cá nhân hóa",
+        "audience": "khách du lịch muốn chuyến đi phản ánh sở thích riêng thay vì lịch trình đại trà",
+        "insight": "khách du lịch muốn chuyến đi phản ánh sở thích riêng thay vì lịch trình check-in giống nhau",
+        "marketing_goal": "mời tương tác chọn sở thích rồi dẫn tới tư vấn lịch trình",
+        "tone": "chậm rãi, giàu chi tiết giác quan, không phô trương sang trọng",
+        "channels": [
+          "instagram",
+          "tiktok",
+          "blog"
+        ],
+        "constraints": [
+          "giá và lịch cần xác minh khi đặt",
+          "không dựng cảnh không có thật"
+        ],
+        "assets": [
+          "hồ sơ đối tác địa phương",
+          "video đường thực tế"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "solution"
+      },
+      "ideas": [
+        {
+          "id": "travel-01",
+          "angle": "MM01-A16",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT094",
+          "type": "CT33"
+        },
+        {
+          "id": "travel-02",
+          "angle": "CJ07-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT017",
+          "type": "CT34"
+        },
+        {
+          "id": "travel-03",
+          "angle": "BR15-A06",
+          "formula": "CF19",
+          "pattern": "MH42",
+          "headline": "HT016",
+          "type": "CT39"
+        },
+        {
+          "id": "travel-04",
+          "angle": "CJ08-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT033",
+          "type": "CT33"
+        },
+        {
+          "id": "travel-05",
+          "angle": "CJ07-A03",
+          "formula": "CF09",
+          "pattern": "MH63",
+          "headline": "HT064",
+          "type": "CT24"
+        },
+        {
+          "id": "travel-06",
+          "angle": "JT11-A06",
+          "formula": "CF24",
+          "pattern": "MH14",
+          "headline": "HT090",
+          "type": "CT41"
+        },
+        {
+          "id": "travel-07",
+          "angle": "CJ05-A01",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT033",
+          "type": "CT13"
+        },
+        {
+          "id": "travel-08",
+          "angle": "MM07-A13",
+          "formula": "CF24",
+          "pattern": "MH11",
+          "headline": "HT046",
+          "type": "CT41"
+        },
+        {
+          "id": "travel-09",
+          "angle": "MM07-A08",
+          "formula": "CF30",
+          "pattern": "MH53",
+          "headline": "HT076",
+          "type": "CT12"
+        },
+        {
+          "id": "travel-10",
+          "angle": "CO10-A01",
+          "formula": "CF17",
+          "pattern": "MH09",
+          "headline": "HT009",
+          "type": "CT31"
+        }
+      ]
+    },
+    "retail": {
+      "brief": {
+        "topic": "Chứng minh sản phẩm đáng tin trên livestream và video ngắn trước khi khách bấm mua",
+        "industry": "bán lẻ social commerce livestream thương mại điện tử",
+        "product": "sản phẩm gia dụng/tiêu dùng bán qua video ngắn và livestream",
+        "audience": "khách thấy sản phẩm trên video ngắn nhưng cần lý do tin trước khi mua",
+        "insight": "khách thấy sản phẩm trên video ngắn hoặc livestream nhưng vẫn cần lý do tin trước khi bấm mua",
+        "marketing_goal": "xây tin bằng minh bạch và demo thật trước khi chốt đơn",
+        "tone": "thẳng thắn, không khan hiếm giả, không giấu điểm dở",
+        "channels": [
+          "tiktok",
+          "livestream",
+          "facebook"
+        ],
+        "constraints": [
+          "không bịa phỏng vấn",
+          "không dùng khan hiếm giả"
+        ],
+        "assets": [
+          "số đo đã xác minh",
+          "chính sách đổi trả thật"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "product"
+      },
+      "ideas": [
+        {
+          "id": "retail-01",
+          "angle": "MM04-A06",
+          "formula": "CF30",
+          "pattern": "MH50",
+          "headline": "HT027",
+          "type": "CT47"
+        },
+        {
+          "id": "retail-02",
+          "angle": "JT10-A04",
+          "formula": "CF24",
+          "pattern": "MH11",
+          "headline": "HT092",
+          "type": "CT41"
+        },
+        {
+          "id": "retail-03",
+          "angle": "CJ12-A06",
+          "formula": "CF02",
+          "pattern": "MH28",
+          "headline": "HT062",
+          "type": "CT46"
+        },
+        {
+          "id": "retail-04",
+          "angle": "MM01-A12",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT009",
+          "type": "CT34"
+        },
+        {
+          "id": "retail-05",
+          "angle": "CJ12-A01",
+          "formula": "CF19",
+          "pattern": "MH41",
+          "headline": "HT034",
+          "type": "CT37"
+        },
+        {
+          "id": "retail-06",
+          "angle": "BR09-A07",
+          "formula": "CF26",
+          "pattern": "MH15",
+          "headline": "HT080",
+          "type": "CT37"
+        },
+        {
+          "id": "retail-07",
+          "angle": "MM07-A03",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT011",
+          "type": "CT39"
+        },
+        {
+          "id": "retail-08",
+          "angle": "MM01-A14",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT082",
+          "type": "CT34"
+        },
+        {
+          "id": "retail-09",
+          "angle": "MM05-A13",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT090",
+          "type": "CT37"
+        },
+        {
+          "id": "retail-10",
+          "angle": "CJ08-A02",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT32"
+        }
+      ]
+    },
+    "fashion": {
+      "brief": {
+        "topic": "Xây tủ đồ có bản sắc, mặc lại và hiểu vòng đời món đồ thay vì chạy theo micro-trend",
+        "industry": "thời trang bán lẻ quần áo",
+        "product": "thương hiệu thời trang tập trung chất lượng và mặc lại lâu dài",
+        "audience": "người mua muốn xây tủ đồ có bản sắc, dùng lâu hơn thay vì chạy trend",
+        "insight": "người mua muốn xây tủ đồ có bản sắc và dùng lâu hơn thay vì chạy theo từng micro-trend",
+        "marketing_goal": "xây tin bằng minh bạch chất liệu và dịch vụ hậu mãi",
+        "tone": "tinh tế, chân thực, không hô hào xu hướng",
+        "channels": [
+          "instagram",
+          "blog"
+        ],
+        "constraints": [
+          "không dùng số liệu chưa xác minh",
+          "không bịa testimonial"
+        ],
+        "assets": [
+          "hồ sơ chất liệu",
+          "chính sách sửa/đổi"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "solution"
+      },
+      "ideas": [
+        {
+          "id": "fashion-01",
+          "angle": "MM01-A12",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT009",
+          "type": "CT34"
+        },
+        {
+          "id": "fashion-02",
+          "angle": "MM01-A02",
+          "formula": "CF24",
+          "pattern": "MH13",
+          "headline": "HT083",
+          "type": "CT41"
+        },
+        {
+          "id": "fashion-03",
+          "angle": "JT14-A07",
+          "formula": "CF10",
+          "pattern": "MH36",
+          "headline": "HT090",
+          "type": "CT31"
+        },
+        {
+          "id": "fashion-04",
+          "angle": "BR06-A05",
+          "formula": "CF24",
+          "pattern": "MH46",
+          "headline": "HT020",
+          "type": "CT41"
+        },
+        {
+          "id": "fashion-05",
+          "angle": "MM01-A16",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT094",
+          "type": "CT37"
+        },
+        {
+          "id": "fashion-06",
+          "angle": "CJ17-A04",
+          "formula": "CF19",
+          "pattern": "MH08",
+          "headline": "HT084",
+          "type": "CT34"
+        },
+        {
+          "id": "fashion-07",
+          "angle": "BR07-A01",
+          "formula": "CF33",
+          "pattern": "MH18",
+          "headline": "HT081",
+          "type": "CT41"
+        },
+        {
+          "id": "fashion-08",
+          "angle": "CJ08-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT033",
+          "type": "CT37"
+        },
+        {
+          "id": "fashion-09",
+          "angle": "MM01-A09",
+          "formula": "CF09",
+          "pattern": "MH60",
+          "headline": "HT029",
+          "type": "CT25"
+        },
+        {
+          "id": "fashion-10",
+          "angle": "BR05-A08",
+          "formula": "CF05",
+          "pattern": "MH60",
+          "headline": "HT051",
+          "type": "CT27"
+        }
+      ]
+    },
+    "hr": {
+      "brief": {
+        "topic": "Đánh giá ứng viên biết làm việc cùng AI bằng judgment thật, không đếm công cụ trên CV",
+        "industry": "nhân sự tuyển dụng HR",
+        "product": "quy trình đánh giá/tuyển dụng nhân sự biết làm việc cùng AI có trách nhiệm",
+        "audience": "HR leader và hiring manager muốn tuyển người dùng AI có trách nhiệm",
+        "insight": "doanh nghiệp muốn tuyển người biết làm việc cùng AI nhưng CV nào cũng ghi thành thạo công cụ",
+        "marketing_goal": "xây tin bằng rubric cụ thể, mời tư vấn quy trình đánh giá",
+        "tone": "thực dụng, chuyên nghiệp, tôn trọng ứng viên",
+        "channels": [
+          "linkedin",
+          "blog"
+        ],
+        "constraints": [
+          "không dùng AI tự động loại ứng viên",
+          "không tạo bất lợi cho nhóm ứng viên"
+        ],
+        "assets": [
+          "rubric đánh giá mẫu"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "hr-01",
+          "angle": "CJ07-A07",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT045",
+          "type": "CT13"
+        },
+        {
+          "id": "hr-02",
+          "angle": "CJ05-A08",
+          "formula": "CF19",
+          "pattern": "MH40",
+          "headline": "HT042",
+          "type": "CT02"
+        },
+        {
+          "id": "hr-03",
+          "angle": "MM07-A15",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT046",
+          "type": "CT09"
+        },
+        {
+          "id": "hr-04",
+          "angle": "JT06-A05",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT091",
+          "type": "CT07"
+        },
+        {
+          "id": "hr-05",
+          "angle": "CJ07-A01",
+          "formula": "CF09",
+          "pattern": "MH65",
+          "headline": "HT095",
+          "type": "CT24"
+        },
+        {
+          "id": "hr-06",
+          "angle": "MM01-A02",
+          "formula": "CF24",
+          "pattern": "MH13",
+          "headline": "HT083",
+          "type": "CT05"
+        },
+        {
+          "id": "hr-07",
+          "angle": "JT03-A01",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT044",
+          "type": "CT06"
+        },
+        {
+          "id": "hr-08",
+          "angle": "BR07-A07",
+          "formula": "CF23",
+          "pattern": "MH12",
+          "headline": "HT054",
+          "type": "CT12"
+        },
+        {
+          "id": "hr-09",
+          "angle": "JT06-A02",
+          "formula": "CF41",
+          "pattern": "MH31",
+          "headline": "HT044",
+          "type": "CT52"
+        },
+        {
+          "id": "hr-10",
+          "angle": "MM05-A03",
+          "formula": "CF14",
+          "pattern": "MH03",
+          "headline": "HT090",
+          "type": "CT02"
+        }
+      ]
+    },
+    "manufacturing": {
+      "brief": {
+        "topic": "Thử AI agent trong nhà máy an toàn, giữ quyền dừng và vòng phản hồi kỹ sư",
+        "industry": "sản xuất công nghiệp B2B nhà máy vận hành",
+        "product": "hệ thống AI agent giám sát và cảnh báo vận hành nhà máy",
+        "audience": "quản lý sản xuất và kỹ sư vận hành cân nhắc pilot AI agent",
+        "insight": "nhà máy muốn thử AI agent và tự động hóa nhưng quy trình dữ liệu còn rời rạc, người vận hành chưa tin hệ thống",
+        "marketing_goal": "xây tin bằng minh bạch giới hạn trước khi mời pilot",
+        "tone": "kỹ thuật, thận trọng, ưu tiên an toàn vận hành",
+        "channels": [
+          "linkedin",
+          "blog",
+          "email"
+        ],
+        "constraints": [
+          "không hứa giảm downtime cụ thể chưa kiểm chứng",
+          "an toàn vận hành trên hết"
+        ],
+        "assets": [
+          "quy trình phản hồi kỹ sư",
+          "template workshop pilot"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "manufacturing-01",
+          "angle": "CJ06-A04",
+          "formula": "CF23",
+          "pattern": "MH12",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "manufacturing-02",
+          "angle": "CJ06-A01",
+          "formula": "CF09",
+          "pattern": "MH60",
+          "headline": "HT030",
+          "type": "CT13"
+        },
+        {
+          "id": "manufacturing-03",
+          "angle": "JT08-A03",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT002",
+          "type": "CT02"
+        },
+        {
+          "id": "manufacturing-04",
+          "angle": "JT08-A06",
+          "formula": "CF10",
+          "pattern": "MH37",
+          "headline": "HT075",
+          "type": "CT27"
+        },
+        {
+          "id": "manufacturing-05",
+          "angle": "CJ05-A04",
+          "formula": "CF17",
+          "pattern": "MH44",
+          "headline": "HT061",
+          "type": "CT01"
+        },
+        {
+          "id": "manufacturing-06",
+          "angle": "CJ07-A02",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT017",
+          "type": "CT09"
+        },
+        {
+          "id": "manufacturing-07",
+          "angle": "MM06-A06",
+          "formula": "CF30",
+          "pattern": "MH50",
+          "headline": "HT042",
+          "type": "CT12"
+        },
+        {
+          "id": "manufacturing-08",
+          "angle": "MM06-A09",
+          "formula": "CF13",
+          "pattern": "MH02",
+          "headline": "HT029",
+          "type": "CT02"
+        },
+        {
+          "id": "manufacturing-09",
+          "angle": "JT11-A04",
+          "formula": "CF27",
+          "pattern": "MH16",
+          "headline": "HT018",
+          "type": "CT12"
+        },
+        {
+          "id": "manufacturing-10",
+          "angle": "CJ08-A02",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT02"
+        }
+      ]
+    },
+    "creator": {
+      "brief": {
+        "topic": "Giữ tiếng nói riêng và hậu trường thật khi dùng AI để duy trì nhịp đăng",
+        "industry": "creator thương hiệu cá nhân sáng tạo nội dung",
+        "product": "cộng đồng/khóa học giúp creator giữ bản sắc khi dùng AI",
+        "audience": "creator và người xây thương hiệu cá nhân mệt với văn AI chung chung",
+        "insight": "khán giả mệt với nội dung bóng bẩy và văn AI; creator cần giữ nhịp đăng mà vẫn có tiếng nói riêng",
+        "marketing_goal": "xây cộng đồng và mời tham gia bằng minh bạch quy trình sáng tạo",
+        "tone": "thẳng thắn, cá nhân, không giáo điều",
+        "channels": [
+          "instagram",
+          "tiktok",
+          "newsletter"
+        ],
+        "constraints": [
+          "không bịa case",
+          "không hứa viral"
+        ],
+        "assets": [
+          "bản nháp thật",
+          "nguyên tắc cộng đồng"
+        ],
+        "journey_stage": "awareness",
+        "awareness_stage": "problem"
+      },
+      "ideas": [
+        {
+          "id": "creator-01",
+          "angle": "BR05-A05",
+          "formula": "CF20",
+          "pattern": "MH41",
+          "headline": "HT004",
+          "type": "CT07"
+        },
+        {
+          "id": "creator-02",
+          "angle": "BR04-A05",
+          "formula": "CF20",
+          "pattern": "MH40",
+          "headline": "HT019",
+          "type": "CT07"
+        },
+        {
+          "id": "creator-03",
+          "angle": "CO01-A08",
+          "formula": "CF21",
+          "pattern": "MH40",
+          "headline": "HT009",
+          "type": "CT34"
+        },
+        {
+          "id": "creator-04",
+          "angle": "BR17-A04",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT062",
+          "type": "CT31"
+        },
+        {
+          "id": "creator-05",
+          "angle": "CJ12-A06",
+          "formula": "CF02",
+          "pattern": "MH28",
+          "headline": "HT062",
+          "type": "CT12"
+        },
+        {
+          "id": "creator-06",
+          "angle": "CO01-A03",
+          "formula": "CF03",
+          "pattern": "MH29",
+          "headline": "HT041",
+          "type": "CT24"
+        },
+        {
+          "id": "creator-07",
+          "angle": "CO05-A06",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT075",
+          "type": "CT09"
+        },
+        {
+          "id": "creator-08",
+          "angle": "CO15-A03",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "creator-09",
+          "angle": "CO01-A05",
+          "formula": "CF01",
+          "pattern": "MH27",
+          "headline": "HT045",
+          "type": "CT24"
+        },
+        {
+          "id": "creator-10",
+          "angle": "BR14-A03",
+          "formula": "CF06",
+          "pattern": "MH29",
+          "headline": "HT063",
+          "type": "CT12"
+        }
+      ]
+    },
+    "ev": {
+      "brief": {
+        "topic": "Trải nghiệm sạc và tổng chi phí xe điện theo thói quen sử dụng thật",
+        "industry": "ô tô xe điện di chuyển cá nhân",
+        "product": "xe điện và hệ sinh thái sạc tại nhà/công cộng",
+        "audience": "người mua xe điện quan tâm trải nghiệm sạc và tổng chi phí hơn là tranh luận xe xăng-điện",
+        "insight": "người mua xe điện quan tâm trải nghiệm sạc và tổng chi phí sử dụng hơn là tranh luận xe xăng hay xe điện",
+        "marketing_goal": "mời mô phỏng dữ liệu cá nhân và lái thử",
+        "tone": "thực tế, không tranh luận hệ tư tưởng xe xăng-điện",
+        "channels": [
+          "facebook",
+          "blog",
+          "email"
+        ],
+        "constraints": [
+          "thông số cần xác minh theo mẫu xe",
+          "không cam kết tiết kiệm cụ thể"
+        ],
+        "assets": [
+          "dữ liệu xe đã xác minh",
+          "template mô phỏng chi phí"
+        ],
+        "journey_stage": "consideration",
+        "awareness_stage": "solution"
+      },
+      "ideas": [
+        {
+          "id": "ev-01",
+          "angle": "MM01-A12",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT009",
+          "type": "CT09"
+        },
+        {
+          "id": "ev-02",
+          "angle": "JT11-A04",
+          "formula": "CF27",
+          "pattern": "MH16",
+          "headline": "HT018",
+          "type": "CT12"
+        },
+        {
+          "id": "ev-03",
+          "angle": "CJ05-A02",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT070",
+          "type": "CT07"
+        },
+        {
+          "id": "ev-04",
+          "angle": "CJ07-A07",
+          "formula": "CF09",
+          "pattern": "MH29",
+          "headline": "HT045",
+          "type": "CT13"
+        },
+        {
+          "id": "ev-05",
+          "angle": "MM01-A06",
+          "formula": "CF20",
+          "pattern": "MH46",
+          "headline": "HT076",
+          "type": "CT08"
+        },
+        {
+          "id": "ev-06",
+          "angle": "CJ08-A06",
+          "formula": "CF29",
+          "pattern": "MH19",
+          "headline": "HT026",
+          "type": "CT02"
+        },
+        {
+          "id": "ev-07",
+          "angle": "CJ08-A02",
+          "formula": "CF28",
+          "pattern": "MH18",
+          "headline": "HT033",
+          "type": "CT01"
+        },
+        {
+          "id": "ev-08",
+          "angle": "MM01-A16",
+          "formula": "CF28",
+          "pattern": "MH17",
+          "headline": "HT094",
+          "type": "CT01"
+        },
+        {
+          "id": "ev-09",
+          "angle": "MM07-A05",
+          "formula": "CF21",
+          "pattern": "MH40",
+          "headline": "HT003",
+          "type": "CT01"
+        },
+        {
+          "id": "ev-10",
+          "angle": "MM02-A14",
+          "formula": "CF27",
+          "pattern": "MH18",
+          "headline": "HT008",
+          "type": "CT01"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Content Matrix 10B Ideas API",
+    "description": "Universal Content Engine & Creative Director powered by the MatrixContent Knowledge Graph (991 nodes, 69,720 edges). Connects 5 strategic points: Content Angle, Formula, Success Pattern, Headline Template, and Content Type into high-converting copy.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Aura Marketers",
+      "email": "tienlx@auramarketers.com",
+      "url": "https://auramarketers.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://content-matrix-10b-ideas.vercel.app",
+      "description": "Production Server on Vercel"
+    },
+    {
+      "url": "http://localhost:8000",
+      "description": "Local Development Server"
+    }
+  ],
+  "paths": {
+    "/api/select": {
+      "post": {
+        "summary": "Select 5-point content matrix combinations",
+        "operationId": "selectMatrixCombinations",
+        "description": "Takes a marketing brief and scores combinations across the 991-node Knowledge Graph, returning top ranked ideas ready for copywriting.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BriefRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully generated combinations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatrixResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or missing required brief parameters"
+          }
+        }
+      }
+    },
+    "/api/catalogs": {
+      "get": {
+        "summary": "Retrieve catalog nodes and definitions",
+        "operationId": "getCatalogNodes",
+        "description": "Fetches nodes for a specific catalog: MasterPillar, Pillar, ContentAngle, ContentFormula, SuccessPattern, HeadlineTemplate, ContentType, MarketingGoal.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Catalog type to filter by (e.g., ContentAngle, ContentFormula, SuccessPattern, HeadlineTemplate, ContentType)",
+            "schema": {
+              "type": "string",
+              "default": "all"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Keyword to search within catalog nodes",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catalog items found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/validate": {
+      "post": {
+        "summary": "Validate 5-point combination",
+        "operationId": "validateCombination",
+        "description": "Verifies compatibility between angle, formula, pattern, headline, and type, detecting any negative edge conflicts.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "combination": {
+                    "type": "object"
+                  }
+                },
+                "required": ["combination"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validation outcome"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health check endpoint",
+        "operationId": "healthCheck",
+        "responses": {
+          "200": {
+            "description": "Service is healthy and ready",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "graph_nodes": { "type": "integer" },
+                    "graph_edges": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BriefRequest": {
+        "type": "object",
+        "required": ["topic"],
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Chủ đề nội dung hoặc bài viết (Bắt buộc)",
+            "example": "Quảng cáo khoá học toán tư duy UCMAS cho trẻ em"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Tên thương hiệu",
+            "example": "UCMAS Việt Nam"
+          },
+          "industry": {
+            "type": "string",
+            "description": "Ngành hàng (vd: giáo dục, tài chính, saas-ai, f&b)",
+            "example": "Giáo dục phát triển tư duy trẻ em"
+          },
+          "product": {
+            "type": "string",
+            "description": "Sản phẩm hoặc dịch vụ cụ thể",
+            "example": "Khoá học bàn tính và số học trí tuệ cho trẻ 4-10 tuổi"
+          },
+          "audience": {
+            "type": "string",
+            "description": "Khách hàng mục tiêu",
+            "example": "Phụ huynh có con 4-10 tuổi lo lắng con nghiện thiết bị số, thiếu tập trung"
+          },
+          "insight": {
+            "type": "string",
+            "description": "Sự thật ngầm hiểu của khách hàng",
+            "example": "Phụ huynh sợ con tụt hậu nhưng lại không có phương pháp dạy con tập trung"
+          },
+          "marketing_goal": {
+            "type": "string",
+            "description": "Mục tiêu marketing (vd: nhận biết, chuyển đổi, tương tác)",
+            "example": "Phụ huynh nhắn tin đăng ký học thử"
+          },
+          "goal_codes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Mã mục tiêu (RC01..RC24)"
+          },
+          "journey_stage": {
+            "type": "string",
+            "enum": ["awareness", "consideration", "decision", "retention", "advocacy"],
+            "default": "awareness"
+          },
+          "awareness_stage": {
+            "type": "string",
+            "enum": ["unaware", "problem", "solution", "product", "most_aware"],
+            "default": "problem"
+          },
+          "channels": {
+            "type": "array",
+            "items": { "type": "string" },
+            "example": ["facebook", "tiktok"]
+          },
+          "count": {
+            "type": "integer",
+            "default": 10,
+            "description": "Số lượng tổ hợp trả về (1-20)"
+          },
+          "diversity": {
+            "type": "number",
+            "default": 0.35,
+            "description": "Độ đa dạng giữa các hướng (0.0 - 1.0)"
+          }
+        }
+      },
+      "MatrixResult": {
+        "type": "object",
+        "properties": {
+          "engine": { "type": "string" },
+          "graph_summary": { "type": "object" },
+          "brief_echo": { "type": "object" },
+          "combinations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rank": { "type": "integer" },
+                "score": { "type": "number" },
+                "angle": { "type": "object" },
+                "formula": { "type": "object" },
+                "pattern": { "type": "object" },
+                "headline": { "type": "object" },
+                "type": { "type": "object" }
+              }
+            }
+          },
+          "diversity": { "type": "object" }
+        }
+      }
+    }
+  }
+}

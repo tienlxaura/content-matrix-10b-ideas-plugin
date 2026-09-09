@@ -1,0 +1,2577 @@
+{
+ "meta": {
+  "purpose": "Semantic fallback layer. Supplies signals the published MatrixContent graph declares in its relation vocabulary but does not instantiate: PRIORITIZED_BY / RECOMMENDED_FOR (Marketing Goal linkage), AVOID_WITH (conflict rules), and channel normalisation. NOT part of MatrixContent source data.",
+  "origin": "local-heuristic",
+  "authored_for_data_version": "2.0.0",
+  "provenance_flag": "semantic_fallback",
+  "supersede_rule": "If the live graph later instantiates PRIORITIZED_BY, RECOMMENDED_FOR or AVOID_WITH edges, the real edges take precedence and the corresponding overlay section is demoted to a tie-breaker only.",
+  "notes": "Tag strings must match the catalog tag vocabulary exactly, including diacritics and commas.",
+  "v2_additions": "channel_profiles, channel_alias_map, register_scale/by_industry/by_ht_tag/by_ct_tag, awareness_stage_ht_tags, journey_to_awareness, stage_goal_families"
+ },
+ "journey_stage_pillars": {
+  "awareness": [
+   "CJ01",
+   "CJ02",
+   "CJ03",
+   "JT02",
+   "JT03",
+   "CO01",
+   "CO03",
+   "BR03"
+  ],
+  "consideration": [
+   "CJ05",
+   "CJ06",
+   "CJ07",
+   "CJ08",
+   "JT05",
+   "JT06",
+   "JT11",
+   "BR07",
+   "MM01",
+   "JT08"
+  ],
+  "conversion": [
+   "CJ09",
+   "CJ10",
+   "CJ11",
+   "CJ12",
+   "MM02",
+   "MM07",
+   "BR08",
+   "JT12",
+   "MM04"
+  ],
+  "onboarding": [
+   "CJ13",
+   "JT13",
+   "MM06",
+   "CO02"
+  ],
+  "retention": [
+   "CJ14",
+   "CJ15",
+   "CJ16",
+   "JT14",
+   "CO11",
+   "CO12",
+   "CO13",
+   "MM05"
+  ],
+  "advocacy": [
+   "CJ17",
+   "CO07",
+   "CO14",
+   "CO06",
+   "BR15",
+   "CO15",
+   "BR18"
+  ]
+ },
+ "goal_affinity": {
+  "RC01": {
+   "stage": "awareness",
+   "pillars": {
+    "CJ01": 1.0,
+    "CJ02": 1.0,
+    "JT02": 0.9,
+    "JT03": 0.9,
+    "CJ04": 0.6,
+    "BR03": 0.5
+   },
+   "sp_tags": {
+    "Chú ý": 1.0,
+    "Cảm xúc": 0.9,
+    "Tự sự": 0.8,
+    "Thời sự": 0.6,
+    "Giáo dục": 0.5
+   },
+   "cf_tags": {
+    "Vấn đề và giải pháp": 1.0,
+    "Mở đầu và giữ chân": 0.9,
+    "Câu chuyện ngắn": 0.8,
+    "Tò mò và giữ chân": 0.8
+   },
+   "ht_tags": {
+    "Vấn đề và cảnh báo": 1.0,
+    "Câu hỏi và tự chẩn đoán": 0.9,
+    "Sai lầm và điều cần tránh": 0.8,
+    "Tò mò và tiết lộ": 0.7,
+    "Myth và góc nhìn ngược": 0.6
+   },
+   "ct_tags": {
+    "Video": 0.9,
+    "Hình ảnh": 0.9,
+    "Văn bản": 0.7,
+    "Tương tác": 0.6
+   },
+   "keywords": [
+    "nhận biết",
+    "nhận ra vấn đề",
+    "awareness",
+    "chưa biết",
+    "phát hiện",
+    "cảnh báo",
+    "dấu hiệu",
+    "gây chú ý",
+    "viral",
+    "tiếp cận"
+   ]
+  },
+  "RC02": {
+   "stage": "awareness",
+   "pillars": {
+    "CJ05": 1.0,
+    "CO02": 0.9,
+    "JT01": 0.8,
+    "MM01": 0.5,
+    "CJ04": 0.6
+   },
+   "sp_tags": {
+    "Giáo dục": 1.0,
+    "Hữu ích": 0.9,
+    "Học hỏi": 0.9,
+    "Thẩm quyền": 0.6,
+    "Minh bạch": 0.5
+   },
+   "cf_tags": {
+    "Giáo dục và hướng dẫn": 1.0,
+    "Phân tích và giải thích": 0.9,
+    "Bao quát thông tin": 0.8,
+    "Đào tạo và hướng dẫn": 0.9,
+    "Giáo dục và đính chính": 0.7
+   },
+   "ht_tags": {
+    "How-to và hướng dẫn": 1.0,
+    "Danh sách và con số": 0.8,
+    "Myth và góc nhìn ngược": 0.7,
+    "Chuyên gia và thẩm quyền": 0.6
+   },
+   "ct_tags": {
+    "Văn bản": 1.0,
+    "Video": 0.8,
+    "Hình ảnh": 0.7,
+    "Tương tác": 0.5
+   },
+   "keywords": [
+    "giáo dục",
+    "kiến thức",
+    "hiểu đúng",
+    "giải thích",
+    "nền tảng",
+    "hướng dẫn cơ bản",
+    "phổ biến kiến thức",
+    "khái niệm"
+   ]
+  },
+  "RC03": {
+   "stage": "consideration",
+   "pillars": {
+    "CJ04": 1.0,
+    "JT03": 0.9,
+    "JT06": 0.9,
+    "CJ02": 0.7,
+    "MM06": 0.5
+   },
+   "sp_tags": {
+    "Giáo dục": 0.9,
+    "Hữu ích": 0.9,
+    "Cân nhắc": 0.8,
+    "Tương tác": 0.7,
+    "Chú ý": 0.5
+   },
+   "cf_tags": {
+    "Phân tích và giải thích": 1.0,
+    "Tự đánh giá": 1.0,
+    "Vấn đề và giải pháp": 0.8,
+    "Ra quyết định": 0.6
+   },
+   "ht_tags": {
+    "Câu hỏi và tự chẩn đoán": 1.0,
+    "Vấn đề và cảnh báo": 0.8,
+    "Sai lầm và điều cần tránh": 0.8,
+    "Danh sách và con số": 0.6
+   },
+   "ct_tags": {
+    "Tương tác": 1.0,
+    "Văn bản": 0.8,
+    "Video": 0.6
+   },
+   "keywords": [
+    "nguyên nhân",
+    "chẩn đoán",
+    "vì sao",
+    "gốc rễ",
+    "tại sao thất bại",
+    "phân tích lỗi",
+    "tự kiểm tra"
+   ]
+  },
+  "RC04": {
+   "stage": "awareness",
+   "pillars": {
+    "CJ03": 1.0,
+    "JT04": 1.0,
+    "CO03": 0.8,
+    "BR02": 0.5,
+    "JT14": 0.5
+   },
+   "sp_tags": {
+    "Cảm xúc": 1.0,
+    "Tự sự": 0.9,
+    "Chú ý": 0.7,
+    "Bản sắc": 0.6,
+    "Trải nghiệm": 0.6
+   },
+   "cf_tags": {
+    "Chuyển đổi trạng thái": 1.0,
+    "Kể chuyện": 0.9,
+    "Câu chuyện và chuyển đổi": 0.9,
+    "Câu chuyện ngắn": 0.7
+   },
+   "ht_tags": {
+    "Lợi ích và kết quả": 1.0,
+    "Câu chuyện và chuyển đổi": 0.9,
+    "Đối tượng và bản sắc": 0.7,
+    "Tò mò và tiết lộ": 0.6
+   },
+   "ct_tags": {
+    "Video": 1.0,
+    "Hình ảnh": 0.9,
+    "Văn bản": 0.7
+   },
+   "keywords": [
+    "mong muốn",
+    "khát khao",
+    "truyền cảm hứng",
+    "ước mơ",
+    "tương lai",
+    "khơi gợi",
+    "động lực",
+    "hình dung"
+   ]
+  },
+  "RC05": {
+   "stage": "consideration",
+   "pillars": {
+    "CJ06": 1.0,
+    "JT08": 1.0,
+    "MM01": 0.8,
+    "JT05": 0.6
+   },
+   "sp_tags": {
+    "Giáo dục": 0.9,
+    "Hữu ích": 0.8,
+    "Giải pháp": 1.0,
+    "Thẩm quyền": 0.6
+   },
+   "cf_tags": {
+    "Cơ chế và lợi ích": 1.0,
+    "Vấn đề và giải pháp": 0.9,
+    "Phân tích và giải thích": 0.8,
+    "Giáo dục và thuyết phục": 0.7
+   },
+   "ht_tags": {
+    "How-to và hướng dẫn": 0.8,
+    "Tò mò và tiết lộ": 0.7,
+    "Lợi ích và kết quả": 0.8,
+    "Myth và góc nhìn ngược": 0.6
+   },
+   "ct_tags": {
+    "Văn bản": 0.9,
+    "Video": 0.9,
+    "Hình ảnh": 0.7
+   },
+   "keywords": [
+    "giới thiệu giải pháp",
+    "cách giải quyết",
+    "phương pháp",
+    "cơ chế",
+    "giải pháp mới",
+    "ra mắt"
+   ]
+  },
+  "RC06": {
+   "stage": "consideration",
+   "pillars": {
+    "JT09": 1.0,
+    "MM01": 0.9,
+    "JT10": 0.9,
+    "BR09": 0.6
+   },
+   "sp_tags": {
+    "Hữu ích": 0.9,
+    "Trải nghiệm": 0.8,
+    "Giáo dục": 0.7,
+    "Bằng chứng": 0.6
+   },
+   "cf_tags": {
+    "Tính năng và lợi ích": 1.0,
+    "Cơ chế và lợi ích": 0.9,
+    "Trải nghiệm và quy trình": 0.7
+   },
+   "ht_tags": {
+    "Lợi ích và kết quả": 1.0,
+    "Danh sách và con số": 0.7,
+    "How-to và hướng dẫn": 0.7
+   },
+   "ct_tags": {
+    "Video": 0.9,
+    "Văn bản": 0.9,
+    "Hình ảnh": 0.8
+   },
+   "keywords": [
+    "tính năng",
+    "lợi ích",
+    "công dụng",
+    "đặc điểm",
+    "use case",
+    "ứng dụng thực tế"
+   ]
+  },
+  "RC07": {
+   "stage": "consideration",
+   "pillars": {
+    "CJ07": 1.0,
+    "JT11": 0.8,
+    "CJ05": 0.6,
+    "MM01": 0.5
+   },
+   "sp_tags": {
+    "Hữu ích": 1.0,
+    "Giáo dục": 0.9,
+    "Cân nhắc": 0.9,
+    "Minh bạch": 0.8
+   },
+   "cf_tags": {
+    "Ra quyết định": 1.0,
+    "Đánh giá và lựa chọn": 1.0,
+    "So sánh và lựa chọn": 0.8,
+    "Tự đánh giá": 0.8
+   },
+   "ht_tags": {
+    "Danh sách và con số": 1.0,
+    "How-to và hướng dẫn": 0.8,
+    "Sai lầm và điều cần tránh": 0.8,
+    "Câu hỏi và tự chẩn đoán": 0.7
+   },
+   "ct_tags": {
+    "Văn bản": 1.0,
+    "Tương tác": 0.8,
+    "Hình ảnh": 0.6
+   },
+   "keywords": [
+    "tiêu chí",
+    "cách chọn",
+    "checklist chọn",
+    "đánh giá",
+    "nên chọn thế nào",
+    "bộ tiêu chí"
+   ]
+  },
+  "RC08": {
+   "stage": "consideration",
+   "pillars": {
+    "CJ08": 1.0,
+    "JT11": 1.0,
+    "JT05": 0.8,
+    "JT06": 0.8,
+    "BR07": 0.6
+   },
+   "sp_tags": {
+    "Cân nhắc": 1.0,
+    "Minh bạch": 0.9,
+    "Hữu ích": 0.8,
+    "Bằng chứng": 0.7
+   },
+   "cf_tags": {
+    "So sánh và lựa chọn": 1.0,
+    "Đánh giá và lựa chọn": 0.9,
+    "Ra quyết định": 0.8
+   },
+   "ht_tags": {
+    "So sánh và lựa chọn": 1.0,
+    "Danh sách và con số": 0.8,
+    "Myth và góc nhìn ngược": 0.6
+   },
+   "ct_tags": {
+    "Văn bản": 1.0,
+    "Hình ảnh": 0.7,
+    "Tương tác": 0.7
+   },
+   "keywords": [
+    "so sánh",
+    "khác nhau",
+    "vs",
+    "lựa chọn nào",
+    "đối chiếu",
+    "ưu nhược điểm"
+   ]
+  },
+  "RC09": {
+   "stage": "conversion",
+   "pillars": {
+    "CJ09": 1.0,
+    "BR08": 1.0,
+    "MM07": 0.9,
+    "JT12": 0.9,
+    "BR14": 0.6,
+    "BR15": 0.7
+   },
+   "sp_tags": {
+    "Bằng chứng": 1.0,
+    "Bằng chứng xã hội": 1.0,
+    "Minh bạch": 0.9,
+    "Thẩm quyền": 0.9,
+    "Tự sự": 0.6
+   },
+   "cf_tags": {
+    "Lập luận và bằng chứng": 1.0,
+    "Case study và minh chứng": 1.0,
+    "Case study": 0.9,
+    "Trình diễn và kiểm chứng": 0.8
+   },
+   "ht_tags": {
+    "Bằng chứng và dữ liệu": 1.0,
+    "Chuyên gia và thẩm quyền": 0.9,
+    "Minh bạch và hậu trường": 0.8,
+    "Câu chuyện và chuyển đổi": 0.7
+   },
+   "ct_tags": {
+    "Văn bản": 0.9,
+    "Video": 0.9,
+    "Hình ảnh": 0.7
+   },
+   "keywords": [
+    "niềm tin",
+    "uy tín",
+    "chứng minh",
+    "bằng chứng",
+    "tin tưởng",
+    "minh bạch",
+    "kiểm chứng",
+    "review"
+   ]
+  },
+  "RC10": {
+   "stage": "conversion",
+   "pillars": {
+    "CJ10": 1.0,
+    "JT07": 1.0,
+    "MM02": 0.8,
+    "CJ09": 0.6,
+    "MM06": 0.5
+   },
+   "sp_tags": {
+    "Minh bạch": 1.0,
+    "Cân nhắc": 0.9,
+    "Hữu ích": 0.8,
+    "Bằng chứng": 0.7,
+    "Cảm xúc": 0.6
+   },
+   "cf_tags": {
+    "Xử lý phản đối": 1.0,
+    "Hỏi đáp": 0.9,
+    "Lập luận và bằng chứng": 0.8,
+    "Giáo dục và đính chính": 0.8
+   },
+   "ht_tags": {
+    "Câu hỏi và tự chẩn đoán": 0.9,
+    "Myth và góc nhìn ngược": 0.9,
+    "Minh bạch và hậu trường": 0.9,
+    "Sai lầm và điều cần tránh": 0.7
+   },
+   "ct_tags": {
+    "Văn bản": 1.0,
+    "Video": 0.8,
+    "Trò chuyện": 0.7
+   },
+   "keywords": [
+    "phản đối",
+    "lo ngại",
+    "băn khoăn",
+    "đắt quá",
+    "sợ",
+    "rào cản",
+    "nghi ngờ",
+    "e ngại",
+    "faq"
+   ]
+  },
+  "RC11": {
+   "stage": "conversion",
+   "pillars": {
+    "CJ11": 1.0,
+    "MM07": 0.9,
+    "JT12": 0.8,
+    "MM03": 0.5
+   },
+   "sp_tags": {
+    "Trải nghiệm": 1.0,
+    "Bằng chứng": 0.9,
+    "Tương tác": 0.8,
+    "Minh bạch": 0.8
+   },
+   "cf_tags": {
+    "Trình diễn và kiểm chứng": 1.0,
+    "Trải nghiệm và quy trình": 0.9,
+    "Case study và minh chứng": 0.7
+   },
+   "ht_tags": {
+    "Minh bạch và hậu trường": 1.0,
+    "Bằng chứng và dữ liệu": 0.8,
+    "How-to và hướng dẫn": 0.7
+   },
+   "ct_tags": {
+    "Video": 1.0,
+    "Tương tác": 0.9,
+    "Trực tiếp": 0.8,
+    "Hình ảnh": 0.6
+   },
+   "keywords": [
+    "dùng thử",
+    "trải nghiệm",
+    "demo",
+    "kiểm chứng",
+    "test",
+    "trial",
+    "tham quan",
+    "học thử"
+   ]
+  },
+  "RC12": {
+   "stage": "conversion",
+   "pillars": {
+    "CJ12": 1.0,
+    "MM04": 0.75,
+    "CJ10": 0.7,
+    "CJ11": 0.65,
+    "BR08": 0.55,
+    "MM07": 0.45,
+    "MM02": 0.45,
+    "MM03": 0.35
+   },
+   "sp_tags": {
+    "Chuyển đổi": 1.0,
+    "Hành động": 1.0,
+    "Minh bạch": 0.7,
+    "Bằng chứng": 0.6,
+    "Chú ý": 0.6
+   },
+   "cf_tags": {
+    "Thuyết phục và chuyển đổi": 1.0,
+    "Bán hàng và landing page": 0.9,
+    "Câu chuyện và chuyển đổi": 0.8,
+    "Giáo dục và chuyển đổi": 0.8,
+    "Sự kiện và webinar": 0.7
+   },
+   "ht_tags": {
+    "Offer và hành động": 1.0,
+    "Lợi ích và kết quả": 0.8,
+    "Thời điểm, xu hướng và tin mới": 0.7,
+    "Bằng chứng và dữ liệu": 0.6
+   },
+   "ct_tags": {
+    "Chuyển đổi": 1.0,
+    "Văn bản": 0.8,
+    "Video": 0.8,
+    "Email": 0.8,
+    "Hình ảnh": 0.7
+   },
+   "keywords": [
+    "đăng ký",
+    "chuyển đổi",
+    "mua",
+    "chốt đơn",
+    "khuyến mãi",
+    "ưu đãi",
+    "kêu gọi hành động",
+    "lead",
+    "form",
+    "ghi danh",
+    "tham gia",
+    "dự thi"
+   ]
+  },
+  "RC13": {
+   "stage": "onboarding",
+   "pillars": {
+    "CJ13": 1.0,
+    "JT13": 1.0,
+    "MM06": 0.8,
+    "CO02": 0.5
+   },
+   "sp_tags": {
+    "Hữu ích": 1.0,
+    "Giáo dục": 0.9,
+    "Trải nghiệm": 0.8,
+    "Dẫn dắt": 0.9
+   },
+   "cf_tags": {
+    "Giáo dục và hướng dẫn": 1.0,
+    "Đào tạo và hướng dẫn": 1.0,
+    "Trải nghiệm và quy trình": 0.9
+   },
+   "ht_tags": {
+    "How-to và hướng dẫn": 1.0,
+    "Danh sách và con số": 0.8,
+    "Câu hỏi và tự chẩn đoán": 0.5
+   },
+   "ct_tags": {
+    "Văn bản": 0.9,
+    "Video": 0.9,
+    "Email": 0.9,
+    "Tương tác": 0.6
+   },
+   "keywords": [
+    "onboarding",
+    "bắt đầu",
+    "hướng dẫn sử dụng",
+    "khởi động",
+    "buổi đầu",
+    "làm quen",
+    "setup"
+   ]
+  },
+  "RC14": {
+   "stage": "retention",
+   "pillars": {
+    "CJ14": 1.0,
+    "JT13": 0.8,
+    "JT10": 0.8,
+    "MM06": 0.6
+   },
+   "sp_tags": {
+    "Hữu ích": 1.0,
+    "Học hỏi": 0.8,
+    "Trải nghiệm": 0.8,
+    "Cá nhân hóa": 0.7
+   },
+   "cf_tags": {
+    "Giáo dục và hướng dẫn": 0.9,
+    "Trải nghiệm và quy trình": 0.9,
+    "Đào tạo và hướng dẫn": 0.8
+   },
+   "ht_tags": {
+    "How-to và hướng dẫn": 1.0,
+    "Danh sách và con số": 0.8,
+    "Sai lầm và điều cần tránh": 0.7
+   },
+   "ct_tags": {
+    "Văn bản": 0.9,
+    "Video": 0.9,
+    "Email": 0.8,
+    "Tương tác": 0.6
+   },
+   "keywords": [
+    "dùng hiệu quả",
+    "mẹo",
+    "tối ưu",
+    "khai thác",
+    "nâng cao",
+    "tips",
+    "power user"
+   ]
+  },
+  "RC15": {
+   "stage": "retention",
+   "pillars": {
+    "CJ15": 1.0,
+    "JT12": 0.9,
+    "JT14": 0.9,
+    "BR15": 0.6
+   },
+   "sp_tags": {
+    "Bằng chứng": 1.0,
+    "Tự sự": 0.8,
+    "Trải nghiệm": 0.8,
+    "Minh bạch": 0.8,
+    "Cảm xúc": 0.6
+   },
+   "cf_tags": {
+    "Case study và bài học": 1.0,
+    "Case study và minh chứng": 0.9,
+    "Chuyển đổi trạng thái": 0.8
+   },
+   "ht_tags": {
+    "Bằng chứng và dữ liệu": 1.0,
+    "Câu chuyện và chuyển đổi": 0.9,
+    "Minh bạch và hậu trường": 0.8
+   },
+   "ct_tags": {
+    "Văn bản": 0.9,
+    "Hình ảnh": 0.8,
+    "Video": 0.9
+   },
+   "keywords": [
+    "tiến bộ",
+    "kết quả",
+    "thành quả",
+    "chặng đường",
+    "trước sau",
+    "đo lường",
+    "hành trình"
+   ]
+  },
+  "RC16": {
+   "stage": "retention",
+   "pillars": {
+    "CJ16": 1.0,
+    "CO13": 0.9,
+    "CO11": 0.9,
+    "CO12": 0.7,
+    "MM05": 0.5
+   },
+   "sp_tags": {
+    "Giữ chân": 1.0,
+    "Cá nhân hóa": 0.9,
+    "Bản sắc": 0.8,
+    "Trải nghiệm": 0.7,
+    "Cảm xúc": 0.7
+   },
+   "cf_tags": {
+    "Cộng đồng": 0.9,
+    "Trải nghiệm và quy trình": 0.7,
+    "Chuyển đổi trạng thái": 0.6
+   },
+   "ht_tags": {
+    "Đối tượng và bản sắc": 1.0,
+    "Lợi ích và kết quả": 0.8,
+    "Thời điểm, xu hướng và tin mới": 0.6
+   },
+   "ct_tags": {
+    "Email": 1.0,
+    "Cộng đồng": 0.9,
+    "Văn bản": 0.7,
+    "Hình ảnh": 0.7
+   },
+   "keywords": [
+    "giữ chân",
+    "trung thành",
+    "quay lại",
+    "tái mua",
+    "gắn bó",
+    "duy trì",
+    "thành viên cũ",
+    "loyalty"
+   ]
+  },
+  "RC17": {
+   "stage": "advocacy",
+   "pillars": {
+    "CJ17": 1.0,
+    "CO14": 1.0,
+    "CO07": 0.9,
+    "CO13": 0.7
+   },
+   "sp_tags": {
+    "Bằng chứng xã hội": 1.0,
+    "Tương tác": 0.9,
+    "Bản sắc": 0.8,
+    "Cảm xúc": 0.7,
+    "Hành động": 0.7
+   },
+   "cf_tags": {
+    "Cộng đồng": 1.0,
+    "Câu chuyện ngắn": 0.7,
+    "Thuyết phục và chuyển đổi": 0.6
+   },
+   "ht_tags": {
+    "Đối tượng và bản sắc": 0.9,
+    "Offer và hành động": 0.9,
+    "Câu chuyện và chuyển đổi": 0.7
+   },
+   "ct_tags": {
+    "Cộng đồng": 1.0,
+    "Tương tác": 0.9,
+    "Hình ảnh": 0.7,
+    "Video": 0.7
+   },
+   "keywords": [
+    "giới thiệu bạn bè",
+    "referral",
+    "lan tỏa",
+    "chia sẻ",
+    "mời bạn",
+    "review từ khách",
+    "ugc"
+   ]
+  },
+  "RC18": {
+   "stage": "awareness",
+   "pillars": {
+    "BR04": 1.0,
+    "BR07": 1.0,
+    "BR06": 0.9,
+    "BR05": 0.8,
+    "BR01": 0.7,
+    "BR11": 0.6
+   },
+   "sp_tags": {
+    "Bản sắc": 1.0,
+    "Dẫn dắt": 0.8,
+    "Tự sự": 0.7,
+    "Cảm xúc": 0.7,
+    "Thẩm quyền": 0.6
+   },
+   "cf_tags": {
+    "Thương hiệu và tuyên ngôn": 1.0,
+    "Kể chuyện": 0.8,
+    "Dự báo và chiến lược": 0.6
+   },
+   "ht_tags": {
+    "Đối tượng và bản sắc": 1.0,
+    "Myth và góc nhìn ngược": 0.8,
+    "Câu chuyện và chuyển đổi": 0.7,
+    "Chuyên gia và thẩm quyền": 0.6
+   },
+   "ct_tags": {
+    "Video": 0.9,
+    "Văn bản": 0.8,
+    "Hình ảnh": 0.8
+   },
+   "keywords": [
+    "định vị",
+    "khác biệt",
+    "thương hiệu",
+    "tuyên ngôn",
+    "lập trường",
+    "bản sắc thương hiệu",
+    "vì sao chọn chúng tôi"
+   ]
+  },
+  "RC19": {
+   "stage": "retention",
+   "pillars": {
+    "BR12": 1.0,
+    "MM05": 1.0,
+    "BR05": 0.8,
+    "BR13": 0.6
+   },
+   "sp_tags": {
+    "Minh bạch": 1.0,
+    "Tự sự": 0.9,
+    "Bản sắc": 0.8,
+    "Cảm xúc": 0.7
+   },
+   "cf_tags": {
+    "Kể chuyện": 0.9,
+    "Câu chuyện ngắn": 0.8,
+    "Trải nghiệm và quy trình": 0.7,
+    "Thương hiệu và tuyên ngôn": 0.7
+   },
+   "ht_tags": {
+    "Minh bạch và hậu trường": 1.0,
+    "Câu chuyện và chuyển đổi": 0.8,
+    "Đối tượng và bản sắc": 0.8
+   },
+   "ct_tags": {
+    "Video": 0.9,
+    "Hình ảnh": 0.8,
+    "Văn bản": 0.8
+   },
+   "keywords": [
+    "văn hóa",
+    "đội ngũ",
+    "con người",
+    "hậu trường",
+    "nhân sự",
+    "employer branding",
+    "giáo viên",
+    "nhân viên"
+   ]
+  },
+  "RC20": {
+   "stage": "awareness",
+   "pillars": {
+    "BR14": 1.0,
+    "BR16": 0.9,
+    "BR19": 0.6,
+    "BR10": 0.5
+   },
+   "sp_tags": {
+    "Thời sự": 1.0,
+    "Bằng chứng": 0.8,
+    "Thẩm quyền": 0.8,
+    "Chú ý": 0.7
+   },
+   "cf_tags": {
+    "Tin tức và PR": 1.0,
+    "Bao quát thông tin": 0.7,
+    "Case study và minh chứng": 0.6
+   },
+   "ht_tags": {
+    "Thời điểm, xu hướng và tin mới": 1.0,
+    "Bằng chứng và dữ liệu": 0.8,
+    "Chuyên gia và thẩm quyền": 0.8
+   },
+   "ct_tags": {
+    "PR": 1.0,
+    "Văn bản": 0.8,
+    "Hình ảnh": 0.7,
+    "Video": 0.6
+   },
+   "keywords": [
+    "cột mốc",
+    "thành tựu",
+    "giải thưởng",
+    "kỷ niệm",
+    "ra mắt",
+    "thông cáo",
+    "sự kiện lớn",
+    "pr"
+   ]
+  },
+  "RC21": {
+   "stage": "awareness",
+   "pillars": {
+    "BR17": 1.0,
+    "BR19": 1.0,
+    "JT01": 0.5,
+    "BR03": 0.5
+   },
+   "sp_tags": {
+    "Thời sự": 1.0,
+    "Thẩm quyền": 1.0,
+    "Dẫn dắt": 1.0,
+    "Giáo dục": 0.7
+   },
+   "cf_tags": {
+    "Dự báo và chiến lược": 1.0,
+    "Xu hướng và cập nhật": 1.0,
+    "Phân tích và giải thích": 0.8,
+    "Lập luận và bằng chứng": 0.7
+   },
+   "ht_tags": {
+    "Thời điểm, xu hướng và tin mới": 1.0,
+    "Chuyên gia và thẩm quyền": 0.9,
+    "Myth và góc nhìn ngược": 0.8,
+    "Bằng chứng và dữ liệu": 0.8
+   },
+   "ct_tags": {
+    "Văn bản": 1.0,
+    "Video": 0.7,
+    "Audio": 0.7,
+    "Trình bày": 0.6
+   },
+   "keywords": [
+    "xu hướng",
+    "dự báo",
+    "tương lai ngành",
+    "thought leadership",
+    "báo cáo",
+    "insight ngành",
+    "trend"
+   ]
+  },
+  "RC22": {
+   "stage": "advocacy",
+   "pillars": {
+    "CO01": 1.0,
+    "CO05": 1.0,
+    "CO08": 0.9,
+    "CO04": 0.8,
+    "CO06": 0.7
+   },
+   "sp_tags": {
+    "Bản sắc": 1.0,
+    "Tương tác": 1.0,
+    "Cảm xúc": 0.8,
+    "Tự sự": 0.7,
+    "Giữ chân": 0.6
+   },
+   "cf_tags": {
+    "Cộng đồng": 1.0,
+    "Câu chuyện ngắn": 0.7,
+    "Kể chuyện": 0.7,
+    "Sự kiện và webinar": 0.7
+   },
+   "ht_tags": {
+    "Đối tượng và bản sắc": 1.0,
+    "Câu hỏi và tự chẩn đoán": 0.6,
+    "Câu chuyện và chuyển đổi": 0.7
+   },
+   "ct_tags": {
+    "Cộng đồng": 1.0,
+    "Tương tác": 0.9,
+    "Trực tiếp": 0.8,
+    "Sự kiện": 0.8,
+    "Hình ảnh": 0.6
+   },
+   "keywords": [
+    "cộng đồng",
+    "bản sắc",
+    "thuộc về",
+    "hội nhóm",
+    "sinh hoạt",
+    "nghi thức",
+    "kết nối",
+    "gắn kết"
+   ]
+  },
+  "RC23": {
+   "stage": "retention",
+   "pillars": {
+    "CO04": 1.0,
+    "CO12": 1.0,
+    "CO10": 0.9,
+    "BR03": 0.6
+   },
+   "sp_tags": {
+    "Tương tác": 1.0,
+    "Minh bạch": 0.9,
+    "Cá nhân hóa": 0.8,
+    "Hữu ích": 0.6
+   },
+   "cf_tags": {
+    "Hỏi đáp": 1.0,
+    "Cộng đồng": 0.9,
+    "Trải nghiệm và quy trình": 0.6
+   },
+   "ht_tags": {
+    "Câu hỏi và tự chẩn đoán": 1.0,
+    "Minh bạch và hậu trường": 0.9,
+    "Đối tượng và bản sắc": 0.7
+   },
+   "ct_tags": {
+    "Tương tác": 1.0,
+    "Cộng đồng": 1.0,
+    "Trực tiếp": 0.9,
+    "Trò chuyện": 0.8
+   },
+   "keywords": [
+    "lắng nghe",
+    "khảo sát",
+    "phản hồi",
+    "hỏi đáp",
+    "đối thoại",
+    "góp ý",
+    "ama",
+    "tiếp nhận ý kiến"
+   ]
+  },
+  "RC24": {
+   "stage": "advocacy",
+   "pillars": {
+    "CO15": 1.0,
+    "BR18": 1.0,
+    "BR02": 0.6,
+    "BR05": 0.5
+   },
+   "sp_tags": {
+    "Tác động": 1.0,
+    "Minh bạch": 0.9,
+    "Tự sự": 0.8,
+    "Cảm xúc": 0.8,
+    "Bản sắc": 0.7
+   },
+   "cf_tags": {
+    "Case study và minh chứng": 0.9,
+    "Kể chuyện": 0.8,
+    "Thương hiệu và tuyên ngôn": 0.7,
+    "Cộng đồng": 0.7
+   },
+   "ht_tags": {
+    "Bằng chứng và dữ liệu": 0.9,
+    "Câu chuyện và chuyển đổi": 0.9,
+    "Minh bạch và hậu trường": 0.8
+   },
+   "ct_tags": {
+    "Video": 0.9,
+    "Văn bản": 0.8,
+    "Hình ảnh": 0.8,
+    "Sự kiện": 0.6
+   },
+   "keywords": [
+    "tác động xã hội",
+    "cộng đồng xã hội",
+    "csr",
+    "thiện nguyện",
+    "bền vững",
+    "môi trường",
+    "trách nhiệm"
+   ]
+  }
+ },
+ "channel_aliases": {
+  "facebook": [
+   "Social",
+   "social",
+   "Social feed",
+   "community",
+   "Group",
+   "Social stories",
+   "social clips"
+  ],
+  "fb": [
+   "Social",
+   "social",
+   "Social feed",
+   "community",
+   "Group",
+   "Social stories"
+  ],
+  "instagram": [
+   "Social",
+   "social",
+   "Social feed",
+   "Social stories",
+   "Short-video platforms",
+   "social clips"
+  ],
+  "ig": [
+   "Social",
+   "social",
+   "Social feed",
+   "Social stories",
+   "social clips"
+  ],
+  "tiktok": [
+   "Short-video platforms",
+   "social",
+   "Social",
+   "social clips",
+   "Live",
+   "live"
+  ],
+  "youtube": [
+   "Video platforms",
+   "video",
+   "Video",
+   "video platforms",
+   "Podcast platforms"
+  ],
+  "linkedin": [
+   "professional network",
+   "Social",
+   "social",
+   "personal brand"
+  ],
+  "threads": [
+   "Nền tảng hỗ trợ thread",
+   "Social",
+   "social"
+  ],
+  "x": [
+   "Nền tảng hỗ trợ thread",
+   "Social",
+   "social"
+  ],
+  "twitter": [
+   "Nền tảng hỗ trợ thread",
+   "Social",
+   "social"
+  ],
+  "zalo": [
+   "Messaging",
+   "messaging",
+   "SMS",
+   "community",
+   "Group"
+  ],
+  "social": [
+   "Social",
+   "social",
+   "Social feed",
+   "Social stories",
+   "social clips",
+   "community"
+  ],
+  "website": [
+   "Website",
+   "website",
+   "Blog",
+   "search",
+   "landing page",
+   "Landing page",
+   "knowledge base",
+   "help center",
+   "Help center",
+   "ecommerce"
+  ],
+  "web": [
+   "Website",
+   "website",
+   "Blog",
+   "search",
+   "Landing page",
+   "landing page"
+  ],
+  "blog": [
+   "Blog",
+   "Website",
+   "website",
+   "search"
+  ],
+  "seo": [
+   "search",
+   "Website",
+   "website",
+   "Blog"
+  ],
+  "landing page": [
+   "Landing page",
+   "landing page",
+   "Website",
+   "website",
+   "paid media"
+  ],
+  "email": [
+   "Email",
+   "email",
+   "Email automation",
+   "newsletter"
+  ],
+  "newsletter": [
+   "newsletter",
+   "Email",
+   "email",
+   "Email automation"
+  ],
+  "pr": [
+   "PR",
+   "Newsroom",
+   "media outreach",
+   "báo chí"
+  ],
+  "báo chí": [
+   "báo chí",
+   "PR",
+   "Newsroom",
+   "media outreach"
+  ],
+  "event": [
+   "event",
+   "event platform",
+   "Offline/hybrid",
+   "Offline",
+   "Meeting",
+   "exhibition",
+   "live",
+   "Live"
+  ],
+  "sự kiện": [
+   "event",
+   "event platform",
+   "Offline/hybrid",
+   "Offline",
+   "Meeting",
+   "exhibition"
+  ],
+  "offline": [
+   "Offline",
+   "Offline/hybrid",
+   "retail",
+   "Outdoor",
+   "display",
+   "print",
+   "direct",
+   "exhibition"
+  ],
+  "app": [
+   "app",
+   "in-app",
+   "web push"
+  ],
+  "community": [
+   "community",
+   "Group",
+   "forum"
+  ],
+  "cộng đồng": [
+   "community",
+   "Group",
+   "forum"
+  ],
+  "sales": [
+   "sales",
+   "sales deck",
+   "deck",
+   "case",
+   "PDF"
+  ],
+  "podcast": [
+   "Podcast platforms",
+   "podcast",
+   "Video",
+   "video"
+  ],
+  "livestream": [
+   "Live",
+   "live",
+   "event platform",
+   "Social",
+   "social"
+  ],
+  "paid": [
+   "paid media",
+   "display",
+   "Social",
+   "social"
+  ],
+  "ooh": [
+   "Outdoor",
+   "OOH",
+   "display",
+   "retail"
+  ],
+  "sms": [
+   "SMS",
+   "Messaging",
+   "messaging",
+   "app"
+  ]
+ },
+ "ct_capacity": {
+  "CT01": 4,
+  "CT02": 6,
+  "CT03": 8,
+  "CT04": 12,
+  "CT05": 10,
+  "CT06": 10,
+  "CT07": 12,
+  "CT08": 8,
+  "CT09": 6,
+  "CT10": 12,
+  "CT11": 12,
+  "CT12": 12,
+  "CT13": 12,
+  "CT14": 8,
+  "CT15": 9,
+  "CT16": 8,
+  "CT17": 6,
+  "CT18": 8,
+  "CT19": 5,
+  "CT20": 12,
+  "CT21": 2,
+  "CT22": 2,
+  "CT23": 2,
+  "CT24": 10,
+  "CT25": 8,
+  "CT26": 3,
+  "CT27": 3,
+  "CT28": 6,
+  "CT29": 2,
+  "CT30": 6,
+  "CT31": 4,
+  "CT32": 6,
+  "CT33": 8,
+  "CT34": 6,
+  "CT35": 4,
+  "CT36": 6,
+  "CT37": 8,
+  "CT38": 6,
+  "CT39": 12,
+  "CT40": 12,
+  "CT41": 3,
+  "CT42": 12,
+  "CT43": 12,
+  "CT44": 12,
+  "CT45": 3,
+  "CT46": 12,
+  "CT47": 8,
+  "CT48": 6,
+  "CT49": 2,
+  "CT50": 5,
+  "CT51": 6,
+  "CT52": 5,
+  "CT53": 4,
+  "CT54": 4,
+  "CT55": 12,
+  "CT56": 12,
+  "CT57": 8,
+  "CT58": 2,
+  "CT59": 8,
+  "CT60": 8
+ },
+ "production_effort": {
+  "Thấp": 1,
+  "Thấp - trung bình": 2,
+  "Trung bình": 3,
+  "Trung bình - cao": 4,
+  "Cao": 5,
+  "Cao - rất cao": 6,
+  "Rất cao": 7
+ },
+ "evidence_hungry": {
+  "sp_tags": [
+   "Bằng chứng",
+   "Bằng chứng xã hội",
+   "Thẩm quyền",
+   "Tác động"
+  ],
+  "cf_tags": [
+   "Lập luận và bằng chứng",
+   "Case study và minh chứng",
+   "Case study",
+   "Case study và bài học",
+   "Trình diễn và kiểm chứng"
+  ],
+  "ht_tags": [
+   "Bằng chứng và dữ liệu",
+   "Chuyên gia và thẩm quyền"
+  ]
+ },
+ "novelty_tags": {
+  "sp_tags": [
+   "Chú ý",
+   "Cảm xúc",
+   "Thời sự",
+   "Bản sắc"
+  ],
+  "ht_tags": [
+   "Myth và góc nhìn ngược",
+   "Tò mò và tiết lộ",
+   "Minh bạch và hậu trường",
+   "Câu hỏi và tự chẩn đoán"
+  ]
+ },
+ "avoid_rules": [
+  {
+   "a": "tag:ContentFormula:Bán hàng dài",
+   "b": "code:CT21",
+   "severity": "hard",
+   "reason": "Cấu trúc bán hàng dài không thể triển khai trong SMS/push."
+  },
+  {
+   "a": "tag:ContentFormula:Bán hàng dài",
+   "b": "code:CT29",
+   "severity": "hard",
+   "reason": "Meme không chở được lập luận bán hàng nhiều bước."
+  },
+  {
+   "a": "tag:ContentFormula:Bán hàng dài",
+   "b": "code:CT41",
+   "severity": "hard",
+   "reason": "Story 24 giờ quá ngắn cho cấu trúc bán hàng dài."
+  },
+  {
+   "a": "tag:ContentFormula:Bán hàng dài",
+   "b": "code:CT58",
+   "severity": "hard",
+   "reason": "OOH chỉ truyền tải được một thông điệp, không phải chuỗi thuyết phục."
+  },
+  {
+   "a": "tag:ContentFormula:Bán hàng dài",
+   "b": "code:CT23",
+   "severity": "hard",
+   "reason": "Quote card không đủ chỗ cho cấu trúc bán hàng dài."
+  },
+  {
+   "a": "tag:SuccessPattern:Bằng chứng",
+   "b": "code:CT29",
+   "severity": "soft",
+   "reason": "Meme làm suy yếu độ tin cậy của lập luận dựa trên bằng chứng."
+  },
+  {
+   "a": "tag:SuccessPattern:Bằng chứng",
+   "b": "code:CT49",
+   "severity": "soft",
+   "reason": "Poll không phải nơi trình bày bằng chứng."
+  },
+  {
+   "a": "tag:SuccessPattern:Thời sự",
+   "b": "code:CT11",
+   "severity": "soft",
+   "reason": "Ebook có chu kỳ sản xuất dài, nội dung thời sự sẽ lỗi thời khi phát hành."
+  },
+  {
+   "a": "tag:SuccessPattern:Thời sự",
+   "b": "code:CT10",
+   "severity": "soft",
+   "reason": "Whitepaper có chu kỳ sản xuất dài, không hợp nội dung bám thời sự."
+  },
+  {
+   "a": "tag:SuccessPattern:Thời sự",
+   "b": "code:CT55",
+   "severity": "soft",
+   "reason": "Workshop offline cần thời gian tổ chức, khó bám nhịp thời sự."
+  },
+  {
+   "a": "tag:SuccessPattern:Chú ý",
+   "b": "code:CT13",
+   "severity": "soft",
+   "reason": "FAQ là nội dung tra cứu, thủ pháp gây chú ý gây phản cảm."
+  },
+  {
+   "a": "tag:SuccessPattern:Chú ý",
+   "b": "code:CT60",
+   "severity": "soft",
+   "reason": "Media kit cần văn phong trung tính, không dùng thủ pháp giật chú ý."
+  },
+  {
+   "a": "tag:SuccessPattern:Tương tác",
+   "b": "code:CT57",
+   "severity": "soft",
+   "reason": "Brochure in ấn là kênh một chiều, không tạo được tương tác."
+  },
+  {
+   "a": "tag:SuccessPattern:Tương tác",
+   "b": "code:CT58",
+   "severity": "soft",
+   "reason": "OOH là kênh một chiều, không tạo được tương tác."
+  },
+  {
+   "a": "tag:SuccessPattern:Tương tác",
+   "b": "code:CT17",
+   "severity": "soft",
+   "reason": "Thông cáo báo chí không phải định dạng tương tác."
+  },
+  {
+   "a": "tag:SuccessPattern:Tự sự",
+   "b": "code:CT13",
+   "severity": "soft",
+   "reason": "FAQ cần trả lời trực tiếp, kể chuyện làm loãng thông tin."
+  },
+  {
+   "a": "tag:SuccessPattern:Tự sự",
+   "b": "code:CT12",
+   "severity": "soft",
+   "reason": "Checklist cần ngắn gọn hành động, không hợp lối kể chuyện."
+  },
+  {
+   "a": "tag:SuccessPattern:Tự sự",
+   "b": "code:CT50",
+   "severity": "soft",
+   "reason": "Calculator là công cụ tính toán, không có chỗ cho tuyến truyện."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Myth và góc nhìn ngược",
+   "b": "code:CT17",
+   "severity": "soft",
+   "reason": "Thông cáo báo chí cần văn phong trung tính, không nên phản biện quan niệm."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Myth và góc nhìn ngược",
+   "b": "code:CT60",
+   "severity": "soft",
+   "reason": "Media kit cần trung tính, không phù hợp tiêu đề phản biện."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Offer và hành động",
+   "b": "code:CT05",
+   "severity": "soft",
+   "reason": "Bài thought leadership mất uy tín khi mở đầu bằng chào bán."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Offer và hành động",
+   "b": "code:CT10",
+   "severity": "soft",
+   "reason": "Whitepaper cần văn phong nghiên cứu, không mở bằng offer."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Offer và hành động",
+   "b": "code:CT13",
+   "severity": "soft",
+   "reason": "FAQ phục vụ tra cứu, không phải nơi đặt lời chào bán."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Tò mò và tiết lộ",
+   "b": "code:CT13",
+   "severity": "soft",
+   "reason": "Nội dung tra cứu cần tiêu đề nói thẳng, không giấu thông tin."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Tò mò và tiết lộ",
+   "b": "code:CT12",
+   "severity": "soft",
+   "reason": "Checklist cần tiêu đề mô tả đúng nội dung, không tạo tò mò giả."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Bằng chứng và dữ liệu",
+   "b": "code:CT29",
+   "severity": "soft",
+   "reason": "Meme không phải nơi trình bày dữ liệu."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Bằng chứng và dữ liệu",
+   "b": "code:CT41",
+   "severity": "soft",
+   "reason": "Story 24 giờ quá ngắn để trình bày và dẫn nguồn dữ liệu."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Minh bạch và hậu trường",
+   "b": "code:CT15",
+   "severity": "soft",
+   "reason": "Landing page cần tập trung chuyển đổi, nội dung hậu trường làm loãng."
+  },
+  {
+   "a": "tag:HeadlineTemplate:Minh bạch và hậu trường",
+   "b": "code:CT16",
+   "severity": "soft",
+   "reason": "Trang sản phẩm cần tập trung giá trị, không phải hậu trường."
+  },
+  {
+   "a": "tag:ContentFormula:Hỏi đáp",
+   "b": "code:CT38",
+   "severity": "soft",
+   "reason": "Brand film cần mạch cảm xúc liền, không hợp cấu trúc hỏi đáp."
+  },
+  {
+   "a": "tag:ContentFormula:Tin tức và PR",
+   "b": "code:CT29",
+   "severity": "soft",
+   "reason": "Meme phá vỡ văn phong tin tức."
+  },
+  {
+   "a": "tag:ContentFormula:Sự kiện và webinar",
+   "b": "code:CT21",
+   "severity": "soft",
+   "reason": "SMS chỉ chở được nhắc lịch, không chở được cấu trúc giới thiệu sự kiện."
+  }
+ ],
+ "goal_ct_penalty": [
+  {
+   "goal": "RC01",
+   "ct_tag": "Chuyển đổi",
+   "penalty": 4,
+   "reason": "Người chưa nhận ra vấn đề chưa sẵn sàng cho trang chuyển đổi."
+  },
+  {
+   "goal": "RC02",
+   "ct_tag": "Chuyển đổi",
+   "penalty": 3,
+   "reason": "Mục tiêu giáo dục nền tảng không nên đặt trên định dạng bán hàng."
+  },
+  {
+   "goal": "RC22",
+   "ct_tag": "Chuyển đổi",
+   "penalty": 3,
+   "reason": "Xây cộng đồng bằng landing page làm hỏng cảm giác thuộc về."
+  },
+  {
+   "goal": "RC24",
+   "ct_tag": "Chuyển đổi",
+   "penalty": 4,
+   "reason": "Gắn tác động xã hội với định dạng bán hàng dễ bị đọc là purpose-washing."
+  }
+ ],
+ "stopwords_vi": [
+  "và",
+  "của",
+  "cho",
+  "với",
+  "là",
+  "các",
+  "những",
+  "một",
+  "có",
+  "được",
+  "trong",
+  "khi",
+  "để",
+  "này",
+  "đó",
+  "thì",
+  "mà",
+  "nhưng",
+  "hoặc",
+  "nếu",
+  "từ",
+  "về",
+  "như",
+  "đã",
+  "sẽ",
+  "đang",
+  "bị",
+  "tại",
+  "trên",
+  "dưới",
+  "ra",
+  "vào",
+  "lên",
+  "xuống",
+  "rất",
+  "quá",
+  "cũng",
+  "vẫn",
+  "còn",
+  "chỉ",
+  "hơn",
+  "nhất",
+  "người",
+  "ai",
+  "gì",
+  "sao",
+  "nào",
+  "bao",
+  "nhiêu",
+  "đây",
+  "kia",
+  "ấy",
+  "vì",
+  "do",
+  "bởi",
+  "nên",
+  "phải",
+  "cần",
+  "muốn",
+  "theo",
+  "cùng",
+  "giữa",
+  "sau",
+  "trước",
+  "hay",
+  "thế",
+  "việc",
+  "điều",
+  "cách",
+  "the",
+  "and",
+  "for",
+  "with",
+  "that",
+  "this",
+  "you",
+  "your",
+  "are",
+  "our"
+ ],
+ "channel_profiles": {
+  "facebook": {
+   "primary_media": [
+    "Văn bản",
+    "Hình ảnh",
+    "Video"
+   ],
+   "secondary_media": [
+    "Tương tác",
+    "Cộng đồng"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trình bày",
+    "PR",
+    "Audio"
+   ],
+   "tokens": [
+    "Social",
+    "social",
+    "Social feed",
+    "community",
+    "Group",
+    "Social stories"
+   ],
+   "register": "đời thường",
+   "max_capacity": 12
+  },
+  "instagram": {
+   "primary_media": [
+    "Hình ảnh",
+    "Video"
+   ],
+   "secondary_media": [
+    "Tương tác",
+    "Cộng đồng"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trình bày",
+    "PR",
+    "Audio",
+    "Trò chuyện"
+   ],
+   "tokens": [
+    "Social",
+    "social",
+    "Social feed",
+    "Social stories",
+    "social clips"
+   ],
+   "register": "thân mật",
+   "max_capacity": 8
+  },
+  "tiktok": {
+   "primary_media": [
+    "Video"
+   ],
+   "secondary_media": [
+    "Trực tiếp",
+    "Tương tác"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trình bày",
+    "PR",
+    "Văn bản",
+    "Trò chuyện"
+   ],
+   "tokens": [
+    "Short-video platforms",
+    "social",
+    "social clips"
+   ],
+   "register": "thân mật",
+   "max_capacity": 6
+  },
+  "youtube": {
+   "primary_media": [
+    "Video"
+   ],
+   "secondary_media": [
+    "Audio/Video",
+    "Trực tiếp"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trò chuyện"
+   ],
+   "tokens": [
+    "Video platforms",
+    "video",
+    "Video"
+   ],
+   "register": "đời thường",
+   "max_capacity": 12
+  },
+  "linkedin": {
+   "primary_media": [
+    "Văn bản"
+   ],
+   "secondary_media": [
+    "Hình ảnh",
+    "Video",
+    "Trình bày"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trò chuyện",
+    "Cộng đồng"
+   ],
+   "tokens": [
+    "professional network",
+    "Social",
+    "social",
+    "personal brand"
+   ],
+   "register": "chuyên môn",
+   "max_capacity": 10
+  },
+  "email": {
+   "primary_media": [
+    "Email"
+   ],
+   "secondary_media": [
+    "Văn bản"
+   ],
+   "banned_media": [
+    "Video",
+    "Hình ảnh",
+    "Trực tiếp",
+    "In ấn",
+    "Ngoài trời",
+    "PR",
+    "Cộng đồng",
+    "Audio",
+    "Sự kiện",
+    "Trò chuyện",
+    "Tương tác",
+    "Trình bày",
+    "Chuyển đổi"
+   ],
+   "tokens": [
+    "Email",
+    "email",
+    "Email automation",
+    "newsletter"
+   ],
+   "register": "đời thường",
+   "max_capacity": 12
+  },
+  "website": {
+   "primary_media": [
+    "Văn bản",
+    "Chuyển đổi"
+   ],
+   "secondary_media": [
+    "Hình ảnh",
+    "Video",
+    "Tương tác"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Trực tiếp"
+   ],
+   "tokens": [
+    "Website",
+    "website",
+    "Blog",
+    "search",
+    "Landing page",
+    "landing page",
+    "knowledge base",
+    "help center",
+    "ecommerce"
+   ],
+   "register": "chuyên môn",
+   "max_capacity": 12
+  },
+  "community": {
+   "primary_media": [
+    "Cộng đồng",
+    "Văn bản"
+   ],
+   "secondary_media": [
+    "Tương tác",
+    "Trực tiếp",
+    "Hình ảnh"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "PR",
+    "Chuyển đổi"
+   ],
+   "tokens": [
+    "community",
+    "Group",
+    "forum"
+   ],
+   "register": "thân mật",
+   "max_capacity": 10
+  },
+  "pr": {
+   "primary_media": [
+    "PR",
+    "Văn bản"
+   ],
+   "secondary_media": [
+    "Hình ảnh"
+   ],
+   "banned_media": [
+    "Email",
+    "Trò chuyện",
+    "Tương tác",
+    "Cộng đồng",
+    "Chuyển đổi"
+   ],
+   "tokens": [
+    "PR",
+    "Newsroom",
+    "media outreach",
+    "báo chí"
+   ],
+   "register": "trang trọng",
+   "max_capacity": 8
+  },
+  "app": {
+   "primary_media": [
+    "Trực tiếp",
+    "Tương tác"
+   ],
+   "secondary_media": [
+    "Văn bản",
+    "Video"
+   ],
+   "banned_media": [
+    "In ấn",
+    "Ngoài trời",
+    "PR",
+    "Sự kiện"
+   ],
+   "tokens": [
+    "app",
+    "in-app",
+    "web push"
+   ],
+   "register": "đời thường",
+   "max_capacity": 8
+  },
+  "event": {
+   "primary_media": [
+    "Sự kiện",
+    "Trực tiếp"
+   ],
+   "secondary_media": [
+    "Trình bày",
+    "Cộng đồng",
+    "Video"
+   ],
+   "banned_media": [
+    "Email",
+    "Ngoài trời"
+   ],
+   "tokens": [
+    "event",
+    "event platform",
+    "Offline/hybrid",
+    "Offline",
+    "Meeting",
+    "exhibition",
+    "live",
+    "Live"
+   ],
+   "register": "đời thường",
+   "max_capacity": 12
+  },
+  "offline": {
+   "primary_media": [
+    "In ấn",
+    "Ngoài trời"
+   ],
+   "secondary_media": [
+    "Hình ảnh",
+    "Sự kiện"
+   ],
+   "banned_media": [
+    "Email",
+    "Video",
+    "Trò chuyện",
+    "Tương tác"
+   ],
+   "tokens": [
+    "Offline",
+    "Offline/hybrid",
+    "retail",
+    "Outdoor",
+    "display",
+    "print",
+    "direct"
+   ],
+   "register": "đời thường",
+   "max_capacity": 4
+  },
+  "podcast": {
+   "primary_media": [
+    "Audio",
+    "Audio/Video"
+   ],
+   "secondary_media": [
+    "Video"
+   ],
+   "banned_media": [
+    "Email",
+    "In ấn",
+    "Ngoài trời",
+    "Hình ảnh",
+    "Chuyển đổi"
+   ],
+   "tokens": [
+    "Podcast platforms",
+    "podcast"
+   ],
+   "register": "đời thường",
+   "max_capacity": 12
+  },
+  "sales": {
+   "primary_media": [
+    "Trình bày",
+    "Văn bản",
+    "Chuyển đổi"
+   ],
+   "secondary_media": [
+    "Video",
+    "In ấn"
+   ],
+   "banned_media": [
+    "Ngoài trời",
+    "Cộng đồng",
+    "Trò chuyện"
+   ],
+   "tokens": [
+    "sales",
+    "sales deck",
+    "deck",
+    "case",
+    "PDF"
+   ],
+   "register": "chuyên môn",
+   "max_capacity": 12
+  }
+ },
+ "channel_alias_map": {
+  "facebook": "facebook",
+  "fb": "facebook",
+  "meta": "facebook",
+  "social": "facebook",
+  "mang xa hoi": "facebook",
+  "fanpage": "facebook",
+  "instagram": "instagram",
+  "ig": "instagram",
+  "reels": "instagram",
+  "tiktok": "tiktok",
+  "tik tok": "tiktok",
+  "short video": "tiktok",
+  "video ngan": "tiktok",
+  "youtube": "youtube",
+  "yt": "youtube",
+  "video": "youtube",
+  "linkedin": "linkedin",
+  "email": "email",
+  "mail": "email",
+  "newsletter": "email",
+  "edm": "email",
+  "website": "website",
+  "web": "website",
+  "blog": "website",
+  "seo": "website",
+  "landing page": "website",
+  "landing": "website",
+  "community": "community",
+  "cong dong": "community",
+  "group": "community",
+  "forum": "community",
+  "zalo": "community",
+  "pr": "pr",
+  "bao chi": "pr",
+  "press": "pr",
+  "app": "app",
+  "ung dung": "app",
+  "in-app": "app",
+  "push": "app",
+  "sms": "app",
+  "event": "event",
+  "su kien": "event",
+  "hoi thao": "event",
+  "webinar": "event",
+  "livestream": "event",
+  "live": "event",
+  "offline": "offline",
+  "ooh": "offline",
+  "bien bang": "offline",
+  "in an": "offline",
+  "tai cua hang": "offline",
+  "podcast": "podcast",
+  "audio": "podcast",
+  "sales": "sales",
+  "ban hang": "sales",
+  "tu van": "sales"
+ },
+ "register_scale": {
+  "thân mật": 0,
+  "đời thường": 1,
+  "chuyên môn": 2,
+  "trang trọng": 3
+ },
+ "register_by_industry": {
+  "giao duc tre em": "đời thường",
+  "giao duc": "đời thường",
+  "f&b": "thân mật",
+  "am thuc": "thân mật",
+  "my pham": "thân mật",
+  "skincare": "thân mật",
+  "thoi trang": "đời thường",
+  "fitness": "thân mật",
+  "gym": "thân mật",
+  "fintech": "đời thường",
+  "b2b": "chuyên môn",
+  "saas": "chuyên môn",
+  "cong nghe": "chuyên môn",
+  "bat dong san": "chuyên môn",
+  "nong san": "đời thường",
+  "dac san": "đời thường",
+  "y te": "trang trọng",
+  "suc khoe": "trang trọng",
+  "tai chinh": "trang trọng",
+  "ngan hang": "trang trọng",
+  "bao hiem": "trang trọng"
+ },
+ "register_by_ht_tag": {
+  "Bằng chứng và dữ liệu": 2,
+  "Chuyên gia và thẩm quyền": 2,
+  "So sánh và lựa chọn": 2,
+  "Thời điểm, xu hướng và tin mới": 2,
+  "Danh sách và con số": 1,
+  "How-to và hướng dẫn": 1,
+  "Lợi ích và kết quả": 1,
+  "Vấn đề và cảnh báo": 1,
+  "Sai lầm và điều cần tránh": 1,
+  "Myth và góc nhìn ngược": 1,
+  "Câu hỏi và tự chẩn đoán": 1,
+  "Offer và hành động": 1,
+  "Tò mò và tiết lộ": 0,
+  "Câu chuyện và chuyển đổi": 0,
+  "Đối tượng và bản sắc": 0,
+  "Minh bạch và hậu trường": 0
+ },
+ "register_by_ct_tag": {
+  "PR": 3,
+  "Trình bày": 2,
+  "In ấn": 2,
+  "Chuyển đổi": 2,
+  "Văn bản": 1,
+  "Email": 1,
+  "Video": 1,
+  "Hình ảnh": 1,
+  "Audio": 1,
+  "Audio/Video": 1,
+  "Tương tác": 1,
+  "Sự kiện": 1,
+  "Ngoài trời": 1,
+  "Cộng đồng": 0,
+  "Trực tiếp": 0,
+  "Trò chuyện": 0
+ },
+ "awareness_stage_ht_tags": {
+  "unaware": {
+   "Câu chuyện và chuyển đổi": 1.0,
+   "Đối tượng và bản sắc": 1.0,
+   "Tò mò và tiết lộ": 0.9,
+   "Minh bạch và hậu trường": 0.7,
+   "Vấn đề và cảnh báo": 0.5
+  },
+  "problem": {
+   "Vấn đề và cảnh báo": 1.0,
+   "Câu hỏi và tự chẩn đoán": 1.0,
+   "Sai lầm và điều cần tránh": 0.9,
+   "Tò mò và tiết lộ": 0.7,
+   "Câu chuyện và chuyển đổi": 0.6
+  },
+  "solution": {
+   "How-to và hướng dẫn": 1.0,
+   "Myth và góc nhìn ngược": 1.0,
+   "So sánh và lựa chọn": 0.9,
+   "Danh sách và con số": 0.8,
+   "Lợi ích và kết quả": 0.7
+  },
+  "product": {
+   "Bằng chứng và dữ liệu": 1.0,
+   "Chuyên gia và thẩm quyền": 0.9,
+   "Minh bạch và hậu trường": 0.9,
+   "So sánh và lựa chọn": 0.8,
+   "Lợi ích và kết quả": 0.8
+  },
+  "most_aware": {
+   "Offer và hành động": 1.0,
+   "Thời điểm, xu hướng và tin mới": 0.9,
+   "Lợi ích và kết quả": 0.8,
+   "Bằng chứng và dữ liệu": 0.7
+  }
+ },
+ "journey_to_awareness": {
+  "awareness": "problem",
+  "consideration": "solution",
+  "conversion": "product",
+  "onboarding": "most_aware",
+  "retention": "most_aware",
+  "advocacy": "most_aware"
+ },
+ "stage_goal_families": {
+  "awareness": [
+   "RC01",
+   "RC02",
+   "RC04",
+   "RC18",
+   "RC20",
+   "RC21",
+   "RC22"
+  ],
+  "consideration": [
+   "RC03",
+   "RC05",
+   "RC06",
+   "RC07",
+   "RC08",
+   "RC21"
+  ],
+  "conversion": [
+   "RC09",
+   "RC10",
+   "RC11",
+   "RC12"
+  ],
+  "onboarding": [
+   "RC13",
+   "RC02"
+  ],
+  "retention": [
+   "RC14",
+   "RC15",
+   "RC16",
+   "RC19",
+   "RC23"
+  ],
+  "advocacy": [
+   "RC17",
+   "RC22",
+   "RC24"
+  ]
+ },
+ "industry_profiles": {
+  "giao duc": {
+   "masters": [
+    "MP01",
+    "MP05"
+   ],
+   "pillars": {
+    "CJ05": 0.9,
+    "CJ09": 0.8,
+    "CJ11": 0.8,
+    "CJ13": 0.7,
+    "CO02": 0.7,
+    "CO06": 0.7,
+    "BR12": 0.6,
+    "MM05": 0.6,
+    "JT13": 0.6
+   }
+  },
+  "my pham": {
+   "masters": [
+    "MP04",
+    "MP01"
+   ],
+   "pillars": {
+    "JT03": 0.9,
+    "JT08": 0.9,
+    "CJ04": 0.8,
+    "CJ11": 0.8,
+    "BR08": 0.7,
+    "MM01": 0.7,
+    "CO07": 0.7,
+    "JT06": 0.6
+   }
+  },
+  "skincare": {
+   "masters": [
+    "MP04",
+    "MP01"
+   ],
+   "pillars": {
+    "JT03": 0.9,
+    "JT08": 0.9,
+    "CJ04": 0.8,
+    "CJ11": 0.8,
+    "BR08": 0.7,
+    "CO07": 0.7
+   }
+  },
+  "f&b": {
+   "masters": [
+    "MP05",
+    "MP03"
+   ],
+   "pillars": {
+    "CO01": 0.9,
+    "CO05": 0.9,
+    "CO13": 0.8,
+    "MM07": 0.8,
+    "MM05": 0.7,
+    "CJ16": 0.7,
+    "BR11": 0.6,
+    "CO08": 0.7
+   }
+  },
+  "am thuc": {
+   "masters": [
+    "MP05",
+    "MP03"
+   ],
+   "pillars": {
+    "CO01": 0.9,
+    "CO05": 0.9,
+    "MM07": 0.8,
+    "MM05": 0.7,
+    "CJ16": 0.7
+   }
+  },
+  "b2b": {
+   "masters": [
+    "MP04",
+    "MP03"
+   ],
+   "pillars": {
+    "JT06": 0.9,
+    "JT11": 0.9,
+    "JT12": 0.8,
+    "CJ07": 0.8,
+    "CJ08": 0.8,
+    "BR08": 0.8,
+    "BR17": 0.7,
+    "MM06": 0.7
+   }
+  },
+  "saas": {
+   "masters": [
+    "MP04",
+    "MP03"
+   ],
+   "pillars": {
+    "JT06": 0.9,
+    "JT08": 0.9,
+    "JT13": 0.8,
+    "CJ07": 0.8,
+    "MM01": 0.8,
+    "BR17": 0.7,
+    "CJ13": 0.7
+   }
+  },
+  "cong nghe": {
+   "masters": [
+    "MP04",
+    "MP03"
+   ],
+   "pillars": {
+    "JT08": 0.9,
+    "JT06": 0.8,
+    "BR19": 0.8,
+    "BR17": 0.7,
+    "MM06": 0.7
+   }
+  },
+  "bat dong san": {
+   "masters": [
+    "MP01",
+    "MP03"
+   ],
+   "pillars": {
+    "CJ07": 0.9,
+    "CJ08": 0.9,
+    "CJ09": 0.9,
+    "MM07": 0.9,
+    "CJ10": 0.8,
+    "MM02": 0.8,
+    "MM03": 0.7
+   }
+  },
+  "fitness": {
+   "masters": [
+    "MP01",
+    "MP05"
+   ],
+   "pillars": {
+    "CJ11": 0.9,
+    "CJ13": 0.8,
+    "CJ16": 0.8,
+    "CO03": 0.8,
+    "CO13": 0.8,
+    "MM05": 0.7,
+    "JT07": 0.7
+   }
+  },
+  "gym": {
+   "masters": [
+    "MP01",
+    "MP05"
+   ],
+   "pillars": {
+    "CJ11": 0.9,
+    "CJ16": 0.8,
+    "CO03": 0.8,
+    "CO13": 0.8,
+    "JT07": 0.7
+   }
+  },
+  "fintech": {
+   "masters": [
+    "MP01",
+    "MP04"
+   ],
+   "pillars": {
+    "CJ13": 0.9,
+    "CJ05": 0.8,
+    "JT13": 0.8,
+    "CJ09": 0.8,
+    "MM06": 0.7,
+    "JT03": 0.7
+   }
+  },
+  "tai chinh": {
+   "masters": [
+    "MP01",
+    "MP02"
+   ],
+   "pillars": {
+    "CJ09": 0.9,
+    "CJ05": 0.9,
+    "BR08": 0.8,
+    "CJ10": 0.8,
+    "MM07": 0.7
+   }
+  },
+  "thoi trang": {
+   "masters": [
+    "MP02",
+    "MP03"
+   ],
+   "pillars": {
+    "BR04": 0.9,
+    "BR07": 0.8,
+    "BR11": 0.8,
+    "MM01": 0.8,
+    "MM07": 0.8,
+    "BR12": 0.7,
+    "CO06": 0.7
+   }
+  },
+  "nong san": {
+   "masters": [
+    "MP02",
+    "MP03"
+   ],
+   "pillars": {
+    "BR01": 0.9,
+    "MM06": 0.9,
+    "MM07": 0.8,
+    "BR08": 0.8,
+    "BR12": 0.7,
+    "CO15": 0.7
+   }
+  },
+  "dac san": {
+   "masters": [
+    "MP02",
+    "MP03"
+   ],
+   "pillars": {
+    "BR01": 0.9,
+    "MM06": 0.9,
+    "MM07": 0.8,
+    "BR08": 0.8,
+    "CO15": 0.7
+   }
+  },
+  "y te": {
+   "masters": [
+    "MP01",
+    "MP02"
+   ],
+   "pillars": {
+    "CJ05": 0.9,
+    "CJ09": 0.9,
+    "BR08": 0.9,
+    "MM05": 0.8,
+    "CJ04": 0.8,
+    "MM07": 0.7
+   }
+  },
+  "du lich": {
+   "masters": [
+    "MP05",
+    "MP01"
+   ],
+   "pillars": {
+    "CO08": 0.9,
+    "CO03": 0.8,
+    "MM07": 0.8,
+    "CJ11": 0.8,
+    "CO06": 0.7
+   }
+  },
+  "noi that": {
+   "masters": [
+    "MP03",
+    "MP02"
+   ],
+   "pillars": {
+    "MM07": 0.9,
+    "MM01": 0.8,
+    "MM06": 0.8,
+    "BR09": 0.7,
+    "CJ11": 0.7
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Content Matrix 10B Ideas",
+  "name_for_model": "content_matrix_10b_ideas",
+  "description_for_human": "Universal Content Engine delivering 10B+ high-converting ideas by connecting 5 strategic points.",
+  "description_for_model": "Elite Creative Director & Master Copywriter running on the MatrixContent Knowledge Graph (991 nodes, 69,720 edges). Connects Content Angle -> Content Formula -> Success Pattern -> Headline Template -> Content Type into ready-to-use copy.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://content-matrix-10b-ideas.vercel.app/openapi.json"
+  },
+  "logo_url": "https://content-matrix-10b-ideas.vercel.app/assets/logo.png",
+  "contact_email": "tienlx@auramarketers.com",
+  "legal_info_url": "https://auramarketers.com/terms"
+}

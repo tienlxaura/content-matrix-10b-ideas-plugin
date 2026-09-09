@@ -1,0 +1,422 @@
+{
+  "meta": {
+    "purpose": "Regression suite for the MatrixContent selection engine. Run with: python scripts/validate_matrixcontent.py --evals evals/eval-cases.json",
+    "data_version": "2.0.0",
+    "note": "Expectations are deliberately looser than observed output. They pin behaviour that must not regress (goal family, master pillar family, diversity floors, no hard conflicts), not the exact ranking, which is allowed to shift as the overlay is tuned. v2 adds channel/medium gating, register and Schwartz awareness-stage assertions; these encode the four defects the 10-round audit found."
+  },
+  "activation_phrases": [
+    "sáng tạo nội dung",
+    "lên ý tưởng content",
+    "viết caption",
+    "viết bài truyền thông",
+    "viết kịch bản video",
+    "tạo 10 hướng nội dung",
+    "tìm content angle",
+    "lập kế hoạch content",
+    "đánh giá nội dung",
+    "viết lại nội dung",
+    "dùng Content Matrix",
+    "nối 5 điểm sáng tạo"
+  ],
+  "cases": [
+    {
+      "id": "edu-kids-conversion",
+      "description": "Giáo dục trẻ em — mục tiêu thúc đẩy phụ huynh đăng ký.",
+      "brief": {
+        "topic": "Cuộc thi học sinh giỏi quốc gia",
+        "brand": "UCMAS",
+        "industry": "Giáo dục trẻ em",
+        "product": "Chương trình toán trí tuệ bàn tính",
+        "audience": "Phụ huynh có con 7-14 tuổi",
+        "insight": "Phụ huynh muốn con nổi bật nhưng sợ con áp lực",
+        "marketing_goal": "Khuyến khích phụ huynh đăng ký cho con tham gia",
+        "journey_stage": "conversion",
+        "channels": [
+          "Facebook"
+        ],
+        "tone": "ấm áp, tôn trọng phụ huynh",
+        "assets": [
+          "ảnh lớp học",
+          "lịch thi"
+        ],
+        "cta": "Đăng ký vòng loại",
+        "constraints": [
+          "không cam kết giải thưởng"
+        ],
+        "avoid": [
+          "gây áp lực thành tích"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC09",
+          "RC10",
+          "RC11",
+          "RC12"
+        ],
+        "master_pillars_any": [
+          "MP01",
+          "MP03"
+        ],
+        "min_top_score": 58,
+        "min_distinct": {
+          "angle": 4,
+          "pattern": 4,
+          "type": 3,
+          "pillar": 3
+        },
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "edu-contest-awareness",
+      "description": "Cuộc thi học sinh — mục tiêu tăng nhận biết và khuyến khích tham gia.",
+      "brief": {
+        "topic": "Cuộc thi Toán tư duy dành cho học sinh tiểu học toàn quốc",
+        "brand": "UCMAS Việt Nam",
+        "industry": "Giáo dục trẻ em",
+        "product": "Sân chơi học thuật thường niên",
+        "audience": "Học sinh 6-12 tuổi và phụ huynh, giáo viên chủ nhiệm",
+        "insight": "Trẻ thích được công nhận trước bạn bè, phụ huynh muốn con có sân chơi lành mạnh",
+        "marketing_goal": "Tăng nhận biết cuộc thi và khuyến khích học sinh tham gia",
+        "journey_stage": "awareness",
+        "channels": [
+          "Facebook",
+          "Website"
+        ],
+        "tone": "vui tươi, khích lệ, không so sánh trẻ",
+        "assets": [
+          "ảnh mùa thi trước",
+          "thể lệ chính thức"
+        ],
+        "cta": "Xem thể lệ và ghi danh",
+        "constraints": [
+          "không cam kết giải thưởng",
+          "không nêu tên trẻ khi chưa có đồng ý"
+        ],
+        "avoid": [
+          "gây áp lực thành tích"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC01",
+          "RC02",
+          "RC04",
+          "RC22"
+        ],
+        "master_pillars_any": [
+          "MP01",
+          "MP04",
+          "MP05"
+        ],
+        "min_top_score": 58,
+        "min_distinct": {
+          "angle": 4,
+          "pattern": 4,
+          "type": 3,
+          "pillar": 3
+        },
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "b2b-saas-linkedin-lead",
+      "description": "B2B SaaS — mục tiêu tạo lead trên LinkedIn.",
+      "brief": {
+        "topic": "Nền tảng quản lý chi phí đám mây cho doanh nghiệp vừa",
+        "brand": "CloudLedger",
+        "industry": "B2B SaaS",
+        "product": "Phần mềm phân tích và tối ưu chi phí hạ tầng cloud",
+        "audience": "Giám đốc công nghệ và trưởng phòng tài chính công nghệ tại doanh nghiệp 200-2000 nhân sự",
+        "insight": "Đội kỹ thuật biết chi phí cloud đang phình ra nhưng không chứng minh được khoản nào lãng phí",
+        "marketing_goal": "Tạo lead chất lượng trên LinkedIn",
+        "journey_stage": "consideration",
+        "channels": [
+          "LinkedIn"
+        ],
+        "tone": "chuyên môn, thẳng thắn, dựa trên dữ liệu",
+        "assets": [
+          "báo cáo nội bộ ẩn danh",
+          "số liệu benchmark ngành"
+        ],
+        "cta": "Tải báo cáo benchmark chi phí cloud",
+        "constraints": [
+          "không nêu tên khách hàng khi chưa có chấp thuận"
+        ],
+        "avoid": [
+          "hạ thấp đối thủ có tên"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC03",
+          "RC05",
+          "RC06",
+          "RC07",
+          "RC08",
+          "RC09"
+        ],
+        "master_pillars_any": [
+          "MP03",
+          "MP04",
+          "MP01"
+        ],
+        "min_top_score": 58,
+        "min_distinct": {
+          "angle": 4,
+          "pattern": 4,
+          "type": 3,
+          "pillar": 3
+        },
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "fnb-local-retention",
+      "description": "F&B địa phương — mục tiêu tăng quay lại và xây cộng đồng.",
+      "brief": {
+        "topic": "Quán cà phê rang xay tại khu dân cư",
+        "brand": "Nhà Rang",
+        "industry": "F&B địa phương",
+        "product": "Cà phê rang mộc và không gian ngồi lại",
+        "audience": "Cư dân trong bán kính 2km, nhân viên văn phòng và người làm việc tự do",
+        "insight": "Khách quen muốn một chỗ thuộc về mình chứ không chỉ một ly cà phê",
+        "marketing_goal": "Tăng tỷ lệ khách quay lại và xây cộng đồng khách quen",
+        "journey_stage": "retention",
+        "channels": [
+          "Facebook",
+          "community"
+        ],
+        "tone": "gần gũi, đời thường, không màu mè",
+        "assets": [
+          "ảnh khách quen",
+          "lịch sự kiện cuối tuần"
+        ],
+        "cta": "Ghé quán cuối tuần này"
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC16",
+          "RC17",
+          "RC22",
+          "RC23"
+        ],
+        "master_pillars_any": [
+          "MP05",
+          "MP01"
+        ],
+        "min_top_score": 58,
+        "min_distinct": {
+          "angle": 4,
+          "pattern": 4,
+          "type": 3,
+          "pillar": 3
+        },
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "thin-brief",
+      "description": "Brief rất ngắn, thiếu thông tin — kiểm tra khả năng đưa ra giả định hợp lý và không sập.",
+      "brief": {
+        "topic": "Ra mắt sản phẩm mới"
+      },
+      "expect": {
+        "count": 10,
+        "goal_method_any": [
+          "inferred",
+          "default"
+        ],
+        "min_top_score": 45,
+        "min_distinct": {
+          "angle": 4,
+          "pattern": 4,
+          "type": 3,
+          "pillar": 3
+        },
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true,
+        "note": "Trần điểm thấp là hành vi đúng: brief mỏng thì không tổ hợp nào đạt điểm cao."
+      }
+    },
+    {
+      "id": "constrained-explicit-selection",
+      "description": "Người dùng đã tự chốt mục tiêu và pillar — engine phải tôn trọng ràng buộc, không tự đổi.",
+      "brief": {
+        "topic": "Chuỗi nội dung xử lý lo ngại về giá của khóa học tiếng Anh trẻ em",
+        "brand": "EnglishHub",
+        "industry": "Giáo dục trẻ em",
+        "audience": "Phụ huynh đã tham khảo giá nhưng chần chừ",
+        "insight": "Phụ huynh không chê đắt, họ sợ trả tiền rồi con bỏ giữa chừng",
+        "goal_codes": [
+          "RC10"
+        ],
+        "journey_stage": "conversion",
+        "pillar_hint": [
+          "CJ10",
+          "JT07"
+        ],
+        "channels": [
+          "Facebook",
+          "email"
+        ],
+        "assets": [
+          "chính sách hoàn phí",
+          "tỉ lệ hoàn thành khóa"
+        ],
+        "cta": "Đặt lịch học thử miễn phí",
+        "avoid": [
+          "so sánh trẻ"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC10"
+        ],
+        "goal_method_any": [
+          "explicit"
+        ],
+        "pillars_subset_of": [
+          "CJ10",
+          "JT07"
+        ],
+        "min_top_score": 50,
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "tiktok-must-be-video",
+      "description": "Kênh video ngắn phải ra định dạng video ngắn. v1 trả về listicle blog vì alias 'tiktok' chứa token 'social'.",
+      "brief": {
+        "topic": "Serum phục hồi da cho da dầu mụn",
+        "brand": "Lành",
+        "industry": "Mỹ phẩm skincare nội địa",
+        "product": "Serum B5 phục hồi hàng rào bảo vệ da",
+        "audience": "Nữ 20-28 tuổi, da dầu mụn, đã thử nhiều sản phẩm và thất bại",
+        "insight": "Họ không thiếu sản phẩm, họ thiếu niềm tin vào việc da mình có thể ổn định",
+        "marketing_goal": "Tăng nhận biết thương hiệu",
+        "journey_stage": "awareness",
+        "channels": [
+          "TikTok"
+        ],
+        "tone": "thẳng thắn, như bạn bè",
+        "assets": [
+          "ảnh trước sau của nhân viên"
+        ],
+        "cta": "Xem giỏ hàng",
+        "constraints": [
+          "không cam kết trị mụn"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "min_ct_tag": {
+          "Video": 4
+        },
+        "forbidden_ct_tags": [
+          "Email",
+          "In ấn",
+          "Ngoài trời",
+          "PR",
+          "Văn bản"
+        ],
+        "max_ct_capacity": 6,
+        "register": "thân mật",
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "email-onboarding-stage-respected",
+      "description": "Brief khai onboarding phải ra goal onboarding và định dạng email. v1 chọn RC14 và listicle blog. Chỉ cấm phương tiện mà CẢ HAI kênh đều không chở được.",
+      "brief": {
+        "topic": "Ứng dụng quản lý chi tiêu cá nhân",
+        "brand": "Sổ",
+        "industry": "Fintech tiêu dùng",
+        "product": "App ghi chép và phân loại chi tiêu tự động",
+        "audience": "Người đi làm 22-32 tuổi, lương ổn nhưng cuối tháng luôn hết tiền",
+        "insight": "Họ biết mình tiêu nhiều nhưng không chịu nổi cảm giác bị app phán xét",
+        "marketing_goal": "Giúp người mới tải app hoàn tất tuần đầu",
+        "journey_stage": "onboarding",
+        "channels": [
+          "email",
+          "app"
+        ],
+        "tone": "nhẹ nhàng, không dạy đời",
+        "assets": [
+          "ảnh giao diện app"
+        ],
+        "cta": "Mở app ghi khoản đầu tiên",
+        "constraints": [
+          "không tư vấn đầu tư"
+        ]
+      },
+      "expect": {
+        "count": 10,
+        "goal_codes_any": [
+          "RC13",
+          "RC02"
+        ],
+        "forbidden_ct_tags": [
+          "In ấn",
+          "Ngoài trời",
+          "PR",
+          "Sự kiện"
+        ],
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    },
+    {
+      "id": "local-fnb-register",
+      "description": "Quán cà phê khu dân cư không được nhận tiêu đề kiểu tư vấn doanh nghiệp. v1 trả về 'Ma trận lựa chọn theo mục tiêu/nguồn lực'.",
+      "brief": {
+        "topic": "Quán cà phê rang xay khu dân cư",
+        "brand": "Nhà Rang",
+        "industry": "F&B địa phương",
+        "product": "Cà phê rang mộc và không gian ngồi lại",
+        "audience": "Cư dân bán kính 2km, nhân viên văn phòng, freelancer",
+        "insight": "Khách quen muốn một chỗ thuộc về mình chứ không chỉ một ly cà phê",
+        "marketing_goal": "Tăng khách quay lại và xây cộng đồng khách quen",
+        "journey_stage": "retention",
+        "channels": [
+          "Facebook",
+          "community"
+        ],
+        "tone": "gần gũi, đời thường",
+        "assets": [
+          "ảnh khách quen"
+        ],
+        "cta": "Ghé quán cuối tuần"
+      },
+      "expect": {
+        "count": 10,
+        "register": "thân mật",
+        "forbidden_ht_tags": [
+          "Bằng chứng và dữ liệu",
+          "Chuyên gia và thẩm quyền",
+          "Thời điểm, xu hướng và tin mới"
+        ],
+        "forbidden_ct_tags": [
+          "PR",
+          "Trình bày",
+          "In ấn",
+          "Chuyển đổi"
+        ],
+        "min_pairwise_difference": 2,
+        "no_hard_conflicts": true
+      }
+    }
+  ]
+}

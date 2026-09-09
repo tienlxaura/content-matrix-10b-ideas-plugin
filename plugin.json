@@ -1,0 +1,52 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "content-matrix-10b-ideas",
+  "version": "1.0.0",
+  "description": "Universal Content Engine delivering 10B+ high-converting ideas by connecting 5 strategic points: Content Angle, Formula, Success Pattern, Headline Template, and Content Type.",
+  "author": {
+    "name": "Aura Marketers",
+    "email": "tienlx@auramarketers.com",
+    "url": "https://auramarketers.com"
+  },
+  "homepage": "https://auramarketers.com",
+  "repository": "https://github.com/tienlxaura/content-matrix-10b-ideas-plugin",
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "copywriting",
+    "content-matrix",
+    "creativity",
+    "social-media",
+    "content-strategy",
+    "tiktok-scripts",
+    "hooks",
+    "headlines"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Content Matrix 10B Ideas",
+        "shortDescription": "Elite Creative Director & Master Copywriter connecting 5 strategic points into publish-ready copy.",
+        "longDescription": "Operates on the 991-node, 69,720-edge MatrixContent Knowledge Graph. Transforms any raw brief into high-converting copy, viral TikTok scripts, persuasive email sequences, and 30-day content calendars without boring AI cliches.",
+        "developerName": "Aura Marketers",
+        "category": "Marketing",
+        "capabilities": [
+          "Read",
+          "Execute"
+        ],
+        "websiteURL": "https://auramarketers.com",
+        "privacyPolicyURL": "https://auramarketers.com/privacy",
+        "termsOfServiceURL": "https://auramarketers.com/terms",
+        "defaultPrompt": [
+          "Lên 10 hướng ý tưởng content cho sản phẩm khoá học tiếng Anh",
+          "Viết kịch bản video TikTok 60 giây theo công thức PAS và hook tò mò",
+          "Chấm điểm và viết lại bài viết bán hàng này theo 7 sweeps QA",
+          "Lập kế hoạch nội dung 30 ngày cho thương hiệu F&B"
+        ],
+        "brandColor": "#FF6B00",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}
