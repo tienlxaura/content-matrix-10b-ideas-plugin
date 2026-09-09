@@ -149,6 +149,267 @@ def get_mcp_config():
     return {"error": "mcp.json not found"}
 
 
+# --------------------------------------------------------------------------
+# MCP Streamable HTTP Server Endpoint (Model Context Protocol)
+# Compatible with ChatGPT Developer Mode / With MCP
+# --------------------------------------------------------------------------
+
+@app.api_route("/mcp", methods=["GET", "POST", "OPTIONS"])
+@app.api_route("/api/mcp", methods=["GET", "POST", "OPTIONS"])
+async def mcp_streamable_http_handler(request: Request):
+    """MCP Streamable HTTP protocol endpoint for ChatGPT Developer Mode."""
+    if request.method == "OPTIONS":
+        return Response(status_code=200)
+
+    if request.method == "GET":
+        # Check if client requested SSE
+        accept = request.headers.get("accept", "")
+        if "text/event-stream" in accept:
+            async def sse_stream():
+                yield "event: endpoint\ndata: /mcp\n\n"
+            from fastapi.responses import StreamingResponse
+            return StreamingResponse(sse_stream(), media_type="text/event-stream")
+        return JSONResponse({
+            "status": "active",
+            "protocol": "mcp",
+            "transport": "streamable-http",
+            "server": "Content Matrix 10B Ideas MCP Server",
+            "version": "1.0.0",
+            "capabilities": ["tools"],
+            "url": "https://content-matrix-10b-ideas-plugin.vercel.app/mcp"
+        })
+
+    # Handle POST JSON-RPC 2.0 requests
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"jsonrpc": "2.0", "error": {"code": -32700, "message": "Invalid JSON"}}, status_code=400)
+
+    method = body.get("method")
+    req_id = body.get("id")
+    params = body.get("params", {}) or {}
+
+    global matrix_data
+    if not matrix_data:
+        try:
+            matrix_data = matrix_lib.MatrixData()
+        except Exception as e:
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "error": {"code": -32000, "message": f"Graph load error: {str(e)}"}
+            }, status_code=500)
+
+    if method == "initialize":
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "result": {
+                "protocolVersion": "2024-11-05",
+                "capabilities": {
+                    "tools": {
+                        "listChanged": False
+                    }
+                },
+                "serverInfo": {
+                    "name": "content-matrix-10b-ideas",
+                    "version": "1.0.0"
+                }
+            }
+        })
+
+    elif method in ("notifications/initialized", "initialized"):
+        return Response(status_code=200)
+
+    elif method == "ping":
+        return JSONResponse({"jsonrpc": "2.0", "id": req_id, "result": {}})
+
+    elif method == "tools/list":
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "result": {
+                "tools": [
+                    {
+                        "name": "select_content_matrix",
+                        "description": "Tính toán và xếp hạng các tổ hợp 5 điểm chiến lược (Content Angle -> Content Formula -> Success Pattern -> Headline Template -> Content Type) tối ưu từ đồ thị tri thức 991 nodes.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Chủ đề bài viết hoặc sản phẩm cần lên nội dung (Bắt buộc)"
+                                },
+                                "brand": {
+                                    "type": "string",
+                                    "description": "Tên thương hiệu hoặc dịch vụ"
+                                },
+                                "industry": {
+                                    "type": "string",
+                                    "description": "Ngành hàng (vd: giáo dục, tài chính, saas, f&b)"
+                                },
+                                "audience": {
+                                    "type": "string",
+                                    "description": "Chân dung khách hàng mục tiêu"
+                                },
+                                "insight": {
+                                    "type": "string",
+                                    "description": "Insight hoặc nỗi đau ngầm hiểu của khách hàng"
+                                },
+                                "marketing_goal": {
+                                    "type": "string",
+                                    "description": "Mục tiêu marketing (vd: nhận biết, chuyển đổi, tương tác)"
+                                },
+                                "count": {
+                                    "type": "integer",
+                                    "description": "Số lượng tổ hợp 5 điểm cần trả về (mặc định 3, tối đa 10)",
+                                    "default": 3
+                                }
+                            },
+                            "required": ["topic"]
+                        }
+                    },
+                    {
+                        "name": "get_catalog_nodes",
+                        "description": "Tra cứu nhanh kho công thức copywriting (ContentFormula), góc tiếp cận (ContentAngle), mẫu tiêu đề (HeadlineTemplate), dạng bài (ContentType).",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "description": "Loại catalog cần tra: ContentFormula, ContentAngle, SuccessPattern, HeadlineTemplate, ContentType",
+                                    "default": "ContentFormula"
+                                },
+                                "search": {
+                                    "type": "string",
+                                    "description": "Từ khoá cần tìm"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        })
+
+    elif method == "tools/call":
+        tool_name = params.get("name")
+        args = params.get("arguments", {}) or {}
+
+        if tool_name == "select_content_matrix":
+            count = min(10, max(1, int(args.get("count", 3))))
+            brief_dict = {
+                "topic": args.get("topic", ""),
+                "brand": args.get("brand", ""),
+                "industry": args.get("industry", ""),
+                "audience": args.get("audience", ""),
+                "insight": args.get("insight", ""),
+                "marketing_goal": args.get("marketing_goal", ""),
+            }
+            try:
+                raw_res = select_combinations.run(
+                    matrix_data,
+                    brief_dict,
+                    count=count,
+                    diversity=0.35,
+                    pool_size=max(30, count * 3)
+                )
+
+                formatted = []
+                for item in raw_res.get("combinations", []):
+                    fp = item.get("five_points", {})
+                    angle = fp.get("content_angle", {})
+                    formula = fp.get("content_formula", {})
+                    pattern = fp.get("success_pattern", {})
+                    headline = fp.get("headline_template", {})
+                    ctype = fp.get("content_type", {})
+                    sample_hl = (headline.get("examples") and headline["examples"][0]) or headline.get("template", "")
+
+                    formatted.append(
+                        f"### Tổ Hợp #{item['rank']} (Điểm: {item.get('score', 0):.1f} - {item.get('selection_mechanism', 'brief')})\n"
+                        f"- **🎯 Content Angle (Góc tiếp cận)**: {angle.get('name')} ({angle.get('code')})\n"
+                        f"  *Định hướng*: {angle.get('direction') or angle.get('description')}\n"
+                        f"- **📐 Content Formula (Công thức)**: {formula.get('name')} ({formula.get('code')})\n"
+                        f"  *Cấu trúc*: {' -> '.join(formula.get('structure', []))}\n"
+                        f"- **⚡ Success Pattern (Tâm lý)**: {pattern.get('name')} ({pattern.get('code')})\n"
+                        f"  *Cơ chế*: {pattern.get('mechanism') or pattern.get('description')}\n"
+                        f"- **🏷️ Headline Template (Tiêu đề gợi ý)**: \"{sample_hl}\"\n"
+                        f"  *Khuôn mẫu*: {headline.get('template')}\n"
+                        f"- **📱 Content Type (Định dạng đề xuất)**: {ctype.get('name')} ({ctype.get('code')})\n"
+                    )
+
+                text_response = (
+                    f"## KẾT QUẢ CONTENT MATRIX 10B IDEAS\n"
+                    f"Đã phân tích brief dựa trên đồ thị tri thức 991 nodes và chọn ra {len(raw_res.get('combinations', []))} tổ hợp 5 điểm tối ưu nhất:\n\n"
+                    + "\n\n".join(formatted)
+                )
+
+                return JSONResponse({
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "result": {
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": text_response
+                            }
+                        ],
+                        "structured_data": raw_res
+                    }
+                })
+            except Exception as exc:
+                return JSONResponse({
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "result": {
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": f"Lỗi khi tính toán tổ hợp Content Matrix: {str(exc)}"
+                            }
+                        ],
+                        "isError": True
+                    }
+                })
+
+        elif tool_name == "get_catalog_nodes":
+            cat_type = args.get("type", "ContentFormula")
+            search = args.get("search", "")
+            items = []
+            nodes = matrix_data.by_type.get(cat_type, [])
+            for node in nodes:
+                nid = node.get("code") or node.get("id") or ""
+                label = node.get("name") or node.get("description") or nid
+                if search and search.lower() not in (nid.lower() + " " + label.lower()):
+                    continue
+                items.append(f"- **{nid}**: {label} — *{node.get('description', '')}*")
+
+            content_text = f"### Danh mục {cat_type} ({len(items)} mục):\n" + "\n".join(items[:25])
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": content_text
+                        }
+                    ]
+                }
+            })
+
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "error": {"code": -32601, "message": f"Không tìm thấy tool: {tool_name}"}
+        })
+
+    return JSONResponse({
+        "jsonrpc": "2.0",
+        "id": req_id,
+        "error": {"code": -32601, "message": f"Phương thức không hỗ trợ: {method}"}
+    })
+
+
 @app.get("/assets/{filename}")
 def get_asset(filename: str):
     asset_path = os.path.join(PLUGIN_ROOT, "assets", filename)

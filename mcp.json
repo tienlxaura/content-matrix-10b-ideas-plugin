@@ -2,13 +2,8 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "content-matrix-engine": {
-      "type": "stdio",
-      "command": "python",
-      "args": [
-        "${PLUGIN_ROOT}/skills/content-matrix/scripts/select_combinations.py",
-        "--brief",
-        "-"
-      ]
+      "type": "streamable-http",
+      "url": "https://content-matrix-10b-ideas-plugin.vercel.app/mcp"
     }
   }
 }
