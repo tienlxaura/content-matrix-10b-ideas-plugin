@@ -58,12 +58,20 @@ app.add_middleware(
 # Vercel Internal Rewrite Path Normalization
 @app.middleware("http")
 async def normalize_vercel_path(request: Request, call_next):
+    # Check both request path and Vercel routing headers
+    matched = request.headers.get("x-matched-path") or request.headers.get("x-vercel-matched-path") or ""
     path = request.scope.get("path", "")
+    
+    target = path
+    if matched and ("/api/index.py" in matched or "/api/index" in matched):
+        target = matched
+
     for prefix in ("/api/index.py", "/api/index"):
-        if path.startswith(prefix):
-            new_path = path[len(prefix):]
-            request.scope["path"] = new_path if new_path else "/"
+        if target.startswith(prefix):
+            cleaned = target[len(prefix):]
+            request.scope["path"] = cleaned if (cleaned and cleaned.startswith("/")) else ("/" + cleaned if cleaned else "/")
             break
+
     response = await call_next(request)
     return response
 
