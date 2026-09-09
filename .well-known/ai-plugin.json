@@ -9,9 +9,9 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://content-matrix-10b-ideas.vercel.app/openapi.json"
+    "url": "https://content-matrix-10b-ideas-plugin.vercel.app/openapi.json"
   },
-  "logo_url": "https://content-matrix-10b-ideas.vercel.app/assets/logo.png",
+  "logo_url": "https://content-matrix-10b-ideas-plugin.vercel.app/assets/logo.png",
   "contact_email": "tienlx@auramarketers.com",
   "legal_info_url": "https://auramarketers.com/terms"
 }

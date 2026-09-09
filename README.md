@@ -1,7 +1,7 @@
 # Content Matrix 10B Ideas — OpenAI Agent Plugin & API
 
 [![OpenAI Agent Plugin](https://img.shields.io/badge/OpenAI-Agent%20Plugin-00A67E?style=for-the-badge&logo=openai&logoColor=white)](https://developers.openai.com/plugins/build/plugins)
-[![Vercel Deployed](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel&logoColor=white)](https://content-matrix-10b-ideas.vercel.app)
+[![Vercel Deployed](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel&logoColor=white)](https://content-matrix-10b-ideas-plugin.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 > **Universal Content Engine & Elite Creative Director** dành cho ChatGPT, Codex và các LLM hàng đầu. Vận hành dựa trên đồ thị tri thức **MatrixContent Knowledge Graph** (991 node, 69.720 cạnh) giúp biến brief sơ sài thành các sản phẩm câu chữ sắc bén, chuyển đổi cao và dùng được ngay.
@@ -61,7 +61,7 @@ Plugin này đóng gói toàn bộ kho tri thức, công thức và script tính
    - Nhấn **Import from URL**.
    - Dán URL OpenAPI của hệ thống:
      ```text
-     https://content-matrix-10b-ideas.vercel.app/openapi.json
+     https://content-matrix-10b-ideas-plugin.vercel.app/openapi.json
      ```
    - ChatGPT sẽ tự động nạp các công cụ: `selectMatrixCombinations`, `getCatalogNodes`, `validateCombination`.
 4. Nhấn **Save / Publish** để hoàn tất!
@@ -70,7 +70,7 @@ Plugin này đóng gói toàn bộ kho tri thức, công thức và script tính
 
 ## 📡 API Endpoints (Vercel)
 
-Base URL: `https://content-matrix-10b-ideas.vercel.app`
+Base URL: `https://content-matrix-10b-ideas-plugin.vercel.app`
 
 | Phương thức | Endpoint | Mô tả |
 |---|---|---|
@@ -86,7 +86,7 @@ Base URL: `https://content-matrix-10b-ideas.vercel.app`
 ### Ví dụ gọi API:
 
 ```bash
-curl -X POST "https://content-matrix-10b-ideas.vercel.app/api/select" \
+curl -X POST "https://content-matrix-10b-ideas-plugin.vercel.app/api/select" \
      -H "Content-Type: application/json" \
      -d '{
        "topic": "Quảng cáo khoá học toán tư duy UCMAS",

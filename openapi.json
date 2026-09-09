@@ -12,8 +12,12 @@
   },
   "servers": [
     {
+      "url": "https://content-matrix-10b-ideas-plugin.vercel.app",
+      "description": "Official Production Server on Vercel"
+    },
+    {
       "url": "https://content-matrix-10b-ideas.vercel.app",
-      "description": "Production Server on Vercel"
+      "description": "Mirror Production Server on Vercel"
     },
     {
       "url": "http://localhost:8000",
