@@ -242,7 +242,7 @@ async def mcp_streamable_http_handler(request: Request):
                 "tools": [
                     {
                         "name": "select_content_matrix",
-                        "description": "Tính toán và xếp hạng các tổ hợp 5 điểm chiến lược (Content Angle -> Content Formula -> Success Pattern -> Headline Template -> Content Type) tối ưu từ đồ thị tri thức 991 nodes.",
+                        "description": "Tính toán và xếp hạng các tổ hợp 5 điểm chiến lược từ đồ thị tri thức 991 nodes. QUY TẮC BẮT BUỘC: 1) AI luôn luôn phải hỏi người dùng chọn 1 trong 3 chế độ sáng tạo ('default', 'research', 'deep') trước khi thực hiện. 2) Có thể đọc tài nguyên 'matrix://skill-guide' để nắm trọn cẩm nang vận hành và quy tắc copywriting độc bản.",
                         "inputSchema": {
                             "type": "object",
                             "properties": {
