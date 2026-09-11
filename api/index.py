@@ -688,6 +688,12 @@ async def mcp_streamable_http_handler(request: Request):
                         "mimeType": "application/json"
                     },
                     {
+                        "uri": "matrix://core-skill",
+                        "name": "Content Matrix Core Operating Protocol",
+                        "description": "Bộ quy tắc cốt lõi ngắn gọn chạy đầu tiên: Điều phối 3 Chế độ Sáng tạo, quy tắc gọi MCP Tool và tiêu chuẩn ngòi bút đanh thép.",
+                        "mimeType": "text/markdown"
+                    },
+                    {
                         "uri": "matrix://graph-summary",
                         "name": "MatrixContent Graph Metrics Summary",
                         "description": "Thông số tổng quan về đồ thị tri thức (991 nodes, 69,720 edges).",
@@ -699,7 +705,26 @@ async def mcp_streamable_http_handler(request: Request):
 
     elif method == "resources/read":
         uri = params.get("uri", "")
-        if uri == "matrix://skill-guide":
+        if uri in ("matrix://core-skill", "matrix://skill-core"):
+            core_path = os.path.join(SKILL_DIR, "CORE_SKILL.md")
+            content = ""
+            if os.path.exists(core_path):
+                with open(core_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "text/markdown",
+                            "text": content
+                        }
+                    ]
+                }
+            })
+        elif uri == "matrix://skill-guide":
             skill_path = os.path.join(SKILL_DIR, "SKILL.md")
             content = ""
             if os.path.exists(skill_path):
