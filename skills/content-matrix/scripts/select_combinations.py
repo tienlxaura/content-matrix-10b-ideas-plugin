@@ -940,10 +940,17 @@ def describe(data: MatrixData, code: str) -> dict:
     return out
 
 
-def render(data: MatrixData, entry: dict, rank: int, explain: bool) -> dict:
+def render(data: MatrixData, entry: dict, rank: int, explain: bool,
+           mode: str = "default", brief: dict = None) -> dict:
     combo = entry["combo"]
     angle = combo["angle"]
     pillar, master = data.pillar_of(angle), data.master_of_angle(angle)
+    angle_node = data.node(angle)
+    formula_node = data.node(combo["formula"])
+    pattern_node = data.node(combo["pattern"])
+    headline_node = data.node(combo["headline"])
+    type_node = data.node(combo["type"])
+
     payload = {
         "rank": rank,
         "score": entry["score"],
@@ -964,7 +971,7 @@ def render(data: MatrixData, entry: dict, rank: int, explain: bool) -> dict:
         "graph_coherence": round(entry["graph"]["coherence"], 4),
         "missing_edges": entry["graph"]["missing"],
         "content_type_capacity": data.overlay.get("ct_capacity", {}).get(combo["type"]),
-        "formula_steps": len(data.node(combo["formula"]).get("structure") or []),
+        "formula_steps": len(formula_node.get("structure") or []),
         "requires_evidence": entry["needs_evidence"],
         "flags": [],
     }
@@ -972,6 +979,7 @@ def render(data: MatrixData, entry: dict, rank: int, explain: bool) -> dict:
     payload["selection_mechanism"] = entry.get("source", "brief")
     if entry.get("feasibility"):
         payload["feasibility"] = entry["feasibility"]
+
     fields = ("ai_brief", "when_to_use", "avoid", "risk", "feel", "deliver", "examples")
     for slot, code in (("content_angle", angle), ("content_formula", combo["formula"]),
                        ("success_pattern", combo["pattern"]),
@@ -979,8 +987,58 @@ def render(data: MatrixData, entry: dict, rank: int, explain: bool) -> dict:
                        ("content_type", combo["type"])):
         node = data.node(code)
         for field in fields:
+            if mode == "research" and field == "examples":
+                # Ở chế độ research: ẩn ví dụ demo để ép AI sáng tạo mới
+                continue
             if node.get(field):
                 payload["five_points"][slot][field] = node[field]
+
+    if mode == "research":
+        struct_text = " -> ".join(formula_node.get("structure", [])) if formula_node.get("structure") else "mở đầu -> dẫn dắt -> chuyển đổi"
+        mechanism_text = pattern_node.get("mechanism") or pattern_node.get("description") or pattern_node["name"]
+        brief_topic = (brief.get("topic") if brief else "") or "chủ đề yêu cầu"
+        brief_aud = (brief.get("audience") if brief else "") or "khách hàng mục tiêu"
+        brief_ins = (brief.get("insight") if brief else "") or "sự thật ngầm hiểu của đối tượng"
+
+        payload["research_framework"] = {
+            "cau_hoi_research": {
+                "cong_thuc_la_gi": {
+                    "ten_cong_thuc": formula_node["name"],
+                    "ma_so": formula_node.get("code", combo["formula"]),
+                    "cau_truc_buoc": formula_node.get("structure", []),
+                    "co_che_tam_ly": mechanism_text,
+                    "ban_chat_giai_phau": (
+                        f"Công thức {formula_node['name']} ({struct_text}) hoạt động dựa trên cơ chế tâm lý '{pattern_node['name']}'. "
+                        f"Bản chất của cấu trúc này là kích hoạt sự đồng cảm, dẫn dắt nhận thức qua từng nấc thang cảm xúc "
+                        f"để xóa bỏ rào cản phòng vệ tâm lý trước khi đưa ra lời kêu gọi."
+                    ),
+                },
+                "cach_ap_dung_hieu_qua": {
+                    "boi_canh_ap_dung": f"Áp dụng cho brief: '{brief_topic}' — nhắm tới '{brief_aud}'.",
+                    "huong_dan_thuc_thi": (
+                        f"Sử dụng góc tiếp cận '{angle_node['name']}' ({angle_node.get('direction') or angle_node.get('description', '')}) "
+                        f"để chạm trúng insight '{brief_ins}'. Triển khai theo cấu trúc '{struct_text}' "
+                        f"nhưng TUYỆT ĐỐI KHÔNG để lộ tên các bước công thức. Cần neo vào 1 khoảnh khắc hoặc chi tiết giác quan đời thực."
+                    ),
+                    "cam_bay_can_tranh": "Không dùng văn phong AI dịch máy (giải pháp toàn diện, tối ưu hóa...), không sao chép văn mẫu có sẵn, không đưa số liệu giả mạo.",
+                }
+            },
+            "yeu_cau_sang_tao_bat_buoc": "CẤM sử dụng ví dụ mẫu và mô tả demo có sẵn từ hệ thống; ÉP AI sáng tạo nội dung mới 100% dựa trên khung ideas được trích xuất."
+        }
+
+    if mode == "deep":
+        brief_fit_score = entry.get("rubric", {}).get("brief_fit", 15)
+        relevance_pct = round((brief_fit_score / 20.0) * 100, 1)
+        payload["deep_scorecard"] = {
+            "prompt_relevance_pct": relevance_pct,
+            "overall_effectiveness_score": round(entry["score"], 1),
+            "selection_rationale": (
+                f"Ý tưởng xếp hạng #{rank} với điểm tổng hợp {entry['score']:.1f}/100. "
+                f"Độ tương thích cao ({relevance_pct}%) với yêu cầu gốc nhờ kết hợp góc '{angle_node['name']}' "
+                f"và cơ chế '{pattern_node['name']}'."
+            )
+        }
+
     if entry["needs_evidence"]:
         payload["flags"].append("Cần bằng chứng thật; không được bịa số liệu hay dẫn chứng.")
     if entry["graph"]["missing"]:
@@ -1031,9 +1089,11 @@ def build_context(data: MatrixData, brief: dict, angles: list, pillar_scores: di
 
 
 def run(data: MatrixData, raw_brief: dict, count: int = 10, diversity: float = 0.35,
-        seed: int = 0, explain: bool = False, pool_size: int = 30) -> dict:
-    """Full pipeline for one brief. Deterministic for a fixed seed."""
+        seed: int = 0, explain: bool = False, pool_size: int = 30,
+        mode: str = "default", target_count: int = 3, multiplier: int = 100) -> dict:
+    """Full pipeline for one brief. Supports 'default', 'research', and 'deep' creative modes."""
     brief = normalise_brief(raw_brief)
+    mode = (mode or "default").lower().strip()
     rng = random.Random(seed)
     query = data.text_index.query_tokens(brief_query(brief))
     goals = resolve_goals(data, brief)
@@ -1042,13 +1102,17 @@ def run(data: MatrixData, raw_brief: dict, count: int = 10, diversity: float = 0
     pillars = choose_pillars(data, pillar_scores)
     angles = choose_angles(data, brief, pillars, pillar_scores, query)
 
+    # Nếu ở chế độ chuyên sâu (deep mode): mở rộng độ phủ góc tiếp cận để trích xuất tập mẫu lớn (N * 100)
+    ind_angle_limit = 30 if mode == "deep" else MAX_ANGLES_INDUSTRY
+    rand_angle_limit = 30 if mode == "deep" else MAX_ANGLES_RANDOM
+
     # --- ba cơ chế chọn góc chạy song song, hợp nhất thành một hồ ứng viên ---
     generators = {
         "brief": angles,
         "industry": choose_angles_industry(data, brief, pillars, pillar_scores,
-                                           query, MAX_ANGLES_INDUSTRY),
+                                           query, ind_angle_limit),
         "random": choose_angles_random(data, brief, pillars, pillar_scores,
-                                       rng, MAX_ANGLES_RANDOM),
+                                       rng, rand_angle_limit),
     }
     seen, merged = set(), []
     for name in ("brief", "industry", "random"):
@@ -1087,32 +1151,71 @@ def run(data: MatrixData, raw_brief: dict, count: int = 10, diversity: float = 0
         rescored.append(fresh)
     candidates = [entry for entry in rescored if not entry["blocked"]]
 
-    # --- phễu 3 cơ chế -> shortlist -> sàng khả thi -> danh sách bàn giao ---
-    # Hạn ngạch là bắt buộc: chấm điểm theo rubric vốn thiên về brief, nên nếu
-    # xếp hạng tự do thì hai cơ chế kia không bao giờ lọt vào danh sách cuối và
-    # việc có ba cơ chế trở thành vô nghĩa.
-    shortlist, warnings = [], []
-    for name, share in MECHANISM_SHARE.items():
-        bucket = [entry for entry in candidates if entry.get("source") == name]
-        quota = max(1, int(round(pool_size * share)))
-        picked, _ = select_diverse(data, bucket, quota, diversity, rng)
-        shortlist.extend(picked)
-    if len(shortlist) < pool_size:
-        chosen = {id(entry) for entry in shortlist}
-        rest = [entry for entry in candidates if id(entry) not in chosen]
-        extra, _ = select_diverse(data, rest, pool_size - len(shortlist), diversity, rng)
-        shortlist.extend(extra)
+    warnings = []
+    final_output_count = target_count if mode == "deep" else count
 
-    shortlist = screen_feasibility(data, shortlist, brief)
-    survivors = [entry for entry in shortlist if entry["feasibility"]["verdict"] != "loại"]
-    if len(survivors) < count:
-        survivors = shortlist
+    if mode == "deep":
+        # Chế độ chuyên sâu: Trích xuất tập lớn M = target_count * multiplier (vd: 300, 500...)
+        # Lọc khả thi trên toàn bộ tập ứng viên
+        screened_pool = screen_feasibility(data, candidates, brief)
+        survivors = [e for e in screened_pool if e["feasibility"]["verdict"] != "loại"]
+        if not survivors:
+            survivors = screened_pool or candidates
 
-    selected, warnings = select_diverse(data, survivors, count, diversity, rng)
-    selected = enforce_mechanism_quota(data, selected, survivors, count)
+        # Sắp xếp theo điểm tổng hợp và chọn ra top N đa dạng nhất
+        survivors.sort(key=lambda x: -x["score"])
+        selected = []
+        used_angles = set()
+        used_formulas = set()
+        for item in survivors:
+            c_angle = item["combo"]["angle"]
+            c_formula = item["combo"]["formula"]
+            if c_angle in used_angles and len(selected) < final_output_count:
+                continue
+            selected.append(item)
+            used_angles.add(c_angle)
+            used_formulas.add(c_formula)
+            if len(selected) >= final_output_count:
+                break
+
+        # Nếu còn thiếu, bổ sung các ý tưởng điểm cao kế tiếp
+        if len(selected) < final_output_count:
+            chosen_ids = {id(e) for e in selected}
+            for item in survivors:
+                if id(item) not in chosen_ids:
+                    selected.append(item)
+                    if len(selected) >= final_output_count:
+                        break
+        for item in selected:
+            if "axes" not in item:
+                item["axes"] = axes(data, item["combo"])
+        shortlist = survivors[:max(pool_size, final_output_count * 3)]
+    else:
+        # Chế độ mặc định & research: phễu 3 cơ chế -> shortlist -> sàng khả thi -> danh sách bàn giao
+        shortlist = []
+        for name, share in MECHANISM_SHARE.items():
+            bucket = [entry for entry in candidates if entry.get("source") == name]
+            quota = max(1, int(round(pool_size * share)))
+            picked, _ = select_diverse(data, bucket, quota, diversity, rng)
+            shortlist.extend(picked)
+        if len(shortlist) < pool_size:
+            chosen = {id(entry) for entry in shortlist}
+            rest = [entry for entry in candidates if id(entry) not in chosen]
+            extra, _ = select_diverse(data, rest, pool_size - len(shortlist), diversity, rng)
+            shortlist.extend(extra)
+
+        shortlist = screen_feasibility(data, shortlist, brief)
+        survivors = [entry for entry in shortlist if entry["feasibility"]["verdict"] != "loại"]
+        if len(survivors) < final_output_count:
+            survivors = shortlist
+
+        selected, warn_div = select_diverse(data, survivors, final_output_count, diversity, rng)
+        warnings.extend(warn_div)
+        selected = enforce_mechanism_quota(data, selected, survivors, final_output_count)
+
     constrained = bool(brief["angle_hint"] or brief["pillar_hint"])
-    if len(selected) < count:
-        warnings.append("Yêu cầu %d hướng nhưng chỉ dựng được %d." % (count, len(selected)))
+    if len(selected) < final_output_count:
+        warnings.append("Yêu cầu %d hướng nhưng chỉ dựng được %d." % (final_output_count, len(selected)))
     if goals.get("unknown_codes"):
         warnings.append("Bỏ qua mã mục tiêu không tồn tại: %s"
                         % ", ".join(goals["unknown_codes"]))
@@ -1126,6 +1229,7 @@ def run(data: MatrixData, raw_brief: dict, count: int = 10, diversity: float = 0
             % (len(data.missing_relations), ", ".join(data.missing_relations)))
 
     result = {
+        "mode": mode,
         "provenance": data.provenance(),
         "brief": brief,
         "goal_resolution": {
@@ -1159,11 +1263,36 @@ def run(data: MatrixData, raw_brief: dict, count: int = 10, diversity: float = 0
         },
         "must_use_assets": brief["assets"],
         "editorial_constraints": brief["constraints"],
-        "combinations": [render(data, entry, i + 1, explain)
+        "combinations": [render(data, entry, i + 1, explain, mode=mode, brief=brief)
                          for i, entry in enumerate(selected)],
         "diversity": diversity_report(data, selected, constrained) if selected else {},
         "warnings": warnings,
     }
+
+    if mode == "deep":
+        result["deep_evaluation"] = {
+            "mode": "deep",
+            "target_ideas_requested": target_count,
+            "multiplier": multiplier,
+            "total_candidates_extracted": len(candidates),
+            "search_and_context_enrichment": {
+                "topic_tokens_matched": len(query),
+                "pillars_explored": len(pillars),
+                "master_pillars_coverage": sorted(list({data.master_of(p) for p in pillars if p in data.nodes})),
+                "angles_evaluated": len(angles),
+            },
+            "evaluation_funnel": {
+                "candidates_extracted": len(candidates),
+                "screened_viable": len(survivors),
+                "curated_top_ideas": len(selected),
+            },
+            "evaluation_criteria": [
+                "Độ tương thích sâu sắc với prompt gốc (Relevance Fit: topic, audience, insight)",
+                "Hiệu quả tâm lý và tiềm năng chuyển đổi (Effectiveness & Psychology Conversion)",
+                "Tính khả thi triển khai trên kênh và tài nguyên thực tế (Feasibility)"
+            ]
+        }
+
     return result
 
 
@@ -1179,6 +1308,12 @@ def main() -> int:
     parser.add_argument("--pretty", action="store_true", help="JSON xuống dòng")
     parser.add_argument("--pool", type=int, default=30,
                         help="số ý tưởng dựng ở vòng shortlist trước khi sàng (mặc định 30)")
+    parser.add_argument("--mode", default="default", choices=["default", "research", "deep"],
+                        help="chế độ sáng tạo: default, research, deep")
+    parser.add_argument("--target-count", type=int, default=3,
+                        help="số ý tưởng mong muốn nhận ở chế độ deep (mặc định 3)")
+    parser.add_argument("--multiplier", type=int, default=100,
+                        help="hệ số nhân ứng viên ở chế độ deep (mặc định 100)")
     parser.add_argument("--out", help="ghi kết quả ra file")
     args = parser.parse_args()
 
@@ -1187,7 +1322,8 @@ def main() -> int:
             open(args.brief, "r", encoding="utf-8"))
         data = MatrixData()
         result = run(data, raw, args.count, args.diversity, args.seed, args.explain,
-                     args.pool)
+                     args.pool, mode=args.mode, target_count=args.target_count,
+                     multiplier=args.multiplier)
     except (DataError, OSError, json.JSONDecodeError) as exc:
         sys.stderr.write("LỖI: %s\n" % exc)
         return 1

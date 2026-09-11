@@ -213,7 +213,23 @@
           "count": {
             "type": "integer",
             "default": 10,
-            "description": "Số lượng tổ hợp trả về (1-20)"
+            "description": "Số lượng tổ hợp trả về (1-50)"
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["default", "research", "deep"],
+            "default": "default",
+            "description": "Chế độ sáng tạo: default (chuẩn 5 điểm), research (nghiên cứu sâu công thức, cấm demo), deep (chuyên sâu N*100)"
+          },
+          "target_count": {
+            "type": "integer",
+            "default": 3,
+            "description": "Số lượng ý tưởng mong muốn nhận ở chế độ chuyên sâu (N: 1-10)"
+          },
+          "multiplier": {
+            "type": "integer",
+            "default": 100,
+            "description": "Hệ số nhân ứng viên trích xuất ở chế độ chuyên sâu (mặc định 100)"
           },
           "diversity": {
             "type": "number",

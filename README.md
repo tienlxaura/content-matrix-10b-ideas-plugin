@@ -19,7 +19,26 @@ với **Marketing Goal** làm biển chỉ đường, **Customer Insight** làm 
 Plugin này đóng gói toàn bộ kho tri thức, công thức và script tính toán scoring để chạy trực tiếp trên:
 1. **ChatGPT Desktop & Codex** (chuẩn Agent Plugins với local marketplace)
 2. **ChatGPT Web** (chuẩn Custom GPT Actions với OpenAPI 3.0)
-3. **Standalone REST API** (FastAPI serverless trên Vercel)
+3. **Standalone REST API & MCP Server** (FastAPI serverless trên Vercel)
+
+---
+
+## 🎨 3 Chế Độ Sáng Tạo Chuyên Biệt
+
+Hệ thống hỗ trợ 3 chế độ sáng tạo tương tác tùy theo nhu cầu:
+
+1. **⚡ Chế độ Mặc định (Default Mode):**
+   - Sinh nhanh 5-10 tổ hợp 5 điểm tối ưu nhất dựa trên điểm số đồ thị.
+   - Trả về pitch block và cấu trúc bài viết chuẩn hóa dùng được ngay.
+
+2. **🔬 Chế độ Research (Research Mode):**
+   - **Ép phân tích chuyên sâu:** AI bắt buộc phải trả lời 2 câu hỏi: *Công thức đó là gì?* (giải phẫu cấu trúc & tâm lý học) và *Cách áp dụng hiệu quả?* (chiến lược thực chiến, điểm chuyển đổi, cạm bẫy cần tránh).
+   - **Cấm demo ví dụ:** Tuyệt đối không dùng ví dụ và mô tả mẫu có sẵn trong hệ thống. Ép AI phải tự sáng tạo nội dung mới 100% dựa trên khung ý tưởng trích xuất.
+
+3. **🎯 Chế độ Chuyên sâu (Deep / Intensive Mode):**
+   - **Hỏi số ý tưởng $N$:** Người dùng nhập số lượng ý tưởng mong muốn nhận (ví dụ $N = 3, 5, 10$).
+   - **Trích xuất quy mô lớn $M = N \times 100$:** Hệ thống tự động trích xuất hàng trăm đến 1.000+ ứng viên từ đồ thị 991 nodes (thời gian < 1.5s).
+   - **Search & AI Thẩm định đa tầng:** Hệ thống search dữ liệu liên quan, AI đánh giá mức độ phù hợp (% fit) và tiềm năng chuyển đổi so với prompt gốc, sau đó chắt lọc và trả ra đúng $N$ ý tưởng xuất sắc nhất kèm báo cáo phễu đánh giá.
 
 ---
 

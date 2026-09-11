@@ -92,10 +92,13 @@ class BriefInput(BaseModel):
     journey_stage: Optional[str] = Field("awareness", description="awareness, consideration, decision, retention, advocacy")
     awareness_stage: Optional[str] = Field("problem", description="unaware, problem, solution, product, most_aware")
     channels: Optional[List[str]] = Field(default_factory=lambda: ["facebook", "tiktok"])
-    count: Optional[int] = Field(10, ge=1, le=20, description="Số lượng tổ hợp 5 điểm cần trả về")
+    count: Optional[int] = Field(10, ge=1, le=50, description="Số lượng tổ hợp 5 điểm cần trả về")
     diversity: Optional[float] = Field(0.35, ge=0.0, le=1.0, description="Độ đa dạng giữa các tổ hợp")
     seed: Optional[int] = Field(0, description="Hạt ngẫu nhiên")
     explain: Optional[bool] = Field(False, description="Kèm giải thích trọng số đồ thị")
+    mode: Optional[str] = Field("default", description="Chế độ sáng tạo: default (mặc định), research (nghiên cứu công thức, cấm demo), deep (chuyên sâu N*100)")
+    target_count: Optional[int] = Field(3, ge=1, le=10, description="Số ý tưởng mong muốn nhận ở chế độ chuyên sâu (N)")
+    multiplier: Optional[int] = Field(100, ge=10, le=200, description="Hệ số nhân ứng viên trích xuất ở chế độ chuyên sâu (mặc định 100)")
 
 
 # --------------------------------------------------------------------------
@@ -262,8 +265,24 @@ async def mcp_streamable_http_handler(request: Request):
                                 },
                                 "count": {
                                     "type": "integer",
-                                    "description": "Số lượng tổ hợp 5 điểm cần trả về (mặc định 3, tối đa 10)",
+                                    "description": "Số lượng tổ hợp 5 điểm cần trả về (mặc định 3, tối đa 20)",
                                     "default": 3
+                                },
+                                "mode": {
+                                    "type": "string",
+                                    "description": "Chế độ sáng tạo: 'default' (mặc định), 'research' (nghiên cứu công thức, cấm demo), 'deep' (chuyên sâu N*100)",
+                                    "enum": ["default", "research", "deep"],
+                                    "default": "default"
+                                },
+                                "target_count": {
+                                    "type": "integer",
+                                    "description": "Số lượng ý tưởng mong muốn nhận (dành cho chế độ 'deep', ví dụ: 3, 5, 10)",
+                                    "default": 3
+                                },
+                                "multiplier": {
+                                    "type": "integer",
+                                    "description": "Hệ số nhân ứng viên ở chế độ 'deep' (mặc định 100)",
+                                    "default": 100
                                 }
                             },
                             "required": ["topic"]
@@ -296,7 +315,10 @@ async def mcp_streamable_http_handler(request: Request):
         args = params.get("arguments", {}) or {}
 
         if tool_name == "select_content_matrix":
-            count = min(10, max(1, int(args.get("count", 3))))
+            count = min(20, max(1, int(args.get("count", 3))))
+            mode = str(args.get("mode", "default")).lower().strip()
+            target_count = min(10, max(1, int(args.get("target_count", 3))))
+            multiplier = min(200, max(10, int(args.get("multiplier", 100))))
             brief_dict = {
                 "topic": args.get("topic", ""),
                 "brand": args.get("brand", ""),
@@ -311,7 +333,10 @@ async def mcp_streamable_http_handler(request: Request):
                     brief_dict,
                     count=count,
                     diversity=0.35,
-                    pool_size=max(30, count * 3)
+                    pool_size=max(30, count * 3),
+                    mode=mode,
+                    target_count=target_count,
+                    multiplier=multiplier,
                 )
 
                 formatted = []
@@ -324,7 +349,7 @@ async def mcp_streamable_http_handler(request: Request):
                     ctype = fp.get("content_type", {})
                     sample_hl = (headline.get("examples") and headline["examples"][0]) or headline.get("template", "")
 
-                    formatted.append(
+                    card_text = (
                         f"### Tổ Hợp #{item['rank']} (Điểm: {item.get('score', 0):.1f} - {item.get('selection_mechanism', 'brief')})\n"
                         f"- **🎯 Content Angle (Góc tiếp cận)**: {angle.get('name')} ({angle.get('code')})\n"
                         f"  *Định hướng*: {angle.get('direction') or angle.get('description')}\n"
@@ -337,9 +362,42 @@ async def mcp_streamable_http_handler(request: Request):
                         f"- **📱 Content Type (Định dạng đề xuất)**: {ctype.get('name')} ({ctype.get('code')})\n"
                     )
 
+                    # Bổ sung khung research nếu ở chế độ research
+                    if mode == "research" and item.get("research_framework"):
+                        rf = item["research_framework"]
+                        c_res = rf.get("cau_hoi_research", {})
+                        f_what = c_res.get("cong_thuc_la_gi", {})
+                        f_how = c_res.get("cach_ap_dung_hieu_qua", {})
+                        card_text += (
+                            f"\n🔬 **BÁO CÁO RESEARCH BẮT BUỘC (Chế độ Research):**\n"
+                            f"  1. **Công thức đó là gì?**: {f_what.get('ban_chat_giai_phau', '')}\n"
+                            f"  2. **Cách áp dụng hiệu quả?**: {f_how.get('huong_dan_thuc_thi', '')}\n"
+                            f"  *Cạm bẫy cần tránh*: {f_how.get('cam_bay_can_tranh', '')}\n"
+                            f"  ⚠️ *Yêu cầu sáng tạo*: {rf.get('yeu_cau_sang_tao_bat_buoc', '')}\n"
+                        )
+
+                    # Bổ sung scorecard nếu ở chế độ deep
+                    if mode == "deep" and item.get("deep_scorecard"):
+                        ds = item["deep_scorecard"]
+                        card_text += (
+                            f"\n⚡ **ĐÁNH GIÁ CHUYÊN SÂU (Deep Mode):**\n"
+                            f"  - Độ tương thích với brief: {ds.get('prompt_relevance_pct', 0)}%\n"
+                            f"  - Điểm hiệu quả chuyển đổi: {ds.get('overall_effectiveness_score', 0)}/100\n"
+                            f"  - Lý do tuyển chọn: {ds.get('selection_rationale', '')}\n"
+                        )
+
+                    formatted.append(card_text)
+
+                header_prefix = "## KẾT QUẢ CONTENT MATRIX 10B IDEAS"
+                if mode == "research":
+                    header_prefix += " — CHẾ ĐỘ RESEARCH"
+                elif mode == "deep":
+                    de = raw_res.get("deep_evaluation", {})
+                    header_prefix += f" — CHẾ ĐỘ CHUYÊN SÂU (Đã trích xuất & thẩm định {de.get('total_candidates_extracted', 0)} ứng viên từ đồ thị 991 nodes)"
+
                 text_response = (
-                    f"## KẾT QUẢ CONTENT MATRIX 10B IDEAS\n"
-                    f"Đã phân tích brief dựa trên đồ thị tri thức 991 nodes và chọn ra {len(raw_res.get('combinations', []))} tổ hợp 5 điểm tối ưu nhất:\n\n"
+                    f"{header_prefix}\n"
+                    f"Đã phân tích brief và tuyển chọn ra {len(raw_res.get('combinations', []))} tổ hợp tối ưu nhất:\n\n"
                     + "\n\n".join(formatted)
                 )
 
@@ -430,14 +488,18 @@ def select_combinations_endpoint(payload: BriefInput):
 
     try:
         raw_brief = payload.model_dump()
+        mode = (payload.mode or "default").lower().strip()
         result = select_combinations.run(
             matrix_data,
             raw_brief,
-            count=payload.count,
+            count=payload.count if mode != "deep" else (payload.target_count or 3),
             diversity=payload.diversity,
             seed=payload.seed,
             explain=payload.explain,
-            pool_size=max(30, payload.count * 3)
+            pool_size=max(30, payload.count * 3),
+            mode=mode,
+            target_count=payload.target_count or 3,
+            multiplier=payload.multiplier or 100,
         )
         return result
     except matrix_lib.DataError as de:
@@ -827,6 +889,113 @@ def home_page(request: Request):
             position: relative;
         }
 
+        /* 3 Creative Modes Switcher */
+        .mode-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .mode-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.65rem 0.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .mode-btn:hover {
+            border-color: rgba(255, 107, 0, 0.4);
+            background: rgba(255, 107, 0, 0.06);
+            color: white;
+        }
+        .mode-btn.active {
+            background: rgba(255, 107, 0, 0.15);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.25);
+        }
+        .mode-btn-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+        .mode-btn-desc {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            line-height: 1.2;
+        }
+        .mode-banner {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.45;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .mode-banner-default {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #38BDF8;
+        }
+        .mode-banner-research {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: #C084FC;
+        }
+        .mode-banner-deep {
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            color: var(--primary-glow);
+        }
+
+        .research-card {
+            margin-top: 0.85rem;
+            padding: 0.85rem;
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 8px;
+            font-size: 0.84rem;
+            color: #E2E8F0;
+        }
+        .research-title {
+            font-weight: 700;
+            color: #C084FC;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .deep-funnel-card {
+            background: rgba(255, 107, 0, 0.08);
+            border: 1px solid rgba(255, 107, 0, 0.25);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+        }
+        .deep-metric-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .deep-metric-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -849,14 +1018,14 @@ def home_page(request: Request):
             </div>
             <div class="badges">
                 <span class="badge badge-green">● 991 Nodes / 69,720 Edges Live</span>
-                <span class="badge badge-primary">OpenAI Agent Plugin Ready</span>
-                <span class="badge">GPT Action Ready</span>
+                <span class="badge badge-primary">3 Chế Độ Sáng Tạo</span>
+                <span class="badge">GPT Action & MCP Ready</span>
             </div>
         </header>
 
         <section class="hero">
             <h2>Ý Tưởng Triệu View Nối Liền 5 Điểm Chiến Lược</h2>
-            <p>Vận hành trên đồ thị tri thức MatrixContent. Biến brief sơ sài thành các hướng ý tưởng sắc bén, kịch bản chuyển đổi cao và câu chữ chân thực mà không có văn mẫu AI sáo rỗng.</p>
+            <p>Vận hành trên đồ thị tri thức MatrixContent. Hỗ trợ 3 chế độ sáng tạo: Mặc định, Research (ép phân tích công thức, cấm demo) và Chuyên sâu (trích xuất N × 100 & AI thẩm định đa tầng).</p>
             <div class="action-links">
                 <a href="#playground" class="btn btn-primary">⚡ Dùng thử Interactive Tester</a>
                 <a href="/docs" target="_blank" class="btn btn-secondary">📖 API Swagger Docs</a>
@@ -869,8 +1038,28 @@ def home_page(request: Request):
             <!-- Left: Form Brief -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">📝 Nhập Brief Tiếp Thị</div>
+                    <div class="card-title">📝 Thiết Lập Brief & Chế Độ</div>
                     <span style="font-size: 0.75rem; color: var(--text-muted);">JSON Engine v2.0</span>
+                </div>
+
+                <!-- 3 Creative Modes Selector -->
+                <div class="mode-selector">
+                    <button type="button" class="mode-btn active" id="btnModeDefault" onclick="setMode('default')">
+                        <div class="mode-btn-title">⚡ Mặc định</div>
+                        <div class="mode-btn-desc">Chuẩn 5 điểm</div>
+                    </button>
+                    <button type="button" class="mode-btn" id="btnModeResearch" onclick="setMode('research')">
+                        <div class="mode-btn-title">🔬 Research</div>
+                        <div class="mode-btn-desc">Phân tích & cấm demo</div>
+                    </button>
+                    <button type="button" class="mode-btn" id="btnModeDeep" onclick="setMode('deep')">
+                        <div class="mode-btn-title">🎯 Chuyên sâu</div>
+                        <div class="mode-btn-desc">Trích xuất N×100</div>
+                    </button>
+                </div>
+
+                <div id="modeBanner" class="mode-banner mode-banner-default">
+                    <span>💡 <strong>Chế độ Mặc định:</strong> Trích xuất nhanh các tổ hợp 5 điểm tối ưu nhất từ đồ thị 991 nodes cho brief tiếp thị.</span>
                 </div>
 
                 <div class="presets">
@@ -913,8 +1102,11 @@ def home_page(request: Request):
                             <input type="text" id="marketing_goal" class="form-control" placeholder="Khách inbox đăng ký học thử">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Số hướng (Count: 1-10)</label>
-                            <input type="number" id="count" class="form-control" value="3" min="1" max="10">
+                            <label id="countLabel" class="form-label">Số hướng trả về (1-10)</label>
+                            <input type="number" id="count" class="form-control" value="3" min="1" max="10" oninput="updateDeepMultiplier()">
+                            <div id="deepMultiplierHint" style="display:none; font-size:0.75rem; color:var(--primary-glow); margin-top:0.35rem;">
+                                🚀 Hệ thống sẽ trích xuất: <strong id="deepExtractCount">300</strong> ý tưởng (N × 100) để AI thẩm định.
+                            </div>
                         </div>
                     </div>
 
@@ -933,7 +1125,7 @@ def home_page(request: Request):
 
                 <div id="resultsContainer" class="results-container">
                     <div style="text-align: center; color: var(--text-muted); padding: 4rem 1rem;">
-                        <p>Nhập brief bên trái hoặc chọn một mẫu nhanh rồi bấm <strong>"Tính toán 5 Điểm"</strong> để xem kết quả trực tiếp từ Knowledge Graph.</p>
+                        <p>Nhập brief bên trái, chọn <strong>Chế độ Sáng tạo</strong> mong muốn rồi bấm <strong>"Tính toán 5 Điểm"</strong> để xem kết quả.</p>
                     </div>
                 </div>
             </div>
@@ -975,6 +1167,43 @@ def home_page(request: Request):
         const currentHost = window.location.origin;
         document.getElementById('openapiUrlBox').innerText = `${currentHost}/openapi.json`;
 
+        let currentMode = 'default';
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            const banner = document.getElementById('modeBanner');
+            const countLabel = document.getElementById('countLabel');
+            const deepHint = document.getElementById('deepMultiplierHint');
+
+            banner.className = 'mode-banner';
+            if (mode === 'default') {
+                document.getElementById('btnModeDefault').classList.add('active');
+                banner.classList.add('mode-banner-default');
+                banner.innerHTML = `<span>💡 <strong>Chế độ Mặc định:</strong> Trích xuất nhanh các tổ hợp 5 điểm tối ưu nhất từ đồ thị 991 nodes cho brief tiếp thị.</span>`;
+                countLabel.innerText = "Số hướng trả về (1-10)";
+                deepHint.style.display = 'none';
+            } else if (mode === 'research') {
+                document.getElementById('btnModeResearch').classList.add('active');
+                banner.classList.add('mode-banner-research');
+                banner.innerHTML = `<span>🔬 <strong>Chế độ Research:</strong> Ép AI đặt câu hỏi phân tích bản chất công thức & cách áp dụng hiệu quả. CẤM dùng ví dụ mẫu demo, ép AI sáng tạo nguyên bản 100%.</span>`;
+                countLabel.innerText = "Số hướng trả về (1-10)";
+                deepHint.style.display = 'none';
+            } else if (mode === 'deep') {
+                document.getElementById('btnModeDeep').classList.add('active');
+                banner.classList.add('mode-banner-deep');
+                banner.innerHTML = `<span>🎯 <strong>Chế độ Chuyên sâu:</strong> Bạn chọn số ý tưởng mong muốn nhận (N). Hệ thống trích xuất N × 100 ứng viên từ đồ thị 991 nodes, search dữ liệu & AI audit để chọn ra N ý tưởng xuất sắc nhất.</span>`;
+                countLabel.innerText = "Số ý tưởng mong muốn nhận (N: 1–10)";
+                deepHint.style.display = 'block';
+                updateDeepMultiplier();
+            }
+        }
+
+        function updateDeepMultiplier() {
+            const countVal = parseInt(document.getElementById('count').value) || 3;
+            document.getElementById('deepExtractCount').innerText = countVal * 100;
+        }
+
         const presets = {
             ucmas: {
                 topic: "Quảng cáo khoá học toán tư duy UCMAS cho trẻ",
@@ -1015,6 +1244,7 @@ def home_page(request: Request):
             document.getElementById('insight').value = p.insight;
             document.getElementById('marketing_goal').value = p.marketing_goal;
             document.getElementById('count').value = p.count;
+            updateDeepMultiplier();
             runEngine();
         }
 
@@ -1023,6 +1253,7 @@ def home_page(request: Request):
             const results = document.getElementById('resultsContainer');
             const timing = document.getElementById('timingBadge');
 
+            const countVal = parseInt(document.getElementById('count').value) || 3;
             const payload = {
                 topic: document.getElementById('topic').value,
                 brand: document.getElementById('brand').value,
@@ -1030,13 +1261,17 @@ def home_page(request: Request):
                 audience: document.getElementById('audience').value,
                 insight: document.getElementById('insight').value,
                 marketing_goal: document.getElementById('marketing_goal').value,
-                count: parseInt(document.getElementById('count').value) || 3
+                count: countVal,
+                mode: currentMode,
+                target_count: countVal,
+                multiplier: 100
             };
 
             btn.disabled = true;
             btn.innerText = "⏳ Đang tính toán trên đồ thị...";
             timing.innerText = "";
-            results.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 3rem;">Đang quét 991 nodes và 69.720 edges...</div>`;
+            const scanCountText = currentMode === 'deep' ? `${countVal * 100} ứng viên` : '991 nodes';
+            results.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 3rem;">Đang quét ${scanCountText} và tính toán đồ thị MatrixContent...</div>`;
 
             const startTime = performance.now();
 
@@ -1060,7 +1295,25 @@ def home_page(request: Request):
                     return;
                 }
 
-                results.innerHTML = data.combinations.map(item => {
+                let htmlContent = '';
+
+                // Header banner cho Chế độ Chuyên sâu
+                if (currentMode === 'deep' && data.deep_evaluation) {
+                    const de = data.deep_evaluation;
+                    htmlContent += `
+                    <div class="deep-funnel-card">
+                        <div style="font-weight: 700; color: var(--primary-glow); margin-bottom: 0.25rem;">⚡ Báo Cáo Thẩm Định Chuyên Sâu (Deep Mode)</div>
+                        <div style="color: var(--text-muted); font-size: 0.8rem;">Đã trích xuất và thẩm định đa chiều qua đồ thị 991 nodes để chọn ra ${data.combinations.length} ý tưởng xuất sắc nhất.</div>
+                        <div class="deep-metric-row">
+                            <div class="deep-metric-item">Ứng viên trích xuất: <strong style="color:var(--primary);">${de.total_candidates_extracted || (countVal * 100)}</strong></div>
+                            <div class="deep-metric-item">Sàng lọc khả thi: <strong style="color:var(--accent-green);">${de.evaluation_funnel?.screened_viable || de.total_candidates_extracted}</strong></div>
+                            <div class="deep-metric-item">Ý tưởng chắt lọc: <strong style="color:white;">${data.combinations.length}</strong></div>
+                        </div>
+                    </div>
+                    `;
+                }
+
+                htmlContent += data.combinations.map(item => {
                     const fp = item.five_points || {};
                     const angle = fp.content_angle || {};
                     const formula = fp.content_formula || {};
@@ -1068,6 +1321,40 @@ def home_page(request: Request):
                     const headline = fp.headline_template || {};
                     const ctype = fp.content_type || {};
                     const sample = (headline.examples && headline.examples[0]) || headline.template || (angle.name + ' — Đột phá mới');
+
+                    let researchBox = '';
+                    if (currentMode === 'research' && item.research_framework) {
+                        const rf = item.research_framework;
+                        const q = rf.cau_hoi_research || {};
+                        const qWhat = q.cong_thuc_la_gi || {};
+                        const qHow = q.cach_ap_dung_hieu_qua || {};
+
+                        researchBox = `
+                        <div class="research-card">
+                            <div class="research-title">🔬 Phân Tích Research Công Thức:</div>
+                            <div style="margin-bottom: 0.5rem;">
+                                <strong>1. Bản chất công thức:</strong> ${qWhat.ban_chat_giai_phau || ''}
+                            </div>
+                            <div style="margin-bottom: 0.5rem;">
+                                <strong>2. Cách áp dụng hiệu quả:</strong> ${qHow.huong_dan_thuc_thi || ''}
+                            </div>
+                            <div style="font-size: 0.76rem; color: #FCA5A5; margin-top: 0.35rem;">
+                                ⚠️ <strong>Cấm ví dụ demo:</strong> ${rf.yeu_cau_sang_tao_bat_buoc || ''}
+                            </div>
+                        </div>
+                        `;
+                    }
+
+                    let deepScoreBox = '';
+                    if (currentMode === 'deep' && item.deep_scorecard) {
+                        const ds = item.deep_scorecard;
+                        deepScoreBox = `
+                        <div style="margin-top: 0.6rem; padding: 0.5rem 0.75rem; background: rgba(255, 107, 0, 0.1); border-radius: 6px; font-size: 0.8rem; color: var(--primary-glow);">
+                            🎯 <strong>Độ tương thích với brief:</strong> ${ds.prompt_relevance_pct}% | <strong>Điểm chuyển đổi:</strong> ${ds.overall_effectiveness_score}/100
+                            <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.2rem;">${ds.selection_rationale}</div>
+                        </div>
+                        `;
+                    }
 
                     return `
                     <div class="result-item">
@@ -1087,9 +1374,13 @@ def home_page(request: Request):
                             <div style="font-weight: 500; font-size: 0.92rem;">${sample}</div>
                             <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;"><strong>Cấu trúc:</strong> ${formula.description || ''} | <strong>Chiến thuật:</strong> ${pattern.mechanism || pattern.description || ''}</div>
                         </div>
+                        ${researchBox}
+                        ${deepScoreBox}
                     </div>
                     `;
                 }).join('');
+
+                results.innerHTML = htmlContent;
 
             } catch (err) {
                 results.innerHTML = `<div style="color: #F87171; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">Lỗi: ${err.message}</div>`;
