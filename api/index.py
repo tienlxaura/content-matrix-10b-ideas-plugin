@@ -177,8 +177,8 @@ async def mcp_streamable_http_handler(request: Request):
             "protocol": "mcp",
             "transport": "streamable-http",
             "server": "Content Matrix 10B Ideas MCP Server",
-            "version": "1.0.0",
-            "capabilities": ["tools"],
+            "version": "1.1.0",
+            "capabilities": ["tools", "prompts", "resources"],
             "url": "https://content-matrix-10b-ideas-plugin.vercel.app/mcp"
         })
 
@@ -212,11 +212,18 @@ async def mcp_streamable_http_handler(request: Request):
                 "capabilities": {
                     "tools": {
                         "listChanged": False
+                    },
+                    "prompts": {
+                        "listChanged": False
+                    },
+                    "resources": {
+                        "subscribe": False,
+                        "listChanged": False
                     }
                 },
                 "serverInfo": {
                     "name": "content-matrix-10b-ideas",
-                    "version": "1.0.0"
+                    "version": "1.1.0"
                 }
             }
         })
@@ -303,6 +310,20 @@ async def mcp_streamable_http_handler(request: Request):
                                     "type": "string",
                                     "description": "Từ khoá cần tìm"
                                 }
+                            }
+                        }
+                    },
+                    {
+                        "name": "validate_combination",
+                        "description": "Thẩm định độ tương thích và phát hiện xung đột giữa các thành phần trong tổ hợp 5 điểm (Angle, Formula, Pattern, Headline, Type) theo đồ thị tri thức 991 nodes.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                                "angle": {"type": "string", "description": "Mã hoặc tên Content Angle (ví dụ: CA01)"},
+                                "formula": {"type": "string", "description": "Mã hoặc tên Content Formula (ví dụ: CF01)"},
+                                "pattern": {"type": "string", "description": "Mã hoặc tên Success Pattern (ví dụ: SP01)"},
+                                "headline": {"type": "string", "description": "Mã hoặc tên Headline Template (ví dụ: HT01)"},
+                                "type": {"type": "string", "description": "Mã hoặc tên Content Type (ví dụ: CT01)"}
                             }
                         }
                     }
@@ -455,10 +476,302 @@ async def mcp_streamable_http_handler(request: Request):
                 }
             })
 
+        elif tool_name == "validate_combination":
+            combo = args.get("combination", args)
+            codes = [combo.get(k) for k in ("angle", "formula", "pattern", "headline", "type") if combo.get(k)]
+            valid_codes = [c for c in codes if c in matrix_data.nodes]
+            conflicts = []
+            for i in range(len(valid_codes)):
+                for j in range(i + 1, len(valid_codes)):
+                    c1, c2 = valid_codes[i], valid_codes[j]
+                    weight = matrix_data.weight(c1, c2)
+                    if weight < 0.40:
+                        conflicts.append({"pair": [c1, c2], "weight": weight, "note": "Độ tương thích thấp (< 0.40)"})
+
+            if conflicts:
+                msg = f"⚠️ Phát hiện {len(conflicts)} cặp có độ tương thích thấp trong tổ hợp:\n"
+                for cf in conflicts:
+                    msg += f"- `{cf['pair'][0]}` và `{cf['pair'][1]}`: Trọng số tương thích {cf['weight']:.2f} (Khuyến nghị xem xét thay thế)\n"
+            else:
+                msg = f"✅ Tổ hợp 5 điểm ({', '.join(valid_codes) if valid_codes else 'đã kiểm tra'}) hoàn toàn tương thích và hài hòa trên đồ thị tri thức 991 nodes!"
+
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "content": [{"type": "text", "text": msg}],
+                    "structured_data": {"valid_codes": valid_codes, "conflicts": conflicts, "is_valid": len(conflicts) == 0}
+                }
+            })
+
         return JSONResponse({
             "jsonrpc": "2.0",
             "id": req_id,
             "error": {"code": -32601, "message": f"Không tìm thấy tool: {tool_name}"}
+        })
+
+    elif method == "prompts/list":
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "result": {
+                "prompts": [
+                    {
+                        "name": "content_matrix_director",
+                        "description": "Kích hoạt vai trò Elite Creative Director & Master Copywriter với 3 Chế độ Sáng tạo (Mặc định, Research, Chuyên sâu). Hướng dẫn quy trình từ tiếp nhận brief, trích xuất tổ hợp 5 điểm đến hoàn thiện bài viết.",
+                        "arguments": [
+                            {
+                                "name": "topic",
+                                "description": "Chủ đề bài viết hoặc sản phẩm cần lên chiến dịch (Bắt buộc)",
+                                "required": True
+                            },
+                            {
+                                "name": "mode",
+                                "description": "Chế độ sáng tạo: 'default' (Mặc định), 'research' (Nghiên cứu công thức, cấm demo), hoặc 'deep' (Chuyên sâu N*100)",
+                                "required": False
+                            },
+                            {
+                                "name": "brand",
+                                "description": "Tên thương hiệu hoặc dịch vụ",
+                                "required": False
+                            },
+                            {
+                                "name": "audience",
+                                "description": "Khách hàng mục tiêu",
+                                "required": False
+                            },
+                            {
+                                "name": "target_count",
+                                "description": "Số ý tưởng mong muốn nhận nếu ở chế độ 'deep' (ví dụ: 3, 5, 10)",
+                                "required": False
+                            }
+                        ]
+                    },
+                    {
+                        "name": "creative_mode_gateway",
+                        "description": "Câu hỏi mở đầu tương tác chuẩn mực để hỏi người dùng lựa chọn 1 trong 3 chế độ sáng tạo trước khi phân tích brief.",
+                        "arguments": [
+                            {
+                                "name": "topic",
+                                "description": "Chủ đề brief người dùng vừa nhập",
+                                "required": False
+                            }
+                        ]
+                    }
+                ]
+            }
+        })
+
+    elif method == "prompts/get":
+        prompt_name = params.get("name")
+        p_args = params.get("arguments", {}) or {}
+
+        if prompt_name == "content_matrix_director":
+            topic = p_args.get("topic", "")
+            mode = str(p_args.get("mode", "default")).lower().strip()
+            brand = p_args.get("brand", "")
+            audience = p_args.get("audience", "")
+            try:
+                target_count = int(p_args.get("target_count", 3))
+            except (ValueError, TypeError):
+                target_count = 3
+
+            if mode == "research":
+                mode_instruction = (
+                    "### QUY TRÌNH CHẾ ĐỘ RESEARCH (NGHIÊN CỨU SÂU & ĐỘC BẢN)\n"
+                    "1. Gọi công cụ `select_content_matrix` với mode='research'.\n"
+                    "2. Với mỗi tổ hợp 5 điểm nhận được, BẮT BUỘC trả lời 2 câu hỏi research cấu trúc:\n"
+                    "   - CÂU HỎI 1: Công thức đó là gì? (Giải phẫu cấu trúc node & cơ chế tâm lý tác động).\n"
+                    "   - CÂU HỎI 2: Cách áp dụng hiệu quả? (Đòn bẩy hành vi & cạm bẫy cần tránh cho brief này).\n"
+                    "3. TUYỆT ĐỐI CẤM: Không sử dụng bất kỳ câu từ, ví dụ hay mô tả demo có sẵn nào từ hệ thống.\n"
+                    "4. ÉP SÁNG TẠO ĐỘC BẢN: Viết bài hoàn chỉnh mới 100% dựa trên khung ý tưởng trích xuất."
+                )
+            elif mode == "deep":
+                mode_instruction = (
+                    f"### QUY TRÌNH CHẾ ĐỘ CHUYÊN SÂU (DEEP SAMPLING {target_count} x 100)\n"
+                    f"1. Gọi công cụ `select_content_matrix` với mode='deep', target_count={target_count}, multiplier=100.\n"
+                    f"2. Động cơ sẽ trích xuất {target_count * 100} ứng viên từ đồ thị 991 nodes, tự động đối chiếu ngữ cảnh và đánh giá khắt khe theo 3 tiêu chí: Relevance Fit, Psychology Conversion, Feasibility.\n"
+                    f"3. Trình bày báo cáo phễu thẩm định (Evaluation Funnel) và xuất bản đúng {target_count} ý tưởng tinh hoa nhất kèm bảng điểm scorecard chi tiết."
+                )
+            else:
+                mode_instruction = (
+                    "### QUY TRÌNH CHẾ ĐỘ MẶC ĐỊNH (DEFAULT)\n"
+                    "1. Gọi công cụ `select_content_matrix` với mode='default'.\n"
+                    "2. Nhận các tổ hợp 5 điểm (Angle -> Formula -> Pattern -> Headline -> Type) và sản xuất nội dung hoàn chỉnh dùng được ngay."
+                )
+
+            instruction_text = (
+                "Bạn là Elite Creative Director + Master Copywriter vận hành trên MatrixContent Knowledge Graph (991 nodes, 69,720 edges).\n\n"
+                f"THÔNG TIN BRIEF HIỆN TẠI:\n"
+                f"- Chủ đề: {topic or '(Chưa xác định - hãy hỏi người dùng)'}\n"
+                f"- Thương hiệu: {brand or '(Chưa cung cấp)'}\n"
+                f"- Khách hàng mục tiêu: {audience or '(Chưa cung cấp)'}\n\n"
+                f"{mode_instruction}\n\n"
+                "QUY TẮC VĂN PHONG BẮT BUỘC:\n"
+                "- Tự nhiên, sống động, đanh thép như người thật viết.\n"
+                "- CẤM TUYỆT ĐỐI văn AI sáo rỗng: cấm 'giải pháp toàn diện', 'tối ưu hóa', 'nâng tầm', 'đồng hành cùng', 'uy tín hàng đầu', 'không thể phủ nhận rằng'.\n"
+                "- Mỗi nội dung phải có người, có cảnh, có chi tiết giác quan thật. Trừu tượng là lỗi."
+            )
+
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "description": f"Workflow Creative Director cho chủ đề: {topic} (Chế độ: {mode})",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": {
+                                "type": "text",
+                                "text": instruction_text
+                            }
+                        }
+                    ]
+                }
+            })
+
+        elif prompt_name == "creative_mode_gateway":
+            topic = p_args.get("topic", "")
+            gateway_text = (
+                f"Chào bạn! Tôi đã nhận được chủ đề: '{topic or 'nội dung sáng tạo'}'.\n\n"
+                "Trước khi khởi động động cơ đồ thị tri thức Content Matrix (991 nodes, 69,720 edges), xin mời bạn chọn 1 trong 3 Chế độ Sáng tạo:\n\n"
+                "1️⃣ **Chế độ Mặc định (Default)**: Trích xuất các tổ hợp 5 điểm chiến lược tối ưu và sản xuất nội dung hoàn chỉnh dùng được ngay.\n"
+                "2️⃣ **Chế độ Research (Nghiên cứu)**: Nghiên cứu giải phẫu chiều sâu công thức ('Công thức đó là gì?' & 'Cách áp dụng hiệu quả?'). Cấm dùng văn bản mẫu, ép AI sáng tạo độc bản 100%.\n"
+                "3️⃣ **Chế độ Chuyên sâu (Deep)**: Nhập số lượng ý tưởng bạn mong muốn ($N$). Hệ thống sẽ nhân với 100 ($N \\times 100$) để trích xuất hàng trăm đến hàng nghìn ứng viên, chạy phễu sàng lọc dữ liệu đa chiều và tuyển chọn đúng $N$ ý tưởng xuất sắc nhất.\n\n"
+                "👉 Bạn muốn triển khai theo **Chế độ 1, 2 hay 3**?"
+            )
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "description": "Câu hỏi mở đầu tương tác Gateway 3 chế độ sáng tạo",
+                    "messages": [
+                        {
+                            "role": "assistant",
+                            "content": {
+                                "type": "text",
+                                "text": gateway_text
+                            }
+                        }
+                    ]
+                }
+            })
+
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "error": {"code": -32601, "message": f"Không tìm thấy prompt: {prompt_name}"}
+        })
+
+    elif method == "resources/list":
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "result": {
+                "resources": [
+                    {
+                        "uri": "matrix://skill-guide",
+                        "name": "Content Matrix Skill & Operational Guide",
+                        "description": "Toàn văn tài liệu hướng dẫn vận hành, quy tắc 5 điểm và 3 chế độ sáng tạo từ SKILL.md.",
+                        "mimeType": "text/markdown"
+                    },
+                    {
+                        "uri": "matrix://catalogs/formulas",
+                        "name": "Copywriting Formulas Catalog",
+                        "description": "Danh mục 150+ công thức copywriting đã cấu trúc hóa trong đồ thị tri thức.",
+                        "mimeType": "application/json"
+                    },
+                    {
+                        "uri": "matrix://catalogs/angles",
+                        "name": "Content Angles Catalog",
+                        "description": "Danh mục 90+ góc tiếp cận nội dung và đòn bẩy tâm lý khán giả.",
+                        "mimeType": "application/json"
+                    },
+                    {
+                        "uri": "matrix://graph-summary",
+                        "name": "MatrixContent Graph Metrics Summary",
+                        "description": "Thông số tổng quan về đồ thị tri thức (991 nodes, 69,720 edges).",
+                        "mimeType": "application/json"
+                    }
+                ]
+            }
+        })
+
+    elif method == "resources/read":
+        uri = params.get("uri", "")
+        if uri == "matrix://skill-guide":
+            skill_path = os.path.join(SKILL_DIR, "SKILL.md")
+            content = ""
+            if os.path.exists(skill_path):
+                with open(skill_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "text/markdown",
+                            "text": content
+                        }
+                    ]
+                }
+            })
+        elif uri == "matrix://catalogs/formulas":
+            nodes = matrix_data.by_type.get("ContentFormula", []) if matrix_data else []
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "application/json",
+                            "text": json.dumps(nodes, ensure_ascii=False, indent=2)
+                        }
+                    ]
+                }
+            })
+        elif uri == "matrix://catalogs/angles":
+            nodes = matrix_data.by_type.get("ContentAngle", []) if matrix_data else []
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "application/json",
+                            "text": json.dumps(nodes, ensure_ascii=False, indent=2)
+                        }
+                    ]
+                }
+            })
+        elif uri == "matrix://graph-summary":
+            summary = {
+                "nodes_count": len(matrix_data.nodes) if matrix_data else 0,
+                "edges_count": (matrix_data.graph_meta.get("total_edges") or 69720) if matrix_data else 0,
+                "node_types": {k: len(v) for k, v in matrix_data.by_type.items()} if matrix_data else {},
+                "relations": list(matrix_data.relations.keys()) if matrix_data else []
+            }
+            return JSONResponse({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "application/json",
+                            "text": json.dumps(summary, ensure_ascii=False, indent=2)
+                        }
+                    ]
+                }
+            })
+        return JSONResponse({
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "error": {"code": -32602, "message": f"Resource không tồn tại: {uri}"}
         })
 
     return JSONResponse({

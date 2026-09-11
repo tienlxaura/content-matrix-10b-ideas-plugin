@@ -87,6 +87,53 @@ Hệ thống hỗ trợ 3 chế độ sáng tạo tương tác tùy theo nhu c�
 
 ---
 
+### Cách 3: Tích Hợp Full MCP Server (Model Context Protocol) — Khuyên Dùng ⭐
+
+Tự động cập nhật 100% mỗi phiên làm việc, không cần copy-paste hay cấu hình lại khi hệ thống nâng cấp.
+
+#### 1. Dành cho Cursor / Windsurf / Antigravity IDE / Cline:
+Thêm cấu hình sau vào mục MCP Servers (`mcp_config.json`):
+```json
+{
+  "mcpServers": {
+    "content-matrix": {
+      "type": "streamable-http",
+      "url": "https://content-matrix-10b-ideas-plugin.vercel.app/mcp"
+    }
+  }
+}
+```
+
+#### 2. Dành cho Claude Desktop:
+Mở file `claude_desktop_config.json` và thêm:
+```json
+{
+  "mcpServers": {
+    "content-matrix": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://content-matrix-10b-ideas-plugin.vercel.app/mcp"
+      ]
+    }
+  }
+}
+```
+
+#### 3. Dành cho ChatGPT (Desktop / Web có hỗ trợ MCP):
+Nhập trực tiếp endpoint MCP Streamable HTTP:
+```text
+https://content-matrix-10b-ideas-plugin.vercel.app/mcp
+```
+
+**Bộ tính năng Full MCP cung cấp:**
+- 🛠️ **Tools**: `select_content_matrix` (Hỗ trợ 3 Chế độ: Mặc định, Research, Chuyên sâu), `get_catalog_nodes`, `validate_combination`.
+- 📝 **Prompts**: `content_matrix_director` (Tự động nạp quy trình Creative Director vào ngữ cảnh), `creative_mode_gateway` (Câu hỏi mở đầu chọn chế độ).
+- 📚 **Resources**: `matrix://skill-guide` (Tài liệu SKILL.md), `matrix://catalogs/formulas` (150+ công thức), `matrix://catalogs/angles` (90+ góc tiếp cận), `matrix://graph-summary` (Thông số đồ thị 991 nodes, 69.720 cạnh).
+
+---
+
 ## 📡 API Endpoints (Vercel)
 
 Base URL: `https://content-matrix-10b-ideas-plugin.vercel.app`
